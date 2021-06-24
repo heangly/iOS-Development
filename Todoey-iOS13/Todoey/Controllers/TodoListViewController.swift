@@ -7,37 +7,24 @@
 //
 
 import UIKit
+import CoreData
 
 class TodoListViewController: UITableViewController {
     var itemArray = [Item]()
 
-    let defaults = UserDefaults()
 
-    let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Items.plist")
+    let context = (UIApplication.shared.delegate as! AppDelegate)
+        .persistentContainer
+        .viewContext
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
-        let newItem1 = Item()
-        newItem1.title = "Find Mike"
-        itemArray.append(newItem1)
-
-        let newItem2 = Item()
-        newItem2.title = "Buy Eggs"
-        itemArray.append(newItem2)
-
-        let newItem3 = Item()
-        newItem3.title = "Learn iOS"
-        itemArray.append(newItem3)
-
         loadItems()
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return itemArray.count
     }
-
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TodoItemCell", for: indexPath)
@@ -49,7 +36,6 @@ class TodoListViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-
         itemArray[indexPath.row].done.toggle()
         saveItems(newItem: nil)
         tableView.reloadData()
@@ -67,8 +53,9 @@ class TodoListViewController: UITableViewController {
         }
 
         let action = UIAlertAction(title: "Add Item", style: .default) { (action) in
-            let newItem = Item()
+            let newItem = Item(context: self.context)
             newItem.title = textField.text!
+            newItem.done = false
             self.saveItems(newItem: newItem)
         }
 
@@ -78,24 +65,23 @@ class TodoListViewController: UITableViewController {
         present(alert, animated: true, completion: nil)
     }
 
-
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            context.delete(itemArray[indexPath.row])
             self.itemArray.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
             saveItems(newItem: nil)
-        }
+        }q
     }
 
     func saveItems(newItem: Item?) {
-        if let newItem = newItem, !newItem.title.isEmpty {
-            self.itemArray.insert(newItem, at: 0)
+        if let newItem = newItem, !newItem.title!.isEmpty {
+//            self.itemArray.insert(newItem, at: 0)
+            self.itemArray.append(newItem)
         }
 
-        let encoder = PropertyListEncoder()
         do {
-            let data = try encoder.encode(self.itemArray)
-            try data.write(to: self.dataFilePath!)
+            try context.save()
         } catch {
             print("Error encoding item array, \(error)")
         }
@@ -104,13 +90,11 @@ class TodoListViewController: UITableViewController {
     }
 
     func loadItems() {
-        if let data = try? Data(contentsOf: dataFilePath!){
-            let decoder = PropertyListDecoder()
-            do {
-                itemArray = try decoder.decode([Item].self, from: data)
-            } catch {
-                print("Error loading items \(error)")
-            }
+        let request: NSFetchRequest<Item> = Item.fetchRequest()
+        do {
+            itemArray =  try context.fetch(request)
+        } catch  {
+            print("Error fetching data from context \(error)")
         }
     }
 }
