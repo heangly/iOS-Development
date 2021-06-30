@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		71CE2CD5268CE40B00207E12 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CE2CD4268CE40B00207E12 /* DetailViewController.swift */; };
 		71CE9A0E268BA8C1008CF44F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CE9A0D268BA8C1008CF44F /* AppDelegate.swift */; };
 		71CE9A10268BA8C1008CF44F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CE9A0F268BA8C1008CF44F /* SceneDelegate.swift */; };
 		71CE9A12268BA8C1008CF44F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CE9A11268BA8C1008CF44F /* ViewController.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		71CE2CD4268CE40B00207E12 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		71CE9A0A268BA8C1008CF44F /* Whitehouse-Petition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Whitehouse-Petition.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		71CE9A0D268BA8C1008CF44F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		71CE9A0F268BA8C1008CF44F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 				71CE9A0D268BA8C1008CF44F /* AppDelegate.swift */,
 				71CE9A0F268BA8C1008CF44F /* SceneDelegate.swift */,
 				71CE9A11268BA8C1008CF44F /* ViewController.swift */,
+				71CE2CD4268CE40B00207E12 /* DetailViewController.swift */,
 				71CE9A25268BAC1D008CF44F /* Petition.swift */,
 				71CE9A28268BAC88008CF44F /* Petitions.swift */,
 				71CE9A13268BA8C1008CF44F /* Main.storyboard */,
@@ -152,6 +155,7 @@
 				71CE9A12268BA8C1008CF44F /* ViewController.swift in Sources */,
 				71CE9A0E268BA8C1008CF44F /* AppDelegate.swift in Sources */,
 				71CE9A10268BA8C1008CF44F /* SceneDelegate.swift in Sources */,
+				71CE2CD5268CE40B00207E12 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
