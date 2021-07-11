@@ -104,6 +104,9 @@
                                 <rect key="frame" x="707" y="323" width="32" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="InfoButton" backgroundImage="SmallButton"/>
+                                <connections>
+                                    <segue destination="y5T-90-NjZ" kind="presentation" id="84d-2h-Qa6"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="999" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xBV-tt-c8R">
                                 <rect key="frame" x="554" y="328" width="34" height="23"/>
@@ -147,6 +150,48 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="115.84821428571428" y="-120.28985507246378"/>
+        </scene>
+        <!--About View Controller-->
+        <scene sceneID="Imh-cN-ipx">
+            <objects>
+                <viewController id="y5T-90-NjZ" customClass="AboutViewController" customModule="BullsEye" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RmA-mV-RaG">
+                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BO5-ox-ms1">
+                                <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xNc-M8-gaH">
+                                <rect key="frame" x="429" y="374" width="39" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Close"/>
+                                <connections>
+                                    <action selector="close" destination="y5T-90-NjZ" eventType="touchUpInside" id="oga-0G-esV"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="RbB-5H-Wby"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="BO5-ox-ms1" secondAttribute="trailing" id="Atd-5F-rsh"/>
+                            <constraint firstAttribute="bottom" secondItem="BO5-ox-ms1" secondAttribute="bottom" id="KYK-Az-a0N"/>
+                            <constraint firstItem="BO5-ox-ms1" firstAttribute="top" secondItem="RmA-mV-RaG" secondAttribute="top" id="hEE-9Q-K3l"/>
+                            <constraint firstItem="BO5-ox-ms1" firstAttribute="leading" secondItem="RmA-mV-RaG" secondAttribute="leading" id="j2l-Jf-waN"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="BO5-ox-ms1" id="9tf-Ul-1th"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uBC-c0-9ti" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="115.84821428571428" y="792.75362318840587"/>
         </scene>
     </scenes>
     <resources>

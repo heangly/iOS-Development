@@ -13,6 +13,8 @@
 		7138EC77268E8C760070A5DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7138EC75268E8C760070A5DE /* Main.storyboard */; };
 		7138EC79268E8C770070A5DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7138EC78268E8C770070A5DE /* Assets.xcassets */; };
 		7138EC7C268E8C770070A5DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7138EC7A268E8C770070A5DE /* LaunchScreen.storyboard */; };
+		718B867B269B4D6800A7138B /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718B867A269B4D6800A7138B /* AboutViewController.swift */; };
+		718B867E269B89F400A7138B /* BullsEye.html in Resources */ = {isa = PBXBuildFile; fileRef = 718B867D269B89F400A7138B /* BullsEye.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		7138EC78268E8C770070A5DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7138EC7B268E8C770070A5DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7138EC7D268E8C770070A5DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		718B867A269B4D6800A7138B /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		718B867D269B89F400A7138B /* BullsEye.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = BullsEye.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,9 +60,11 @@
 		7138EC6E268E8C760070A5DE /* BullsEye */ = {
 			isa = PBXGroup;
 			children = (
+				718B867D269B89F400A7138B /* BullsEye.html */,
 				7138EC6F268E8C760070A5DE /* AppDelegate.swift */,
 				7138EC71268E8C760070A5DE /* SceneDelegate.swift */,
 				7138EC73268E8C760070A5DE /* ViewController.swift */,
+				718B867A269B4D6800A7138B /* AboutViewController.swift */,
 				7138EC75268E8C760070A5DE /* Main.storyboard */,
 				7138EC78268E8C770070A5DE /* Assets.xcassets */,
 				7138EC7A268E8C770070A5DE /* LaunchScreen.storyboard */,
@@ -125,6 +131,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7138EC7C268E8C770070A5DE /* LaunchScreen.storyboard in Resources */,
+				718B867E269B89F400A7138B /* BullsEye.html in Resources */,
 				7138EC79268E8C770070A5DE /* Assets.xcassets in Resources */,
 				7138EC77268E8C760070A5DE /* Main.storyboard in Resources */,
 			);
@@ -139,6 +146,7 @@
 			files = (
 				7138EC74268E8C760070A5DE /* ViewController.swift in Sources */,
 				7138EC70268E8C760070A5DE /* AppDelegate.swift in Sources */,
+				718B867B269B4D6800A7138B /* AboutViewController.swift in Sources */,
 				7138EC72268E8C760070A5DE /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
