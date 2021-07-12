@@ -8,8 +8,6 @@
 import UIKit
 
 class PersonCell: UICollectionViewCell {
-    
-
     @IBOutlet var image: UIImageView!
     @IBOutlet var name: UILabel!
     
