@@ -7,33 +7,56 @@
 
 import UIKit
 
-class AddItemViewController: UITableViewController {
+protocol AddItemViewControllerDelegate: class {
+    func addItemViewControllerDidCancel(_ controller: AddItemViewController)
+    func addItemViewController(_ controller: AddItemViewController, didFinishAdding item: ChecklistItem)
+}
+
+class AddItemViewController: UITableViewController, UITextFieldDelegate {
+
+    @IBOutlet var textField: UITextField!
+    @IBOutlet var doneBarButton: UIBarButtonItem!
+    
+    weak var delegate: AddItemViewControllerDelegate?
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        textField.becomeFirstResponder()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.largeTitleDisplayMode = .never
+        textField.delegate = self
+        doneBarButton.isEnabled = false
     }
-    
-    @IBAction func cancel(){
-        navigationController?.popViewController(animated: true)
+
+    @IBAction func cancel() {
+        delegate?.addItemViewControllerDidCancel(self)
     }
-    
-    @IBAction func done(){
-        navigationController?.popViewController(animated: true)
+
+    @IBAction func done() {
+        let item = ChecklistItem()
+        item.text = textField.text!
+
+        delegate?.addItemViewController(self, didFinishAdding: item)
     }
-    
-    
+
+
 
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 1
+    }
+
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        return nil
     }
 
     /*
@@ -90,5 +113,18 @@ class AddItemViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let oldText = textField.text!
+        let stringRange = Range(range, in: oldText)!
+        let newText = oldText.replacingCharacters(in: stringRange, with: string)
+        doneBarButton.isEnabled = newText.isEmpty ? false : true
+        return true
+    }
+
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        doneBarButton.isEnabled = false
+        return true
+    }
 
 }
