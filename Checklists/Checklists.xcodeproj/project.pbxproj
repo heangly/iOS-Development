@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7110EA0426A490D0004971DA /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7110EA0326A490D0004971DA /* DataModel.swift */; };
 		7151D27426A1A7A70053E192 /* AllListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7151D27226A1A7A70053E192 /* AllListsViewController.swift */; };
 		7151D27926A1BA3A0053E192 /* Checklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7151D27826A1BA3A0053E192 /* Checklist.swift */; };
 		7151D27C26A221BA0053E192 /* ListDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7151D27B26A221BA0053E192 /* ListDetailViewController.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7110EA0326A490D0004971DA /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		7151D27226A1A7A70053E192 /* AllListsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllListsViewController.swift; sourceTree = "<group>"; };
 		7151D27826A1BA3A0053E192 /* Checklist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checklist.swift; sourceTree = "<group>"; };
 		7151D27B26A221BA0053E192 /* ListDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailViewController.swift; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 			children = (
 				718B868C269B92AB00A7138B /* AppDelegate.swift */,
 				718B868E269B92AB00A7138B /* SceneDelegate.swift */,
+				7110EA0326A490D0004971DA /* DataModel.swift */,
 				718B8690269B92AB00A7138B /* ChecklistViewController.swift */,
 				7151D27826A1BA3A0053E192 /* Checklist.swift */,
 				7151D27226A1A7A70053E192 /* AllListsViewController.swift */,
@@ -160,6 +163,7 @@
 				71721263269DB5F8000E6532 /* ChecklistItem.swift in Sources */,
 				7151D27926A1BA3A0053E192 /* Checklist.swift in Sources */,
 				7151D27C26A221BA0053E192 /* ListDetailViewController.swift in Sources */,
+				7110EA0426A490D0004971DA /* DataModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
