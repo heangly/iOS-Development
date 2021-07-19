@@ -17,7 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let _ = (scene as? UIWindowScene) else { return }
         let navigationsController = window!.rootViewController as! UINavigationController
         let controller = navigationsController.viewControllers[0] as! AllListsViewController
-        controller.dataModel = dataModelq
+        controller.dataModel = dataModel
         
     }
 
