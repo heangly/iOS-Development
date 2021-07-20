@@ -103,8 +103,8 @@
 				7188150526A60608009EA694 /* View Controllers */,
 				7188150426A605D7009EA694 /* Data Models */,
 				718B868C269B92AB00A7138B /* AppDelegate.swift */,
-				718B869A269B92AC00A7138B /* Info.plist */,
 				718B868E269B92AB00A7138B /* SceneDelegate.swift */,
+				718B869A269B92AC00A7138B /* Info.plist */,
 			);
 			path = Checklists;
 			sourceTree = "<group>";
