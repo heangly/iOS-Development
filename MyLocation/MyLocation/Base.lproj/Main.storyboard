@@ -68,7 +68,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Get My Location"/>
                                 <connections>
-                                    <action selector="getLoation" destination="BYZ-38-t0r" eventType="touchUpInside" id="9ae-mg-p2i"/>
+                                    <action selector="getLocation" destination="BYZ-38-t0r" eventType="touchUpInside" id="9ae-mg-p2i"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -95,6 +95,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="fac-b8-XeG" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="t5v-VV-y4e">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
