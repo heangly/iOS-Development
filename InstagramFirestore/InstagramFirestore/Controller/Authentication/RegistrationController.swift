@@ -10,6 +10,7 @@ import UIKit
 class RegistrationController: UIViewController {
     //MARK: - Properties
     private var viewModel = RegistrationViewModel()
+    private var profileImage: UIImage?
 
     private let plusPhotoButton: UIButton = {
         let button = UIButton(type: .system)
@@ -45,6 +46,7 @@ class RegistrationController: UIViewController {
         button.layer.cornerRadius = 5
         button.setHeight(50)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        button.addTarget(self, action: #selector(handleSignUp), for: .touchUpInside)
         return button
     }()
 
@@ -62,7 +64,25 @@ class RegistrationController: UIViewController {
         configureNotificationObservers()
     }
 
-    //MARK: - Acctions
+    //MARK: - Actions
+    @objc func handleSignUp() {
+        guard let email = emailTextField.text else { return }
+        guard let password = passwordTextField.text else { return }
+        guard let fullname = fullnameTextField.text else { return }
+        guard let username = usernameTextField.text?.lowercased() else { return }
+        guard let profileImage = self.profileImage else { return }
+        
+        let credentials = AuthCredentials(email: email, password: password, fullname: fullname, username: username, profileImage: profileImage)
+        AuthService.registerUser(withCredential: credentials) { error in
+            if let error = error {
+                print("DEBUG: FAiled to register user \(error.localizedDescription)")
+                return
+            }
+            
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
+
     @objc func handleShowLogin() {
         navigationController?.popViewController(animated: true)
     }
@@ -129,12 +149,15 @@ extension RegistrationController: FormViewModel {
 //MARK: - UIImagePickerController Delegate
 extension RegistrationController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+
         guard let selectedImage = info[.editedImage] as? UIImage else { return }
+        profileImage = selectedImage
+
         plusPhotoButton.layer.cornerRadius = plusPhotoButton.frame.width / 2
         plusPhotoButton.layer.borderColor = UIColor.black.cgColor
         plusPhotoButton.layer.masksToBounds = true
         plusPhotoButton.setImage(selectedImage.withRenderingMode(.alwaysOriginal), for: .normal)
-        
+
         self.dismiss(animated: true, completion: nil)
     }
 }

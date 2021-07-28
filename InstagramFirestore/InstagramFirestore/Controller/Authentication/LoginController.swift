@@ -10,7 +10,7 @@ import UIKit
 class LoginController: UIViewController {
     //MARK: - Properties
     private var viewModel = LoginViewModel()
-    
+
     private let iconImage: UIImageView = {
         let iv = UIImageView(image: #imageLiteral(resourceName: "Instagram_logo_white"))
         iv.contentMode = .scaleAspectFill
@@ -38,6 +38,7 @@ class LoginController: UIViewController {
         button.layer.cornerRadius = 5
         button.setHeight(50)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        button.addTarget(self, action: #selector(handleLogin), for: .touchUpInside)
         return button
     }()
 
@@ -60,17 +61,29 @@ class LoginController: UIViewController {
         configureUI()
         configureNotificationObservers()
     }
-    
+
     //MARK: - Actions
-    @objc func handleShowSignUp(){
+    @objc func handleShowSignUp() {
         let controller = RegistrationController()
         navigationController?.pushViewController(controller, animated: true)
     }
-    
-    @objc func textDidChange(sender: UITextField){
+
+    @objc func handleLogin() {
+        guard let email = emailTextField.text else { return }
+        guard let password = passwordTextField.text else { return }
+        AuthService.logUserIn(withEmail: email, password: password) { (result, error) in
+            if let error = error {
+                print("DEBUG: Failed to log user in \(error.localizedDescription)")
+                return
+            }
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
+
+    @objc func textDidChange(sender: UITextField) {
         if sender == emailTextField {
             viewModel.email = sender.text
-        }else{
+        } else {
             viewModel.password = sender.text
         }
         updateForm()
@@ -99,7 +112,7 @@ class LoginController: UIViewController {
         dontHaveAccountButton.anchor(bottom: view.safeAreaLayoutGuide.bottomAnchor)
     }
 
-    func configureNotificationObservers(){
+    func configureNotificationObservers() {
         emailTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
         passwordTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
     }

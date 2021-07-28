@@ -16,7 +16,7 @@ class CustomTextField: UITextField {
         spacer.setDimensions(height: 50, width: 12)
         leftView = spacer
         leftViewMode = .always
-        
+        autocapitalizationType = .none
         borderStyle = .none
         textColor = .white
         keyboardAppearance = .dark
