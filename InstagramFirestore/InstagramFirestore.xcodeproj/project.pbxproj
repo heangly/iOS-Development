@@ -15,6 +15,8 @@
 		71446DF026B020470016E92E /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71446DEF26B020470016E92E /* RegistrationController.swift */; };
 		71446DF426B03B040016E92E /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71446DF326B03B040016E92E /* CustomTextField.swift */; };
 		71446DF726B05E260016E92E /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71446DF626B05E260016E92E /* AuthenticationViewModel.swift */; };
+		718C2B2F26B33423005A3B56 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718C2B2E26B33423005A3B56 /* ProfileCell.swift */; };
+		718C2B3226B33432005A3B56 /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718C2B3126B33432005A3B56 /* ProfileHeader.swift */; };
 		71E5E1FD26AEFF2600AB7FB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E5E1FC26AEFF2600AB7FB5 /* AppDelegate.swift */; };
 		71E5E1FF26AEFF2600AB7FB5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E5E1FE26AEFF2600AB7FB5 /* SceneDelegate.swift */; };
 		71E5E20126AEFF2600AB7FB5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E5E20026AEFF2600AB7FB5 /* ViewController.swift */; };
@@ -43,6 +45,8 @@
 		71446DEF26B020470016E92E /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
 		71446DF326B03B040016E92E /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		71446DF626B05E260016E92E /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
+		718C2B2E26B33423005A3B56 /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
+		718C2B3126B33432005A3B56 /* ProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeader.swift; sourceTree = "<group>"; };
 		71E5E1F926AEFF2600AB7FB5 /* InstagramFirestore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstagramFirestore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71E5E1FC26AEFF2600AB7FB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		71E5E1FE26AEFF2600AB7FB5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -81,6 +85,15 @@
 				71446DEF26B020470016E92E /* RegistrationController.swift */,
 			);
 			path = Authentication;
+			sourceTree = "<group>";
+		};
+		718C2B3426B3343A005A3B56 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				718C2B3126B33432005A3B56 /* ProfileHeader.swift */,
+				718C2B2E26B33423005A3B56 /* ProfileCell.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		71E5E1F026AEFF2600AB7FB5 = {
@@ -165,6 +178,7 @@
 		71E5E21926AEFF6C00AB7FB5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				718C2B3426B3343A005A3B56 /* Profile */,
 				71E5E22E26AF0E5100AB7FB5 /* FeedCell.swift */,
 				71446DF326B03B040016E92E /* CustomTextField.swift */,
 			);
@@ -318,6 +332,7 @@
 				71E5E22026AF018D00AB7FB5 /* FeedController.swift in Sources */,
 				71446DF726B05E260016E92E /* AuthenticationViewModel.swift in Sources */,
 				71446DED26B0203E0016E92E /* LoginController.swift in Sources */,
+				718C2B3226B33432005A3B56 /* ProfileHeader.swift in Sources */,
 				71E5E20126AEFF2600AB7FB5 /* ViewController.swift in Sources */,
 				71E5E22F26AF0E5100AB7FB5 /* FeedCell.swift in Sources */,
 				71E5E22326AF019400AB7FB5 /* SearchController.swift in Sources */,
@@ -325,6 +340,7 @@
 				71446DE926B01F2D0016E92E /* Extensions.swift in Sources */,
 				71E5E21D26AF000B00AB7FB5 /* MainTabController.swift in Sources */,
 				71E5E22926AF01A800AB7FB5 /* NotificationController.swift in Sources */,
+				718C2B2F26B33423005A3B56 /* ProfileCell.swift in Sources */,
 				71E5E1FD26AEFF2600AB7FB5 /* AppDelegate.swift in Sources */,
 				71E5E1FF26AEFF2600AB7FB5 /* SceneDelegate.swift in Sources */,
 				71446DF426B03B040016E92E /* CustomTextField.swift in Sources */,
