@@ -10,7 +10,6 @@ import UIKit
 class ProfileCell: UICollectionViewCell {
     //MARK: - Properties
     
-    
     private let postImageView: UIImageView = {
         let iv = UIImageView()
         iv.image = #imageLiteral(resourceName: "venom-7")

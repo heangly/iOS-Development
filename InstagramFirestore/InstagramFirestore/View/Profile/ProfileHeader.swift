@@ -6,20 +6,24 @@
 //
 
 import UIKit
+import SDWebImage
 
 class Profileheader: UICollectionReusableView {
     //MARK: - Properties
+    var viewModel: ProfileHeaderViewModel? {
+        didSet { configure() }
+    }
+
     private let profileImageView: UIImageView = {
         let iv = UIImageView()
-        iv.image = #imageLiteral(resourceName: "venom-7")
         iv.contentMode = .scaleAspectFill
         iv.clipsToBounds = true
+        iv.backgroundColor = .lightGray
         return iv
     }()
 
     private let nameLabel: UILabel = {
         let label = UILabel()
-        label.text = "Eddie Brock"
         label.font = .boldSystemFont(ofSize: 14)
         return label
     }()
@@ -59,20 +63,20 @@ class Profileheader: UICollectionReusableView {
         label.attributedText = attributedStattext(value: 1, label: "following")
         return label
     }()
-    
+
     let gridButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(#imageLiteral(resourceName: "grid"), for: .normal)
         return button
     }()
-    
+
     let listButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(#imageLiteral(resourceName: "list"), for: .normal)
         button.tintColor = UIColor(white: 0, alpha: 0.2)
         return button
     }()
-    
+
     let bookmarkButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(#imageLiteral(resourceName: "ribbon"), for: .normal)
@@ -95,31 +99,31 @@ class Profileheader: UICollectionReusableView {
 
         addSubview(editProfileFollowButton)
         editProfileFollowButton.anchor(top: nameLabel.bottomAnchor, left: leftAnchor, right: rightAnchor, paddingTop: 16, paddingLeft: 24, paddingRight: 24)
-        
+
         let stack = UIStackView(arrangedSubviews: [postLabel, followerLabel, followingLabel])
         stack.distribution = .fillEqually
         addSubview(stack)
         stack.centerY(inView: profileImageView)
         stack.anchor(left: profileImageView.rightAnchor, right: rightAnchor, paddingLeft: 12, paddingRight: 12, height: 50)
-        
+
         let topDivider = UIView()
         topDivider.backgroundColor = .lightGray
-        
+
         let bottomDivider = UIView()
         bottomDivider.backgroundColor = .lightGray
-        
+
         let buttonStack = UIStackView(arrangedSubviews: [gridButton, listButton, bookmarkButton])
         buttonStack.distribution = .fillEqually
-        
+
         addSubview(buttonStack)
         addSubview(topDivider)
         addSubview(bottomDivider)
-        
+
         buttonStack.anchor(left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, height: 50)
         topDivider.anchor(top: buttonStack.topAnchor, left: leftAnchor, right: rightAnchor, height: 0.5)
         bottomDivider.anchor(top: buttonStack.bottomAnchor, left: leftAnchor, right: rightAnchor, height: 0.5)
     }
-    
+
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -129,6 +133,14 @@ class Profileheader: UICollectionReusableView {
     @objc func handleEditProfileFollowTapped() {
         print("DEBUG: handle edit profile")
     }
+
+    func configure() {
+        guard let viewModel = viewModel else { return }
+        nameLabel.text = viewModel.fullname
+        profileImageView.sd_setImage(with: viewModel.profileImageUrl)
+    
+    }
+
 
     //MARK: - Helpers
     func attributedStattext(value: Int, label: String) -> NSAttributedString {
