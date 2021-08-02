@@ -27,6 +27,24 @@ class ProfileController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureCollectionView()
+        checkIfUserIsFollowed()
+        fetchUserStats()
+    }
+
+    //MARK: - API
+    func checkIfUserIsFollowed() {
+        UserService.checkIfUserIsFollowed(uid: user.uid) { isFollowed in
+            self.user.isFollowed = isFollowed
+            self.collectionView.reloadData()
+        }
+    }
+    
+    func fetchUserStats(){
+        UserService.fetchUserStats(uid: user.uid) { (stats) in
+            self.user.stats = stats
+            self.collectionView.reloadData()
+            print("DEBUG: Stats \(stats)")
+        }
     }
 
 
@@ -92,10 +110,14 @@ extension ProfileController: ProfileHeaderDelegate {
         if user.isCurrentUser {
             print("show edit profile here")
         } else if user.isFollowed {
-            print("handle unfollow user here")
+            UserService.unfollow(uid: user.uid) { Error in
+                self.user.isFollowed = false
+                self.collectionView.reloadData()
+            }
         } else {
             UserService.follow(uid: user.uid) { Error in
-                print("DEBUG: Did follow user")
+                self.user.isFollowed = true
+                self.collectionView.reloadData()
             }
         }
     }
