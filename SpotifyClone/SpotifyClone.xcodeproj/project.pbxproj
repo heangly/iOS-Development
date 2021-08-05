@@ -29,6 +29,7 @@
 		71BE307926BB291F00E7629B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE307826BB291F00E7629B /* HomeViewController.swift */; };
 		71BE307E26BB292000E7629B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71BE307D26BB292000E7629B /* Assets.xcassets */; };
 		71BE308126BB292000E7629B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71BE307F26BB292000E7629B /* LaunchScreen.storyboard */; };
+		71FD545D26BC7E5300A91AD7 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FD545C26BC7E5300A91AD7 /* Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		71BE307D26BB292000E7629B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		71BE308026BB292000E7629B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		71BE308226BB292000E7629B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		71FD545C26BC7E5300A91AD7 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +177,7 @@
 				71BE307626BB291F00E7629B /* SceneDelegate.swift */,
 				71BE308226BB292000E7629B /* Info.plist */,
 				71BE307D26BB292000E7629B /* Assets.xcassets */,
+				71FD545C26BC7E5300A91AD7 /* Extension.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 				718B2F2726BB2DA2001254A9 /* AuthManger.swift in Sources */,
 				718B2F2D26BB2DBA001254A9 /* HapticsManager.swift in Sources */,
 				718B2F3326BB2DDD001254A9 /* AudioTrack.swift in Sources */,
+				71FD545D26BC7E5300A91AD7 /* Extension.swift in Sources */,
 				718B2F1126BB2D07001254A9 /* AuthViewController.swift in Sources */,
 				718B2F1726BB2D21001254A9 /* SettingViewController.swift in Sources */,
 				71BE307526BB291F00E7629B /* AppDelegate.swift in Sources */,
