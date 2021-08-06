@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		717ACA0D26BDA6DB00170ABB /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717ACA0C26BDA6DB00170ABB /* AuthResponse.swift */; };
 		718B2F0526BB2C64001254A9 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718B2F0426BB2C64001254A9 /* TabBarViewController.swift */; };
 		718B2F0826BB2C9D001254A9 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718B2F0726BB2C9D001254A9 /* SearchViewController.swift */; };
 		718B2F0B26BB2CBE001254A9 /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718B2F0A26BB2CBE001254A9 /* LibraryViewController.swift */; };
@@ -33,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		717ACA0C26BDA6DB00170ABB /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
 		718B2F0426BB2C64001254A9 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		718B2F0726BB2C9D001254A9 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		718B2F0A26BB2CBE001254A9 /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewController.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				718B2F3226BB2DDD001254A9 /* AudioTrack.swift */,
 				718B2F3526BB2DE8001254A9 /* Artist.swift */,
 				718B2F3826BB2DF7001254A9 /* UserProfile.swift */,
+				717ACA0C26BDA6DB00170ABB /* AuthResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 				71BE307926BB291F00E7629B /* HomeViewController.swift in Sources */,
 				718B2F2726BB2DA2001254A9 /* AuthManger.swift in Sources */,
 				718B2F2D26BB2DBA001254A9 /* HapticsManager.swift in Sources */,
+				717ACA0D26BDA6DB00170ABB /* AuthResponse.swift in Sources */,
 				718B2F3326BB2DDD001254A9 /* AudioTrack.swift in Sources */,
 				71FD545D26BC7E5300A91AD7 /* Extension.swift in Sources */,
 				718B2F1126BB2D07001254A9 /* AuthViewController.swift in Sources */,
