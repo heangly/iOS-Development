@@ -29,6 +29,7 @@
 		7185438A26BC5EAD009439A2 /* AudioTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7185438926BC5EAD009439A2 /* AudioTrack.swift */; };
 		7185438D26BC5EB7009439A2 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7185438C26BC5EB7009439A2 /* Artist.swift */; };
 		7185439026BC5EC2009439A2 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7185438F26BC5EC2009439A2 /* UserProfile.swift */; };
+		71E289F926BD6B1600DD6F13 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E289F826BD6B1600DD6F13 /* Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		7185438926BC5EAD009439A2 /* AudioTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioTrack.swift; sourceTree = "<group>"; };
 		7185438C26BC5EB7009439A2 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		7185438F26BC5EC2009439A2 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		71E289F826BD6B1600DD6F13 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 			children = (
 				714247FC26BC570200C0F767 /* AppDelegate.swift */,
 				714247FE26BC570200C0F767 /* SceneDelegate.swift */,
+				71E289F826BD6B1600DD6F13 /* Extension.swift */,
 				7142480526BC570300C0F767 /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -257,6 +260,7 @@
 				7185436326BC5DC9009439A2 /* LibraryViewController.swift in Sources */,
 				7185438426BC5E8B009439A2 /* HapticsManager.swift in Sources */,
 				7185438A26BC5EAD009439A2 /* AudioTrack.swift in Sources */,
+				71E289F926BD6B1600DD6F13 /* Extension.swift in Sources */,
 				714247FD26BC570200C0F767 /* AppDelegate.swift in Sources */,
 				7185436926BC5E00009439A2 /* AuthViewController.swift in Sources */,
 				7185436026BC5DB9009439A2 /* SearchViewController.swift in Sources */,
