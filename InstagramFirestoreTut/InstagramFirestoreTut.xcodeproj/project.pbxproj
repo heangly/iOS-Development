@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		71029CC226C0821B00EA08F4 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71029CC126C0821B00EA08F4 /* FeedCell.swift */; };
+		71029CC526C0832300EA08F4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71029CC426C0832300EA08F4 /* Extensions.swift */; };
 		71F3F6BB26BEE89500619F53 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F3F6BA26BEE89500619F53 /* AppDelegate.swift */; };
 		71F3F6BD26BEE89500619F53 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F3F6BC26BEE89500619F53 /* SceneDelegate.swift */; };
 		71F3F6C726BEE89600619F53 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71F3F6C526BEE89600619F53 /* LaunchScreen.storyboard */; };
@@ -20,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		71029CC126C0821B00EA08F4 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
+		71029CC426C0832300EA08F4 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		71F3F6B726BEE89500619F53 /* InstagramFirestoreTut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstagramFirestoreTut.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71F3F6BA26BEE89500619F53 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		71F3F6BC26BEE89500619F53 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -97,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				71F3F6C526BEE89600619F53 /* LaunchScreen.storyboard */,
+				71029CC126C0821B00EA08F4 /* FeedCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -131,6 +136,7 @@
 		71F3F6D726BEE91B00619F53 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				71029CC426C0832300EA08F4 /* Extensions.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -209,9 +215,11 @@
 				71F3F6E126BEEA0B00619F53 /* FeedViewController.swift in Sources */,
 				71F3F6EA26BEEAAB00619F53 /* NotificationViewController.swift in Sources */,
 				71F3F6DE26BEE9E900619F53 /* MainTabTableViewController.swift in Sources */,
+				71029CC526C0832300EA08F4 /* Extensions.swift in Sources */,
 				71F3F6E426BEEA8100619F53 /* SearchVIewController.swift in Sources */,
 				71F3F6ED26BEEAB900619F53 /* ProfileViewController.swift in Sources */,
 				71F3F6E726BEEA9900619F53 /* ImageSelectorViewController.swift in Sources */,
+				71029CC226C0821B00EA08F4 /* FeedCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

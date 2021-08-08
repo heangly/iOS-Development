@@ -16,11 +16,18 @@ class MainTabTableViewController: UITabBarController {
     }
 
     func configureViewController() {
-        let feedVC = templateNavigationController(selectedImage: #imageLiteral(resourceName: "home_selected"), unselectedImage: #imageLiteral(resourceName: "home_unselected"), rootViewController: FeedViewController())
+        tabBar.tintColor = .black
+        let layout = UICollectionViewFlowLayout()
+        let feedVC = templateNavigationController(selectedImage: #imageLiteral(resourceName: "home_selected"), unselectedImage: #imageLiteral(resourceName: "home_unselected"), rootViewController: FeedViewController(collectionViewLayout: layout))
+        
         let searchVC = templateNavigationController(selectedImage: #imageLiteral(resourceName: "search_selected"), unselectedImage: #imageLiteral(resourceName: "search_unselected"), rootViewController: SearchViewController())
+        
         let imageSelectorVC = templateNavigationController(selectedImage: #imageLiteral(resourceName: "plus_unselected"), unselectedImage: #imageLiteral(resourceName: "plus_unselected"), rootViewController: ImageSelectorViewController())
+        
         let notificationVC = templateNavigationController(selectedImage: #imageLiteral(resourceName: "like_selected"), unselectedImage: #imageLiteral(resourceName: "like_unselected"), rootViewController:  NotificationViewController())
+        
         let profileVC = templateNavigationController(selectedImage: #imageLiteral(resourceName: "profile_selected"), unselectedImage: #imageLiteral(resourceName: "profile_unselected"), rootViewController: ProfileViewController())
+        
         setViewControllers([feedVC, searchVC, imageSelectorVC, notificationVC, profileVC], animated: false)
     }
 
@@ -28,7 +35,6 @@ class MainTabTableViewController: UITabBarController {
         let nav = UINavigationController(rootViewController: rootViewController)
         nav.tabBarItem.selectedImage = selectedImage
         nav.tabBarItem.image = unselectedImage
-        tabBar.tintColor = .black
         return nav
     }
 
