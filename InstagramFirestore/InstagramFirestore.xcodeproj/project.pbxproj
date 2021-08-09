@@ -21,6 +21,7 @@
 		716AC9D326BEDE4500AE02B0 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716AC9D226BEDE4500AE02B0 /* ProfileViewController.swift */; };
 		71C1EDCF26C157F5001B4E34 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C1EDCE26C157F5001B4E34 /* LoginViewController.swift */; };
 		71C1EDD426C15808001B4E34 /* RegisterationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C1EDD326C15808001B4E34 /* RegisterationViewController.swift */; };
+		71F1D0E626C17EE700E9265B /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F1D0E526C17EE700E9265B /* CustomTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		716AC9D226BEDE4500AE02B0 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		71C1EDCE26C157F5001B4E34 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		71C1EDD326C15808001B4E34 /* RegisterationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterationViewController.swift; sourceTree = "<group>"; };
+		71F1D0E526C17EE700E9265B /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				71029CB626C044A500EA08F4 /* FeedCell.swift */,
+				71F1D0E526C17EE700E9265B /* CustomTextField.swift */,
 				711D6C2E26BEAEBE0013E9FC /* LaunchScreen.storyboard */,
 			);
 			path = Views;
@@ -224,6 +227,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71F1D0E626C17EE700E9265B /* CustomTextField.swift in Sources */,
 				71C1EDCF26C157F5001B4E34 /* LoginViewController.swift in Sources */,
 				71C1EDD426C15808001B4E34 /* RegisterationViewController.swift in Sources */,
 				716AC9C926BEDE1100AE02B0 /* SearchViewController.swift in Sources */,
