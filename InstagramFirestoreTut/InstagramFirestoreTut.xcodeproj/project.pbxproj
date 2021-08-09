@@ -9,10 +9,12 @@
 /* Begin PBXBuildFile section */
 		71029CC226C0821B00EA08F4 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71029CC126C0821B00EA08F4 /* FeedCell.swift */; };
 		71029CC526C0832300EA08F4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71029CC426C0832300EA08F4 /* Extensions.swift */; };
+		713BC40E26C17376006034FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 713BC40D26C17376006034FD /* Assets.xcassets */; };
+		71D54E6326C173ED00A7D5EF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D54E6226C173ED00A7D5EF /* LoginViewController.swift */; };
+		71D54E6726C173FB00A7D5EF /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D54E6626C173FB00A7D5EF /* RegistrationViewController.swift */; };
 		71F3F6BB26BEE89500619F53 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F3F6BA26BEE89500619F53 /* AppDelegate.swift */; };
 		71F3F6BD26BEE89500619F53 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F3F6BC26BEE89500619F53 /* SceneDelegate.swift */; };
 		71F3F6C726BEE89600619F53 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71F3F6C526BEE89600619F53 /* LaunchScreen.storyboard */; };
-		71F3F6DA26BEE9BD00619F53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71F3F6D926BEE9BD00619F53 /* Assets.xcassets */; };
 		71F3F6DE26BEE9E900619F53 /* MainTabTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F3F6DD26BEE9E900619F53 /* MainTabTableViewController.swift */; };
 		71F3F6E126BEEA0B00619F53 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F3F6E026BEEA0B00619F53 /* FeedViewController.swift */; };
 		71F3F6E426BEEA8100619F53 /* SearchVIewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F3F6E326BEEA8100619F53 /* SearchVIewController.swift */; };
@@ -24,12 +26,14 @@
 /* Begin PBXFileReference section */
 		71029CC126C0821B00EA08F4 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		71029CC426C0832300EA08F4 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		713BC40D26C17376006034FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		71D54E6226C173ED00A7D5EF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		71D54E6626C173FB00A7D5EF /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		71F3F6B726BEE89500619F53 /* InstagramFirestoreTut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstagramFirestoreTut.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71F3F6BA26BEE89500619F53 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		71F3F6BC26BEE89500619F53 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		71F3F6C626BEE89600619F53 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		71F3F6C826BEE89600619F53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = InstagramFirestoreTut/Resources/Info.plist; sourceTree = SOURCE_ROOT; };
-		71F3F6D926BEE9BD00619F53 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../../../../../Assets.xcassets; sourceTree = "<group>"; };
 		71F3F6DD26BEE9E900619F53 /* MainTabTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabTableViewController.swift; sourceTree = "<group>"; };
 		71F3F6E026BEEA0B00619F53 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		71F3F6E326BEEA8100619F53 /* SearchVIewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVIewController.swift; sourceTree = "<group>"; };
@@ -49,6 +53,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		71D54E6126C173DD00A7D5EF /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				71D54E6226C173ED00A7D5EF /* LoginViewController.swift */,
+				71D54E6626C173FB00A7D5EF /* RegistrationViewController.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
 		71F3F6AE26BEE89500619F53 = {
 			isa = PBXGroup;
 			children = (
@@ -91,7 +104,7 @@
 			children = (
 				71F3F6BC26BEE89500619F53 /* SceneDelegate.swift */,
 				71F3F6BA26BEE89500619F53 /* AppDelegate.swift */,
-				71F3F6D926BEE9BD00619F53 /* Assets.xcassets */,
+				713BC40D26C17376006034FD /* Assets.xcassets */,
 				71F3F6C826BEE89600619F53 /* Info.plist */,
 			);
 			path = Resources;
@@ -116,6 +129,7 @@
 		71F3F6D426BEE90700619F53 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				71D54E6126C173DD00A7D5EF /* Authentication */,
 				71F3F6DD26BEE9E900619F53 /* MainTabTableViewController.swift */,
 				71F3F6E026BEEA0B00619F53 /* FeedViewController.swift */,
 				71F3F6E326BEEA8100619F53 /* SearchVIewController.swift */,
@@ -199,7 +213,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				71F3F6C726BEE89600619F53 /* LaunchScreen.storyboard in Resources */,
-				71F3F6DA26BEE9BD00619F53 /* Assets.xcassets in Resources */,
+				713BC40E26C17376006034FD /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,10 +230,12 @@
 				71F3F6EA26BEEAAB00619F53 /* NotificationViewController.swift in Sources */,
 				71F3F6DE26BEE9E900619F53 /* MainTabTableViewController.swift in Sources */,
 				71029CC526C0832300EA08F4 /* Extensions.swift in Sources */,
+				71D54E6726C173FB00A7D5EF /* RegistrationViewController.swift in Sources */,
 				71F3F6E426BEEA8100619F53 /* SearchVIewController.swift in Sources */,
 				71F3F6ED26BEEAB900619F53 /* ProfileViewController.swift in Sources */,
 				71F3F6E726BEEA9900619F53 /* ImageSelectorViewController.swift in Sources */,
 				71029CC226C0821B00EA08F4 /* FeedCell.swift in Sources */,
+				71D54E6326C173ED00A7D5EF /* LoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
