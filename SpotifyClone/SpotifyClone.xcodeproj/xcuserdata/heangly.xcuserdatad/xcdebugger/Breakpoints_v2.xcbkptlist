@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "A82BCD54-1765-42F6-99C0-A86BB3EE8895"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C3DF4CFD-29D5-46C1-A106-79A176362F64"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SpotifyClone/Controllers/Other/ProfileViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "fetchProfile()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "C3DF4CFD-29D5-46C1-A106-79A176362F64 - fcdfcac3dcc24777"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;SpotifyClone.UserProfile, Swift.Error&gt;) -&gt; () in SpotifyClone.ProfileViewController.(fetchProfile in _792D5CEFCE54C0397DBF05DA04AFA5D4)() -&gt; ()"
+                  moduleName = "SpotifyClone"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/heangly/Desktop/Self-Development/01-Swift/UIKit-Projects/SpotifyClone/SpotifyClone/Controllers/Other/ProfileViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "382">
+               </Location>
+               <Location
+                  uuid = "C3DF4CFD-29D5-46C1-A106-79A176362F64 - 4afbe8e9565f0edc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in closure #1 (Swift.Result&lt;SpotifyClone.UserProfile, Swift.Error&gt;) -&gt; () in SpotifyClone.ProfileViewController.(fetchProfile in _792D5CEFCE54C0397DBF05DA04AFA5D4)() -&gt; ()"
+                  moduleName = "SpotifyClone"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/heangly/Desktop/Self-Development/01-Swift/UIKit-Projects/SpotifyClone/SpotifyClone/Controllers/Other/ProfileViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "171">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DEBE9F32-70E3-46E8-B949-5B409EC90559"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SpotifyClone/Controllers/Other/ProfileViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9224BBE1-A65D-4F3D-BF5A-83C331A47C8E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SpotifyClone/Controllers/Other/ProfileViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
