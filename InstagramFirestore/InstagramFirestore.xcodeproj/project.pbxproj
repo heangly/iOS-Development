@@ -19,6 +19,7 @@
 		716AC9CC26BEDE2100AE02B0 /* ImageSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716AC9CB26BEDE2100AE02B0 /* ImageSelectorViewController.swift */; };
 		716AC9CF26BEDE3900AE02B0 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716AC9CE26BEDE3900AE02B0 /* NotificationViewController.swift */; };
 		716AC9D326BEDE4500AE02B0 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716AC9D226BEDE4500AE02B0 /* ProfileViewController.swift */; };
+		719430A726C2A98700F28E13 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719430A626C2A98700F28E13 /* AuthenticationViewModel.swift */; };
 		71C1EDCF26C157F5001B4E34 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C1EDCE26C157F5001B4E34 /* LoginViewController.swift */; };
 		71C1EDD426C15808001B4E34 /* RegisterationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C1EDD326C15808001B4E34 /* RegisterationViewController.swift */; };
 		71F1D0E626C17EE700E9265B /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F1D0E526C17EE700E9265B /* CustomTextField.swift */; };
@@ -39,6 +40,7 @@
 		716AC9CB26BEDE2100AE02B0 /* ImageSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSelectorViewController.swift; sourceTree = "<group>"; };
 		716AC9CE26BEDE3900AE02B0 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		716AC9D226BEDE4500AE02B0 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		719430A626C2A98700F28E13 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		71C1EDCE26C157F5001B4E34 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		71C1EDD326C15808001B4E34 /* RegisterationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterationViewController.swift; sourceTree = "<group>"; };
 		71F1D0E526C17EE700E9265B /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 		711D6C3C26BEDC0A0013E9FC /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				719430A626C2A98700F28E13 /* AuthenticationViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -229,6 +232,7 @@
 			files = (
 				71F1D0E626C17EE700E9265B /* CustomTextField.swift in Sources */,
 				71C1EDCF26C157F5001B4E34 /* LoginViewController.swift in Sources */,
+				719430A726C2A98700F28E13 /* AuthenticationViewModel.swift in Sources */,
 				71C1EDD426C15808001B4E34 /* RegisterationViewController.swift in Sources */,
 				716AC9C926BEDE1100AE02B0 /* SearchViewController.swift in Sources */,
 				711D6C2826BEAEBE0013E9FC /* MainTabViewController.swift in Sources */,
