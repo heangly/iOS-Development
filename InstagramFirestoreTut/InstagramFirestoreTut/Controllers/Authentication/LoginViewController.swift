@@ -9,6 +9,8 @@ import UIKit
 
 class LoginViewController: UIViewController {
     //MARK: - Properties
+    private var viewModel = LoginViewModel()
+    
     private let iconImage: UIImageView = {
         let iv = UIImageView()
         iv.image = #imageLiteral(resourceName: "Instagram_logo_white")
@@ -31,8 +33,9 @@ class LoginViewController: UIViewController {
     private lazy var loginButton: UIButton = {
         let btn = UIButton(type: .system)
         btn.setTitle("Log In", for: .normal)
-        btn.setTitleColor(UIColor.white, for: .normal)
-        btn.backgroundColor = #colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1)
+        btn.setTitleColor(viewModel.buttonTitleColor, for: .normal)
+        btn.backgroundColor = viewModel.backgroundColor
+        btn.isEnabled = viewModel.formIsValid
         btn.layer.cornerRadius = 5
         btn.setHeight(50)
         btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
@@ -58,12 +61,25 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        configureNotificationObservers()
     }
     
     //MARK: - Actions
     @objc func handleShowSignUp(){
         let vc = RegisterationViewController()
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc func textDidChange(sender: UITextField){
+        if sender == emailTextField {
+            viewModel.email = sender.text
+        }else {
+            viewModel.password = sender.text
+        }
+        
+        loginButton.setTitleColor(viewModel.buttonTitleColor, for: .normal)
+        loginButton.backgroundColor = viewModel.backgroundColor
+        loginButton.isEnabled = viewModel.formIsValid
     }
 
     //MARK: - Helper
@@ -88,5 +104,10 @@ class LoginViewController: UIViewController {
         dontHaveAccountButton.centerX(inView: view)
         dontHaveAccountButton.anchor(bottom: view.safeAreaLayoutGuide.bottomAnchor)
 
+    }
+    
+    func configureNotificationObservers(){
+        emailTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+        passwordTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
     }
 }
