@@ -1,0 +1,6 @@
+framework module Pods_InstagramFirestoreTut {
+  umbrella header "Pods-InstagramFirestoreTut-umbrella.h"
+
+  export *
+  module * { export * }
+}
