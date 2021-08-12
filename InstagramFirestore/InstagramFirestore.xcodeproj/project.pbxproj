@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,8 @@
 		711D6C2626BEAEBE0013E9FC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711D6C2526BEAEBE0013E9FC /* SceneDelegate.swift */; };
 		711D6C2826BEAEBE0013E9FC /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711D6C2726BEAEBE0013E9FC /* MainTabViewController.swift */; };
 		711D6C3026BEAEBE0013E9FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 711D6C2E26BEAEBE0013E9FC /* LaunchScreen.storyboard */; };
+		714657F626C53AE400C4DCEF /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714657F526C53AE400C4DCEF /* ImageUploader.swift */; };
+		714657F926C53AF300C4DCEF /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714657F826C53AF300C4DCEF /* AuthService.swift */; };
 		716AC9C626BEDDF700AE02B0 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716AC9C526BEDDF700AE02B0 /* FeedViewController.swift */; };
 		716AC9C926BEDE1100AE02B0 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716AC9C826BEDE1100AE02B0 /* SearchViewController.swift */; };
 		716AC9CC26BEDE2100AE02B0 /* ImageSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716AC9CB26BEDE2100AE02B0 /* ImageSelectorViewController.swift */; };
@@ -37,6 +39,8 @@
 		711D6C2726BEAEBE0013E9FC /* MainTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
 		711D6C2F26BEAEBE0013E9FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		711D6C3126BEAEBE0013E9FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = InstagramFirestore/Resources/Info.plist; sourceTree = SOURCE_ROOT; };
+		714657F526C53AE400C4DCEF /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
+		714657F826C53AF300C4DCEF /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		716AC9C526BEDDF700AE02B0 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		716AC9C826BEDE1100AE02B0 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		716AC9CB26BEDE2100AE02B0 /* ImageSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSelectorViewController.swift; sourceTree = "<group>"; };
@@ -70,7 +74,6 @@
 				BAB794B5F3CAE98AE36B3BA9 /* Pods-InstagramFirestore.debug.xcconfig */,
 				7F92AD39AC76C840AB310089 /* Pods-InstagramFirestore.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -168,6 +171,8 @@
 		711D6C3E26BEDC320013E9FC /* API */ = {
 			isa = PBXGroup;
 			children = (
+				714657F526C53AE400C4DCEF /* ImageUploader.swift */,
+				714657F826C53AF300C4DCEF /* AuthService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -305,6 +310,7 @@
 			files = (
 				71F1D0E626C17EE700E9265B /* CustomTextField.swift in Sources */,
 				71C1EDCF26C157F5001B4E34 /* LoginViewController.swift in Sources */,
+				714657F626C53AE400C4DCEF /* ImageUploader.swift in Sources */,
 				719430A726C2A98700F28E13 /* AuthenticationViewModel.swift in Sources */,
 				71C1EDD426C15808001B4E34 /* RegisterationViewController.swift in Sources */,
 				716AC9C926BEDE1100AE02B0 /* SearchViewController.swift in Sources */,
@@ -317,6 +323,7 @@
 				716AC9D326BEDE4500AE02B0 /* ProfileViewController.swift in Sources */,
 				711D6C2626BEAEBE0013E9FC /* SceneDelegate.swift in Sources */,
 				71029CB726C044A500EA08F4 /* FeedCell.swift in Sources */,
+				714657F926C53AF300C4DCEF /* AuthService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
