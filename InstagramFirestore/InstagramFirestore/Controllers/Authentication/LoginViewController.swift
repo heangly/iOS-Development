@@ -6,11 +6,12 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginViewController: UIViewController {
     //MARK: - Properties
     private var viewModel = LoginViewModel()
-    
+
     private let iconImage: UIImageView = {
         let iv = UIImageView()
         iv.image = #imageLiteral(resourceName: "Instagram_logo_white")
@@ -29,7 +30,7 @@ class LoginViewController: UIViewController {
         tf.isSecureTextEntry = true
         return tf
     }()
-    
+
     private lazy var loginButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Login", for: .normal)
@@ -39,17 +40,18 @@ class LoginViewController: UIViewController {
         button.layer.cornerRadius = 5
         button.setHeight(50)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        button.addTarget(self, action: #selector(handleLogin), for: .touchUpInside)
         return button
     }()
-    
+
     private let dontHaveAccountButton: UIButton = {
         let button = UIButton(type: .system)
         button.attributedTitle(firstPart: "Don't have an account ", secondPart: "Sign Up")
         button.addTarget(self, action: #selector(handleShowSignUp), for: .touchUpInside)
         return button
     }()
-    
-    
+
+
     private let forgotPasswordButton: UIButton = {
         let button = UIButton(type: .system)
         button.attributedTitle(firstPart: "Forgor your password? ", secondPart: "Get help signing in.")
@@ -62,23 +64,38 @@ class LoginViewController: UIViewController {
         configureUI()
         configureNotificationObservers()
     }
-    
+
     //MARK: - Actions
-    @objc func handleShowSignUp(){
+    @objc func handleLogin() {
+        guard let email = emailTextField.text else { return }
+        guard let password = passwordTextField.text else { return }
+        AuthService.logUserIn(withEmail: email, password: password) { (result, error) in
+            if let error = error {
+                print("DEBUG: Failed to log user in \(error.localizedDescription)")
+                return
+            }
+            let vc = MainTabViewController()
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true, completion: nil)
+        }
+ 
+    }
+
+    @objc func handleShowSignUp() {
         let controller = RegisterationViewController()
         navigationController?.pushViewController(controller, animated: true)
     }
-    
-    @objc func textDidChange(sender: UITextField){
+
+    @objc func textDidChange(sender: UITextField) {
         if sender == emailTextField {
             viewModel.email = sender.text
-        }else{
+        } else {
             viewModel.password = sender.text
         }
-        
+
         updateForm()
     }
-    
+
 
     //MARK: - Helpers
     func configureUI() {
@@ -95,15 +112,15 @@ class LoginViewController: UIViewController {
         stack.axis = .vertical
         stack.spacing = 20
         view.addSubview(stack)
-        stack.anchor(top:iconImage.bottomAnchor, left:view.leftAnchor, right: view.rightAnchor, paddingTop: 32, paddingLeft: 32, paddingRight: 32)
-        
+        stack.anchor(top: iconImage.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 32, paddingLeft: 32, paddingRight: 32)
+
         view.addSubview(dontHaveAccountButton)
         dontHaveAccountButton.centerX(inView: view)
         dontHaveAccountButton.anchor(bottom: view.safeAreaLayoutGuide.bottomAnchor)
     }
-    
+
     //MARK: - ConfigureNotificationObservers
-    func configureNotificationObservers(){
+    func configureNotificationObservers() {
         emailTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
         passwordTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
     }
