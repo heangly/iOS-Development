@@ -15,6 +15,8 @@
 		714657FF26C542D000C4DCEF /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714657FE26C542D000C4DCEF /* ImageUploader.swift */; };
 		715EA91B26C2B6F1006B8871 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715EA91A26C2B6F1006B8871 /* AuthenticationViewModel.swift */; };
 		71992B6026C43F3F0010B70C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 71992B5F26C43F3F0010B70C /* GoogleService-Info.plist */; };
+		71A1810626C6B3AF002899B9 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A1810526C6B3AF002899B9 /* ProfileCell.swift */; };
+		71A1810A26C6B3D3002899B9 /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A1810926C6B3D3002899B9 /* ProfileHeader.swift */; };
 		71C309F926C1848900EB29B0 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C309F826C1848900EB29B0 /* CustomTextField.swift */; };
 		71D54E6326C173ED00A7D5EF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D54E6226C173ED00A7D5EF /* LoginViewController.swift */; };
 		71D54E6726C173FB00A7D5EF /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D54E6626C173FB00A7D5EF /* RegistrationViewController.swift */; };
@@ -40,6 +42,8 @@
 		714657FE26C542D000C4DCEF /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
 		715EA91A26C2B6F1006B8871 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		71992B5F26C43F3F0010B70C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		71A1810526C6B3AF002899B9 /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
+		71A1810926C6B3D3002899B9 /* ProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeader.swift; sourceTree = "<group>"; };
 		71C309F826C1848900EB29B0 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		71D54E6226C173ED00A7D5EF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		71D54E6626C173FB00A7D5EF /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
@@ -68,6 +72,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		71A1810426C6B3A4002899B9 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				71A1810526C6B3AF002899B9 /* ProfileCell.swift */,
+				71A1810926C6B3D3002899B9 /* ProfileHeader.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		71D54E6126C173DD00A7D5EF /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
@@ -134,6 +147,7 @@
 			children = (
 				71F3F6C526BEE89600619F53 /* LaunchScreen.storyboard */,
 				71029CC126C0821B00EA08F4 /* FeedCell.swift */,
+				71A1810426C6B3A4002899B9 /* Profile */,
 				71C309F826C1848900EB29B0 /* CustomTextField.swift */,
 			);
 			path = Views;
@@ -308,6 +322,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71A1810626C6B3AF002899B9 /* ProfileCell.swift in Sources */,
 				71C309F926C1848900EB29B0 /* CustomTextField.swift in Sources */,
 				71F3F6BB26BEE89500619F53 /* AppDelegate.swift in Sources */,
 				715EA91B26C2B6F1006B8871 /* AuthenticationViewModel.swift in Sources */,
@@ -315,6 +330,7 @@
 				71F3F6E126BEEA0B00619F53 /* FeedViewController.swift in Sources */,
 				71F3F6EA26BEEAAB00619F53 /* NotificationViewController.swift in Sources */,
 				71F3F6DE26BEE9E900619F53 /* MainTabTableViewController.swift in Sources */,
+				71A1810A26C6B3D3002899B9 /* ProfileHeader.swift in Sources */,
 				71029CC526C0832300EA08F4 /* Extensions.swift in Sources */,
 				71D54E6726C173FB00A7D5EF /* RegistrationViewController.swift in Sources */,
 				71F3F6E426BEEA8100619F53 /* SearchVIewController.swift in Sources */,
