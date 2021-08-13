@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -27,10 +27,10 @@
 		718B2F3326BB2DDD001254A9 /* AudioTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718B2F3226BB2DDD001254A9 /* AudioTrack.swift */; };
 		718B2F3626BB2DE8001254A9 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718B2F3526BB2DE8001254A9 /* Artist.swift */; };
 		718B2F3926BB2DF7001254A9 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718B2F3826BB2DF7001254A9 /* UserProfile.swift */; };
+		71A743EE26C6F84000DC3099 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71A743ED26C6F84000DC3099 /* Assets.xcassets */; };
 		71BE307526BB291F00E7629B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE307426BB291F00E7629B /* AppDelegate.swift */; };
 		71BE307726BB291F00E7629B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE307626BB291F00E7629B /* SceneDelegate.swift */; };
 		71BE307926BB291F00E7629B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE307826BB291F00E7629B /* HomeViewController.swift */; };
-		71BE307E26BB292000E7629B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71BE307D26BB292000E7629B /* Assets.xcassets */; };
 		71BE308126BB292000E7629B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71BE307F26BB292000E7629B /* LaunchScreen.storyboard */; };
 		71FD545D26BC7E5300A91AD7 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FD545C26BC7E5300A91AD7 /* Extension.swift */; };
 /* End PBXBuildFile section */
@@ -55,11 +55,11 @@
 		718B2F3226BB2DDD001254A9 /* AudioTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioTrack.swift; sourceTree = "<group>"; };
 		718B2F3526BB2DE8001254A9 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		718B2F3826BB2DF7001254A9 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		71A743ED26C6F84000DC3099 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../../../../../../.Trash/Assets.xcassets; sourceTree = "<group>"; };
 		71BE307126BB291F00E7629B /* SpotifyClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpotifyClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71BE307426BB291F00E7629B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		71BE307626BB291F00E7629B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		71BE307826BB291F00E7629B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		71BE307D26BB292000E7629B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		71BE308026BB292000E7629B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		71BE308226BB292000E7629B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		71FD545C26BC7E5300A91AD7 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
@@ -186,10 +186,10 @@
 		71BE308E26BB298600E7629B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				71A743ED26C6F84000DC3099 /* Assets.xcassets */,
 				71BE307426BB291F00E7629B /* AppDelegate.swift */,
 				71BE307626BB291F00E7629B /* SceneDelegate.swift */,
 				71BE308226BB292000E7629B /* Info.plist */,
-				71BE307D26BB292000E7629B /* Assets.xcassets */,
 				71FD545C26BC7E5300A91AD7 /* Extension.swift */,
 			);
 			path = Resources;
@@ -209,7 +209,6 @@
 				B1952354D297A01A04778E74 /* Pods-SpotifyClone.debug.xcconfig */,
 				7928474397B093399CC7EE0F /* Pods-SpotifyClone.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -272,8 +271,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71A743EE26C6F84000DC3099 /* Assets.xcassets in Resources */,
 				71BE308126BB292000E7629B /* LaunchScreen.storyboard in Resources */,
-				71BE307E26BB292000E7629B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

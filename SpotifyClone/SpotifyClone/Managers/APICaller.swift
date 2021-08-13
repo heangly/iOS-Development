@@ -41,6 +41,16 @@ final class APICaller {
         }
     }
 
+    public func getNewReleases(completion: @escaping((Result<String, Error>)) -> Void) {
+        createRequest(with: URL(string: Constants.baseAPIURL + "/browse/new-releases?"), type: .GET) { (request) in
+            let task = URLSession.shared.dataTask(with: request) { (data, _, error) in
+                guard let data = data, error == nil else {
+                    return
+                }
+            }
+        }
+    }
+
     enum HTTPMethod: String {
         case GET
         case POST
