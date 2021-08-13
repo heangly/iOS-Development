@@ -10,7 +10,7 @@ import UIKit
 class LoginViewController: UIViewController {
     //MARK: - Properties
     private var viewModel = LoginViewModel()
-    
+
     private let iconImage: UIImageView = {
         let iv = UIImageView()
         iv.image = #imageLiteral(resourceName: "Instagram_logo_white")
@@ -23,7 +23,7 @@ class LoginViewController: UIViewController {
         tf.keyboardType = .emailAddress
         return tf
     }()
-    
+
     private let passwordTextField: UITextField = {
         let tf = CustomTextField(placeholder: "Password")
         tf.isSecureTextEntry = true
@@ -39,9 +39,10 @@ class LoginViewController: UIViewController {
         btn.layer.cornerRadius = 5
         btn.setHeight(50)
         btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        btn.addTarget(self, action: #selector(handleLogin), for: .touchUpInside)
         return btn
     }()
-    
+
 
     private let forgotPasswordButton: UIButton = {
         let button = UIButton(type: .system)
@@ -49,7 +50,7 @@ class LoginViewController: UIViewController {
         return button
     }()
 
-    
+
     private let dontHaveAccountButton: UIButton = {
         let button = UIButton(type: .system)
         button.attributedTitle(firstPart: "Don't have an account? ", secondPart: "Sign Up")
@@ -63,17 +64,35 @@ class LoginViewController: UIViewController {
         configureUI()
         configureNotificationObservers()
     }
-    
+
     //MARK: - Actions
-    @objc func handleShowSignUp(){
+    @objc func handleLogin() {
+        guard let email = emailTextField.text else { return }
+        guard let password = passwordTextField.text else { return }
+
+        AuthService.logUserIn(withEmail: email, password: password) { (result, error) in
+            if let error = error {
+                print("Fail to log user in \(error.localizedDescription)")
+                return
+            }
+
+            DispatchQueue.main.async {
+                let vc = MainTabTableViewController()
+                vc.modalPresentationStyle = .fullScreen
+                self.present(vc, animated: true, completion: nil)
+            }
+        }
+    }
+
+    @objc func handleShowSignUp() {
         let vc = RegisterationViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
-    
-    @objc func textDidChange(sender: UITextField){
+
+    @objc func textDidChange(sender: UITextField) {
         if sender == emailTextField {
             viewModel.email = sender.text
-        }else {
+        } else {
             viewModel.password = sender.text
         }
         updateForm()
@@ -96,20 +115,20 @@ class LoginViewController: UIViewController {
         stack.spacing = 20
         view.addSubview(stack)
         stack.anchor(top: iconImage.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 32, paddingLeft: 32, paddingRight: 32)
-        
+
         view.addSubview(dontHaveAccountButton)
         dontHaveAccountButton.centerX(inView: view)
         dontHaveAccountButton.anchor(bottom: view.safeAreaLayoutGuide.bottomAnchor)
 
     }
-    
-    func configureNotificationObservers(){
+
+    func configureNotificationObservers() {
         emailTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
         passwordTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
     }
 }
 
-extension LoginViewController: FormViewModelProtocol{
+extension LoginViewController: FormViewModelProtocol {
     func updateForm() {
         loginButton.setTitleColor(viewModel.buttonTitleColor, for: .normal)
         loginButton.backgroundColor = viewModel.backgroundColor

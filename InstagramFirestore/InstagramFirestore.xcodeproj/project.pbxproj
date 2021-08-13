@@ -25,6 +25,8 @@
 		719430A726C2A98700F28E13 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719430A626C2A98700F28E13 /* AuthenticationViewModel.swift */; };
 		71C1EDCF26C157F5001B4E34 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C1EDCE26C157F5001B4E34 /* LoginViewController.swift */; };
 		71C1EDD426C15808001B4E34 /* RegisterationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C1EDD326C15808001B4E34 /* RegisterationViewController.swift */; };
+		71EF9C3F26C6A32800957372 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71EF9C3E26C6A32800957372 /* ProfileCell.swift */; };
+		71EF9C4326C6A33B00957372 /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71EF9C4226C6A33B00957372 /* ProfileHeader.swift */; };
 		71F1D0E626C17EE700E9265B /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F1D0E526C17EE700E9265B /* CustomTextField.swift */; };
 		F26DA1E33D330B62E42F7604 /* Pods_InstagramFirestore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 904E2D2C3A1EA9ED027071D7 /* Pods_InstagramFirestore.framework */; };
 /* End PBXBuildFile section */
@@ -50,6 +52,8 @@
 		719430A626C2A98700F28E13 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		71C1EDCE26C157F5001B4E34 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		71C1EDD326C15808001B4E34 /* RegisterationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterationViewController.swift; sourceTree = "<group>"; };
+		71EF9C3E26C6A32800957372 /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
+		71EF9C4226C6A33B00957372 /* ProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeader.swift; sourceTree = "<group>"; };
 		71F1D0E526C17EE700E9265B /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		7F92AD39AC76C840AB310089 /* Pods-InstagramFirestore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramFirestore.release.xcconfig"; path = "Target Support Files/Pods-InstagramFirestore/Pods-InstagramFirestore.release.xcconfig"; sourceTree = "<group>"; };
 		904E2D2C3A1EA9ED027071D7 /* Pods_InstagramFirestore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InstagramFirestore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -127,6 +131,7 @@
 		711D6C3A26BEDBFD0013E9FC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				71EF9C4526C6A34100957372 /* Profile */,
 				71029CB626C044A500EA08F4 /* FeedCell.swift */,
 				71F1D0E526C17EE700E9265B /* CustomTextField.swift */,
 				711D6C2E26BEAEBE0013E9FC /* LaunchScreen.storyboard */,
@@ -192,6 +197,15 @@
 				71C1EDD326C15808001B4E34 /* RegisterationViewController.swift */,
 			);
 			path = Authentication;
+			sourceTree = "<group>";
+		};
+		71EF9C4526C6A34100957372 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				71EF9C3E26C6A32800957372 /* ProfileCell.swift */,
+				71EF9C4226C6A33B00957372 /* ProfileHeader.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -308,11 +322,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71EF9C3F26C6A32800957372 /* ProfileCell.swift in Sources */,
 				71F1D0E626C17EE700E9265B /* CustomTextField.swift in Sources */,
 				71C1EDCF26C157F5001B4E34 /* LoginViewController.swift in Sources */,
 				714657F626C53AE400C4DCEF /* ImageUploader.swift in Sources */,
 				719430A726C2A98700F28E13 /* AuthenticationViewModel.swift in Sources */,
 				71C1EDD426C15808001B4E34 /* RegisterationViewController.swift in Sources */,
+				71EF9C4326C6A33B00957372 /* ProfileHeader.swift in Sources */,
 				716AC9C926BEDE1100AE02B0 /* SearchViewController.swift in Sources */,
 				711D6C2826BEAEBE0013E9FC /* MainTabViewController.swift in Sources */,
 				711D6C2426BEAEBE0013E9FC /* AppDelegate.swift in Sources */,

@@ -87,7 +87,11 @@ class RegisterationViewController: UIViewController {
                 return
             }
             
-            print("DEBUG: registere user successfully")
+            DispatchQueue.main.async {
+                let vc = MainTabTableViewController()
+                vc.modalPresentationStyle = .fullScreen
+                self.present(vc, animated: true, completion: nil)
+            }
         }
     }
 
@@ -139,6 +143,7 @@ class RegisterationViewController: UIViewController {
         fullnameTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
         usernameTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
     }
+    
 }
 
 extension RegisterationViewController: FormViewModelProtocol {
