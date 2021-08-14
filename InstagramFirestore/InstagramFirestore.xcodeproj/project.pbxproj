@@ -202,8 +202,8 @@
 		71EF9C4526C6A34100957372 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				71EF9C3E26C6A32800957372 /* ProfileCell.swift */,
 				71EF9C4226C6A33B00957372 /* ProfileHeader.swift */,
+				71EF9C3E26C6A32800957372 /* ProfileCell.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
