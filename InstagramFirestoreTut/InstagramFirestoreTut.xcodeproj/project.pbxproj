@@ -75,8 +75,8 @@
 		71A1810426C6B3A4002899B9 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				71A1810526C6B3AF002899B9 /* ProfileCell.swift */,
 				71A1810926C6B3D3002899B9 /* ProfileHeader.swift */,
+				71A1810526C6B3AF002899B9 /* ProfileCell.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -145,9 +145,9 @@
 		71F3F6D126BEE8EF00619F53 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				71A1810426C6B3A4002899B9 /* Profile */,
 				71F3F6C526BEE89600619F53 /* LaunchScreen.storyboard */,
 				71029CC126C0821B00EA08F4 /* FeedCell.swift */,
-				71A1810426C6B3A4002899B9 /* Profile */,
 				71C309F826C1848900EB29B0 /* CustomTextField.swift */,
 			);
 			path = Views;
