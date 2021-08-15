@@ -16,6 +16,9 @@
 		711D6C3026BEAEBE0013E9FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 711D6C2E26BEAEBE0013E9FC /* LaunchScreen.storyboard */; };
 		714657F626C53AE400C4DCEF /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714657F526C53AE400C4DCEF /* ImageUploader.swift */; };
 		714657F926C53AF300C4DCEF /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714657F826C53AF300C4DCEF /* AuthService.swift */; };
+		714E4E1326C93976004A9B48 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714E4E1226C93976004A9B48 /* UserService.swift */; };
+		714E4E1626C939DE004A9B48 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714E4E1526C939DE004A9B48 /* Constants.swift */; };
+		714E4E1926C93E31004A9B48 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714E4E1826C93E31004A9B48 /* User.swift */; };
 		716AC9C626BEDDF700AE02B0 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716AC9C526BEDDF700AE02B0 /* FeedViewController.swift */; };
 		716AC9C926BEDE1100AE02B0 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716AC9C826BEDE1100AE02B0 /* SearchViewController.swift */; };
 		716AC9CC26BEDE2100AE02B0 /* ImageSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716AC9CB26BEDE2100AE02B0 /* ImageSelectorViewController.swift */; };
@@ -43,6 +46,9 @@
 		711D6C3126BEAEBE0013E9FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = InstagramFirestore/Resources/Info.plist; sourceTree = SOURCE_ROOT; };
 		714657F526C53AE400C4DCEF /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
 		714657F826C53AF300C4DCEF /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		714E4E1226C93976004A9B48 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		714E4E1526C939DE004A9B48 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		714E4E1826C93E31004A9B48 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		716AC9C526BEDDF700AE02B0 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		716AC9C826BEDE1100AE02B0 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		716AC9CB26BEDE2100AE02B0 /* ImageSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSelectorViewController.swift; sourceTree = "<group>"; };
@@ -124,6 +130,7 @@
 		711D6C3926BEDBF10013E9FC /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				714E4E1826C93E31004A9B48 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -177,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				714657F526C53AE400C4DCEF /* ImageUploader.swift */,
+				714E4E1226C93976004A9B48 /* UserService.swift */,
 				714657F826C53AF300C4DCEF /* AuthService.swift */,
 			);
 			path = API;
@@ -186,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				71029CBA26C0455300EA08F4 /* Extensions.swift */,
+				714E4E1526C939DE004A9B48 /* Constants.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -335,11 +344,14 @@
 				716AC9CF26BEDE3900AE02B0 /* NotificationViewController.swift in Sources */,
 				716AC9C626BEDDF700AE02B0 /* FeedViewController.swift in Sources */,
 				71029CBB26C0455300EA08F4 /* Extensions.swift in Sources */,
+				714E4E1326C93976004A9B48 /* UserService.swift in Sources */,
 				716AC9CC26BEDE2100AE02B0 /* ImageSelectorViewController.swift in Sources */,
+				714E4E1626C939DE004A9B48 /* Constants.swift in Sources */,
 				716AC9D326BEDE4500AE02B0 /* ProfileViewController.swift in Sources */,
 				711D6C2626BEAEBE0013E9FC /* SceneDelegate.swift in Sources */,
 				71029CB726C044A500EA08F4 /* FeedCell.swift in Sources */,
 				714657F926C53AF300C4DCEF /* AuthService.swift in Sources */,
+				714E4E1926C93E31004A9B48 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

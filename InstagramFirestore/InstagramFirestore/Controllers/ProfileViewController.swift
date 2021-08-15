@@ -11,15 +11,30 @@ private let cellIdentifier = "ProfileCell"
 private let headerIdeentifier = "ProfileHeader"
 
 class ProfileViewController: UICollectionViewController {
+    //MARK: - Properties
+    var user: User? {
+        didSet { navigationItem.title = user?.username }
+    }
+
+    //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        fetchUser()
     }
 
+    //MARK: - Helpers
     func configureUI() {
         collectionView.backgroundColor = .white
         collectionView.register(ProfileCell.self, forCellWithReuseIdentifier: cellIdentifier)
         collectionView.register(ProfileHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerIdeentifier)
+    }
+
+    //MARK: - API
+    func fetchUser() {
+        UserService.fetchUser { user in
+            self.user = user
+        }
     }
 }
 
@@ -62,7 +77,7 @@ extension ProfileViewController: UICollectionViewDelegateFlowLayout {
         let width = (view.frame.width - 2) / 3
         return CGSize(width: width, height: width)
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize(width: view.frame.width, height: 240)
     }
