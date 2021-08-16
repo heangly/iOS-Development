@@ -6,22 +6,26 @@
 //
 
 import UIKit
+import SDWebImage
 
 class ProfileHeader: UICollectionReusableView {
+    var viewModel: ProfileHeaderViewModel? {
+        didSet { configure() }
+    }
+
     private let profileImageView: UIImageView = {
         let iv = UIImageView()
-        iv.image = #imageLiteral(resourceName: "venom-7")
         iv.contentMode = .scaleAspectFill
         iv.clipsToBounds = true
         iv.heightAnchor.constraint(equalToConstant: 80).isActive = true
         iv.widthAnchor.constraint(equalToConstant: 80).isActive = true
         iv.layer.cornerRadius = 80 / 2
+        iv.backgroundColor = .lightGray
         return iv
     }()
 
     private let nameLabel: UILabel = {
         let label = UILabel()
-        label.text = "Eddie Brock"
         label.font = UIFont.boldSystemFont(ofSize: 14)
         return label
     }()
@@ -96,7 +100,8 @@ class ProfileHeader: UICollectionReusableView {
         addSubview(nameLabel)
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.topAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: 12).isActive = true
-        nameLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 12).isActive = true
+//        nameLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 16).isActive = true
+        nameLabel.centerX(inView: profileImageView)
 
         addSubview(editProfileFollowButton)
         editProfileFollowButton.translatesAutoresizingMaskIntoConstraints = false
@@ -120,7 +125,7 @@ class ProfileHeader: UICollectionReusableView {
         buttonStacks.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
         buttonStacks.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
         buttonStacks.heightAnchor.constraint(equalToConstant: 50).isActive = true
- 
+
         let topDivider = UIView()
         topDivider.backgroundColor = .lightGray
         addSubview(topDivider)
@@ -129,7 +134,7 @@ class ProfileHeader: UICollectionReusableView {
         topDivider.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
         topDivider.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
         topDivider.heightAnchor.constraint(equalToConstant: 0.5).isActive = true
-        
+
         let bottomDivider = UIView()
         bottomDivider.backgroundColor = .lightGray
         addSubview(bottomDivider)
@@ -137,7 +142,7 @@ class ProfileHeader: UICollectionReusableView {
         bottomDivider.topAnchor.constraint(equalTo: buttonStacks.bottomAnchor).isActive = true
         bottomDivider.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
         bottomDivider.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
-        
+
     }
 
     required init?(coder: NSCoder) {
@@ -150,6 +155,13 @@ class ProfileHeader: UICollectionReusableView {
     }
 
     //MARK: - Helpers
+    func configure(){
+        guard let viewModel = viewModel else {return}
+        nameLabel.text = viewModel.fullname
+        profileImageView.sd_setImage(with: viewModel.profileImageUrl)
+    }
+    
+    
     func attributedStatText(value: Int, label: String) -> NSAttributedString {
         let attributedText = NSMutableAttributedString(string: "\(value)\n", attributes: [.font: UIFont.boldSystemFont(ofSize: 14)])
         attributedText.append(NSAttributedString(string: label, attributes: [.font: UIFont.systemFont(ofSize: 14), .foregroundColor: UIColor.lightGray]))
