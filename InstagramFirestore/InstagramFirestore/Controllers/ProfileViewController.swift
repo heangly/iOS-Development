@@ -13,7 +13,7 @@ private let headerIdeentifier = "ProfileHeader"
 class ProfileViewController: UICollectionViewController {
     //MARK: - Properties
     var user: User? {
-        didSet { navigationItem.title = user?.username }
+        didSet { collectionView.reloadData() }
     }
 
     //MARK: - Lifecycle
@@ -34,6 +34,7 @@ class ProfileViewController: UICollectionViewController {
     func fetchUser() {
         UserService.fetchUser { user in
             self.user = user
+            self.navigationItem.title = user.username
         }
     }
 }
@@ -51,6 +52,12 @@ extension ProfileViewController {
 
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerIdeentifier, for: indexPath) as! ProfileHeader
+
+        if let user = user {
+            header.viewModel = ProfileHeaderViewModel(user: user)
+        } else {
+            print("DEBUG: user not set")
+        }
         return header
     }
 }
