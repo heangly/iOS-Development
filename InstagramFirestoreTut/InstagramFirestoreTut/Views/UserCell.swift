@@ -9,6 +9,13 @@ import UIKit
 
 class UserCell: UITableViewCell {
     //MARK: - Properties
+    var user: User? {
+        didSet {
+            usernameLabel.text = user?.username
+            fullnameLabel.text = user?.fullname
+        }
+    }
+    
     private let profileImageView: UIImageView = {
         let iv = UIImageView()
         iv.contentMode = .scaleAspectFill
@@ -55,8 +62,6 @@ class UserCell: UITableViewCell {
         stackView.alignment = .leading
         stackView.centerY(inView: profileImageView)
         stackView.leftAnchor.constraint(equalTo: profileImageView.rightAnchor, constant: 8).isActive = true
-
-
     }
 
     required init?(coder: NSCoder) {
