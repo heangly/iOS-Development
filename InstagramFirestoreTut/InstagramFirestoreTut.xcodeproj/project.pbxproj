@@ -10,6 +10,7 @@
 		0908608AC46779D564C230A7 /* Pods_InstagramFirestoreTut.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B64C473A12A7E63042DC51B /* Pods_InstagramFirestoreTut.framework */; };
 		71029CC226C0821B00EA08F4 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71029CC126C0821B00EA08F4 /* FeedCell.swift */; };
 		71029CC526C0832300EA08F4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71029CC426C0832300EA08F4 /* Extensions.swift */; };
+		7136F1AF26CBDA6400D4C04C /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7136F1AE26CBDA6400D4C04C /* UserCell.swift */; };
 		713BC40E26C17376006034FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 713BC40D26C17376006034FD /* Assets.xcassets */; };
 		714657FC26C5417E00C4DCEF /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714657FB26C5417E00C4DCEF /* AuthService.swift */; };
 		714657FF26C542D000C4DCEF /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714657FE26C542D000C4DCEF /* ImageUploader.swift */; };
@@ -41,6 +42,7 @@
 		6337619C9C4F9BCEF03D8FC5 /* Pods-InstagramFirestoreTut.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramFirestoreTut.debug.xcconfig"; path = "Target Support Files/Pods-InstagramFirestoreTut/Pods-InstagramFirestoreTut.debug.xcconfig"; sourceTree = "<group>"; };
 		71029CC126C0821B00EA08F4 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		71029CC426C0832300EA08F4 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		7136F1AE26CBDA6400D4C04C /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		713BC40D26C17376006034FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		714657FB26C5417E00C4DCEF /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		714657FE26C542D000C4DCEF /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				71F3F6C526BEE89600619F53 /* LaunchScreen.storyboard */,
 				71029CC126C0821B00EA08F4 /* FeedCell.swift */,
 				71C309F826C1848900EB29B0 /* CustomTextField.swift */,
+				7136F1AE26CBDA6400D4C04C /* UserCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -345,6 +348,7 @@
 				71F3F6DE26BEE9E900619F53 /* MainTabTableViewController.swift in Sources */,
 				71A1810A26C6B3D3002899B9 /* ProfileHeader.swift in Sources */,
 				71029CC526C0832300EA08F4 /* Extensions.swift in Sources */,
+				7136F1AF26CBDA6400D4C04C /* UserCell.swift in Sources */,
 				71D54E6726C173FB00A7D5EF /* RegistrationViewController.swift in Sources */,
 				71F3F6E426BEEA8100619F53 /* SearchVIewController.swift in Sources */,
 				71F3F6ED26BEEAB900619F53 /* ProfileViewController.swift in Sources */,
