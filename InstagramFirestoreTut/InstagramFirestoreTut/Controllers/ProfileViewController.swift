@@ -64,6 +64,7 @@ extension ProfileViewController {
         if let user = user {
             header.viewModel = ProfileHeaderViewModel(user: user)
         }
+        header.delegate = self
         return header
     }
 
@@ -92,4 +93,21 @@ extension ProfileViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize(width: view.frame.width, height: 240)
     }
+}
+
+//MARK: - ProfileHeaderDelegate
+extension ProfileViewController: ProfileHeaderDelegate {
+    func header(_ profileHeader: ProfileHeader, didTapActionButtonFor user: User) {
+        if user.isCurrentUser{
+            print("DEBUG: show edit profile here")
+        }else if user.isFollowed{
+            print("Debug: handle unfollow")
+        }else{
+            UserService.follow(uid: user.uid) { (error) in
+                print("DEBUG: did follow user.. Updating UI ....")
+            }
+        }
+    }
+    
+    
 }

@@ -8,10 +8,16 @@
 import UIKit
 import SDWebImage
 
+protocol ProfileHeaderDelegate: class {
+    func header(_ profileHeader: ProfileHeader, didTapActionButtonFor user: User)
+}
+
 class ProfileHeader: UICollectionReusableView {
     var viewModel: ProfileHeaderViewModel? {
         didSet { configure() }
     }
+
+    weak var delegate: ProfileHeaderDelegate?
 
     private let profileImageView: UIImageView = {
         let iv = UIImageView()
@@ -151,17 +157,21 @@ class ProfileHeader: UICollectionReusableView {
 
     //MARK: - Actions
     @objc func handleEditProfileFollowTapped() {
-        print("DEBUG: handleEditProfileFollowTapped")
+        guard let viewModel = viewModel else { return }
+        delegate?.header(self, didTapActionButtonFor: viewModel.user)
     }
 
     //MARK: - Helpers
-    func configure(){
-        guard let viewModel = viewModel else {return}
+    func configure() {
+        guard let viewModel = viewModel else { return }
         nameLabel.text = viewModel.fullname
         profileImageView.sd_setImage(with: viewModel.profileImageUrl)
+        editProfileFollowButton.setTitle(viewModel.followButtonText, for: .normal)
+        editProfileFollowButton.setTitleColor(viewModel.followButtonTextColor, for: .normal)
+        editProfileFollowButton.backgroundColor = viewModel.followButtonBackgroundColorq
     }
-    
-    
+
+
     func attributedStatText(value: Int, label: String) -> NSAttributedString {
         let attributedText = NSMutableAttributedString(string: "\(value)\n", attributes: [.font: UIFont.boldSystemFont(ofSize: 14)])
         attributedText.append(NSAttributedString(string: label, attributes: [.font: UIFont.systemFont(ofSize: 14), .foregroundColor: UIColor.lightGray]))
