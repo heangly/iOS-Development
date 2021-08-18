@@ -21,7 +21,6 @@ class FeedViewController: UICollectionViewController {
         collectionView.backgroundColor = .systemBackground
         collectionView.register(FeedCell.self, forCellWithReuseIdentifier: reusableCell)
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(handleLogout))
-        title = "Feed"
     }
 
     //MARK: - Actions

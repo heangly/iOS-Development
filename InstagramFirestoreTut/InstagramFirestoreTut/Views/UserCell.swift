@@ -9,13 +9,10 @@ import UIKit
 
 class UserCell: UITableViewCell {
     //MARK: - Properties
-    var user: User? {
-        didSet {
-            usernameLabel.text = user?.username
-            fullnameLabel.text = user?.fullname
-        }
+    var viewModel: UserCellViewModel? {
+        didSet { configure() }
     }
-    
+
     private let profileImageView: UIImageView = {
         let iv = UIImageView()
         iv.contentMode = .scaleAspectFill
@@ -23,16 +20,16 @@ class UserCell: UITableViewCell {
         iv.image = #imageLiteral(resourceName: "venom-7")
         return iv
     }()
-    
+
     private let usernameLabel: UILabel = {
-       let label = UILabel()
+        let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 14)
         label.text = "Venom"
         return label
     }()
-    
+
     private let fullnameLabel: UILabel = {
-       let label = UILabel()
+        let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14)
         label.text = "Eddie Brock"
         label.textColor = .lightGray
@@ -55,13 +52,20 @@ class UserCell: UITableViewCell {
         profileImageView.layer.cornerRadius = 48 / 2
         profileImageView.leftAnchor.constraint(equalTo: leftAnchor, constant: 12).isActive = true
         profileImageView.centerY(inView: self)
-        
+
         let stackView = UIStackView(arrangedSubviews: [usernameLabel, fullnameLabel])
         addSubview(stackView)
         stackView.axis = .vertical
         stackView.alignment = .leading
         stackView.centerY(inView: profileImageView)
         stackView.leftAnchor.constraint(equalTo: profileImageView.rightAnchor, constant: 8).isActive = true
+    }
+
+    func configure() {
+        guard let viewModel = viewModel else { return }
+        profileImageView.sd_setImage(with: viewModel.profileImageUrl, completed: nil)
+        usernameLabel.text = viewModel.username
+        fullnameLabel.text = viewModel.fullname
     }
 
     required init?(coder: NSCoder) {

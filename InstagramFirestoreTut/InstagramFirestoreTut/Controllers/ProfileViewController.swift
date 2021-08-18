@@ -14,6 +14,11 @@ class ProfileViewController: UICollectionViewController {
     var user: User? {
         didSet { collectionView.reloadData() }
     }
+    
+    var otherUserProfileId: String? {
+        didSet { fetchUserWithId() }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
@@ -29,6 +34,13 @@ class ProfileViewController: UICollectionViewController {
 
     func fetchUser() {
         UserService.fetchUser { (user) in
+            self.user = user
+            self.navigationItem.title = user.username
+        }
+    }
+    
+    func fetchUserWithId(){
+        UserService.fetchUserWithId(id: otherUserProfileId) { (user) in
             self.user = user
             self.navigationItem.title = user.username
         }
