@@ -16,6 +16,10 @@ class ProfileViewController: UICollectionViewController {
         didSet { collectionView.reloadData() }
     }
 
+    var otherUserProfileID: String? {
+        didSet { fetchOtherUserProfile() }
+    }
+
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +37,14 @@ class ProfileViewController: UICollectionViewController {
     //MARK: - API
     func fetchUser() {
         UserService.fetchUser { user in
+            self.user = user
+            self.navigationItem.title = user.username
+        }
+    }
+
+    func fetchOtherUserProfile() {
+        guard let id = otherUserProfileID else { return }
+        UserService.fetchUserWithID(id) { (user) in
             self.user = user
             self.navigationItem.title = user.username
         }
@@ -55,9 +67,8 @@ extension ProfileViewController {
 
         if let user = user {
             header.viewModel = ProfileHeaderViewModel(user: user)
-        } else {
-            print("DEBUG: user not set")
         }
+
         return header
     }
 }
