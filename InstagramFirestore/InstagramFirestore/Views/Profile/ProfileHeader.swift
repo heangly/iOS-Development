@@ -36,7 +36,7 @@ class ProfileHeader: UICollectionReusableView {
 
     private lazy var editProfileFollowButton: UIButton = {
         let btn = UIButton(type: .system)
-        btn.setTitle("Edit Profile", for: .normal)
+        btn.setTitle("Loading...", for: .normal)
         btn.layer.cornerRadius = 3
         btn.layer.borderColor = UIColor.lightGray.cgColor
         btn.layer.borderWidth = 0.5
@@ -50,7 +50,6 @@ class ProfileHeader: UICollectionReusableView {
         let label = UILabel()
         label.numberOfLines = 0
         label.textAlignment = .center
-        label.attributedText = attributedStatText(value: 5, label: "posts")
         return label
     }()
 
@@ -58,7 +57,6 @@ class ProfileHeader: UICollectionReusableView {
         let label = UILabel()
         label.numberOfLines = 0
         label.textAlignment = .center
-        label.attributedText = attributedStatText(value: 2, label: "followerrs")
         return label
     }()
 
@@ -67,7 +65,6 @@ class ProfileHeader: UICollectionReusableView {
         let label = UILabel()
         label.numberOfLines = 0
         label.textAlignment = .center
-        label.attributedText = attributedStatText(value: 1, label: "following")
         return label
     }()
 
@@ -103,7 +100,8 @@ class ProfileHeader: UICollectionReusableView {
         profileImageView.layer.cornerRadius = 80 / 2
 
         addSubview(nameLabel)
-        nameLabel.anchor(top: profileImageView.bottomAnchor, left: leftAnchor, paddingTop: 12, paddingLeft: 12)
+        nameLabel.anchor(top: profileImageView.bottomAnchor, paddingTop: 12)
+        nameLabel.centerX(inView: profileImageView)
 
         addSubview(editProfileFollowButton)
         editProfileFollowButton.anchor(top: nameLabel.bottomAnchor, left: leftAnchor, right: rightAnchor, paddingTop: 12, paddingLeft: 24, paddingRight: 24)
@@ -150,12 +148,12 @@ class ProfileHeader: UICollectionReusableView {
         editProfileFollowButton.setTitle(viewModel.followButtonText, for: .normal)
         editProfileFollowButton.setTitleColor(viewModel.followButtonTextColor, for: .normal)
         editProfileFollowButton.backgroundColor = viewModel.followButtonBackgroundColor
+        
+        postsLabel.attributedText = viewModel.numberOfPosts
+        followersLabel.attributedText = viewModel.numberOfFollowers
+        followingLabel.attributedText = viewModel.numberOfFollowing
     }
 
-    func attributedStatText(value: Int, label: String) -> NSAttributedString {
-        let attributedText = NSMutableAttributedString(string: "\(value)\n", attributes: [.font: UIFont.boldSystemFont(ofSize: 14)])
-        attributedText.append(NSAttributedString(string: label, attributes: [.font: UIFont.systemFont(ofSize: 14), .foregroundColor: UIColor.lightGray]))
-        return attributedText
-    }
+
 
 }

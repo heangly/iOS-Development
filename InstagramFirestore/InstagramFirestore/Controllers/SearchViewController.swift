@@ -46,7 +46,10 @@ class SearchViewController: UITableViewController {
     func fetchUsers() {
         UserService.fetchUsers { users in
             self.users = users
-            self.tableView.reloadData()
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+            
         }
     }
 }
@@ -72,7 +75,9 @@ extension SearchViewController {
         let controller = ProfileViewController(collectionViewLayout: UICollectionViewFlowLayout())
         let otherUserID = inSearchMode ? filteredUsers[indexPath.row].uid : users[indexPath.row].uid
         controller.otherUserProfileID = otherUserID
-        navigationController?.pushViewController(controller, animated: true)
+        DispatchQueue.main.async {
+            self.navigationController?.pushViewController(controller, animated: true)
+        }
     }
 }
 

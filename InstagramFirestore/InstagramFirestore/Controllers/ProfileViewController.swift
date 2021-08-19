@@ -12,9 +12,7 @@ private let headerIdeentifier = "ProfileHeader"
 
 class ProfileViewController: UICollectionViewController {
     //MARK: - Properties
-    var user: User? {
-        didSet { collectionView.reloadData() }
-    }
+    var user: User?
 
     var otherUserProfileID: String? {
         didSet { fetchOtherUserProfile() }
@@ -35,10 +33,18 @@ class ProfileViewController: UICollectionViewController {
     }
 
     //MARK: - API
+    func fetchUserStats(uid: String){
+        UserService.fetchUserStats(uid: uid) { (stats) in
+            self.user?.stats = stats
+            self.collectionView.reloadData()
+        }
+    }
+    
     func fetchUser() {
         UserService.fetchUser { user in
             self.user = user
             self.navigationItem.title = user.username
+            self.collectionView.reloadData()
         }
     }
 
@@ -47,6 +53,18 @@ class ProfileViewController: UICollectionViewController {
         UserService.fetchUserWithID(id) { (user) in
             self.user = user
             self.navigationItem.title = user.username
+            self.checkIfUserIsFollowed(uid: user.uid)
+            self.fetchUserStats(uid: user.uid)
+        }
+    }
+
+    func checkIfUserIsFollowed(uid: String) {
+        UserService.checkIfUserIsFollowed(uid: uid) { isFollowed in
+            self.user?.isFollowed = isFollowed
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+
         }
     }
 }
@@ -109,10 +127,14 @@ extension ProfileViewController: ProfileHeaderDelegate {
         if user.isCurrentUser {
             print("DEBUG: show edit profile here...")
         } else if user.isFollowed {
-            print("DEBUG: handle unfollow user here")
+            UserService.unfollow(uid: user.uid) { error in
+                self.user?.isFollowed = false
+                self.collectionView.reloadData()
+            }
         } else {
             UserService.follow(uid: user.uid) { (error) in
-                print("DEBUG: Did follow user. Update UI now...")
+                self.user?.isFollowed = true
+                self.collectionView.reloadData()
             }
         }
     }
