@@ -38,7 +38,7 @@ class ProfileHeader: UICollectionReusableView {
 
     private let editProfileFollowButton: UIButton = {
         let btn = UIButton(type: .system)
-        btn.setTitle("Edit Profile", for: .normal)
+        btn.setTitle("Loading", for: .normal)
         btn.layer.cornerRadius = 3
         btn.layer.borderColor = UIColor.lightGray.cgColor
         btn.layer.borderWidth = 0.5
@@ -50,7 +50,6 @@ class ProfileHeader: UICollectionReusableView {
 
     private lazy var postsLabel: UILabel = {
         let label = UILabel()
-        label.attributedText = attributedStatText(value: 5, label: "posts")
         label.numberOfLines = 0
         label.textAlignment = .center
         return label
@@ -58,7 +57,6 @@ class ProfileHeader: UICollectionReusableView {
 
     private lazy var followersLabel: UILabel = {
         let label = UILabel()
-        label.attributedText = attributedStatText(value: 2, label: "followers")
         label.numberOfLines = 0
         label.textAlignment = .center
         return label
@@ -66,7 +64,6 @@ class ProfileHeader: UICollectionReusableView {
 
     private lazy var followingsLabel: UILabel = {
         let label = UILabel()
-        label.attributedText = attributedStatText(value: 1, label: "following")
         label.numberOfLines = 0
         label.textAlignment = .center
         return label
@@ -168,14 +165,14 @@ class ProfileHeader: UICollectionReusableView {
         profileImageView.sd_setImage(with: viewModel.profileImageUrl)
         editProfileFollowButton.setTitle(viewModel.followButtonText, for: .normal)
         editProfileFollowButton.setTitleColor(viewModel.followButtonTextColor, for: .normal)
-        editProfileFollowButton.backgroundColor = viewModel.followButtonBackgroundColorq
+        editProfileFollowButton.backgroundColor = viewModel.followButtonBackgroundColor
+        
+        postsLabel.attributedText = viewModel.numberOfPosts
+        followersLabel.attributedText = viewModel.numberOfFollowers
+        followingsLabel.attributedText = viewModel.numberOfFollowing
     }
 
 
-    func attributedStatText(value: Int, label: String) -> NSAttributedString {
-        let attributedText = NSMutableAttributedString(string: "\(value)\n", attributes: [.font: UIFont.boldSystemFont(ofSize: 14)])
-        attributedText.append(NSAttributedString(string: label, attributes: [.font: UIFont.systemFont(ofSize: 14), .foregroundColor: UIColor.lightGray]))
-        return attributedText
-    }
+
 }
 

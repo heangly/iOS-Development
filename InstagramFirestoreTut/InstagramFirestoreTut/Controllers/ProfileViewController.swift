@@ -11,9 +11,7 @@ private let cellIdentifer = "ProfileCell"
 private let headerIdentifier = "ProfileHeader"
 
 class ProfileViewController: UICollectionViewController {
-    var user: User? {
-        didSet { collectionView.reloadData() }
-    }
+    var user: User?
     
     var otherUserProfileId: String? {
         didSet { fetchUserWithId() }
@@ -32,10 +30,19 @@ class ProfileViewController: UICollectionViewController {
         collectionView.register(ProfileHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerIdentifier)
     }
 
+    //MARK: - API
+    func fetchUserStats(uid: String){
+        UserService.fetchUserStats(uid: uid) { (stats) in
+            self.user?.stats = stats
+            self.collectionView.reloadData()
+        }
+    }
+    
     func fetchUser() {
         UserService.fetchUser { (user) in
             self.user = user
             self.navigationItem.title = user.username
+            self.collectionView.reloadData()
         }
     }
     
@@ -43,6 +50,18 @@ class ProfileViewController: UICollectionViewController {
         UserService.fetchUserWithId(id: otherUserProfileId) { (user) in
             self.user = user
             self.navigationItem.title = user.username
+            self.checkIfUserIsFollowed(uid: user.uid)
+            self.fetchUserStats(uid: user.uid)
+            
+        }
+    }
+    
+    func checkIfUserIsFollowed(uid: String){
+        UserService.checkIfUserIsFollowed(uid: uid) { (isFollowed) in
+            self.user?.isFollowed  = isFollowed
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
         }
     }
 }
@@ -101,10 +120,16 @@ extension ProfileViewController: ProfileHeaderDelegate {
         if user.isCurrentUser{
             print("DEBUG: show edit profile here")
         }else if user.isFollowed{
-            print("Debug: handle unfollow")
+            UserService.unfollow(uid: user.uid) { (error) in
+                self.user?.isFollowed = false
+                self.collectionView.reloadData()
+                self.fetchUserStats(uid: user.uid)
+            }
         }else{
             UserService.follow(uid: user.uid) { (error) in
-                print("DEBUG: did follow user.. Updating UI ....")
+                self.user?.isFollowed = true
+                self.collectionView.reloadData()
+                self.fetchUserStats(uid: user.uid)
             }
         }
     }
