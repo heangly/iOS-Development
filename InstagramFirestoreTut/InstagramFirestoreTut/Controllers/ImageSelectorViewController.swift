@@ -10,6 +10,6 @@ import UIKit
 class ImageSelectorViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemTeal
+        view.backgroundColor = .systemBackground
     }
 }

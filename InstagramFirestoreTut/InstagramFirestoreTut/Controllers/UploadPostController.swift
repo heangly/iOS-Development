@@ -19,9 +19,12 @@ class UploadPostController: UIViewController {
         return iv
     }()
     
-    private let captionTextView: UITextView = {
-        let tv = UITextView()
+    private lazy var captionTextView: InputTextView = {
+        let tv = InputTextView()
         tv.translatesAutoresizingMaskIntoConstraints = false
+        tv.placeholderText = "Enter caption..."
+        tv.font = UIFont.systemFont(ofSize: 16)
+        tv.delegate = self
         return tv
     }()
     
@@ -47,6 +50,12 @@ class UploadPostController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Share", style: .plain, target: self, action: #selector(didTapDone))
         
         handleAddSubViewsAndConstraint()
+    }
+    
+    func checkMaxLength(_ textView: UITextView){
+        if textView.text.count > 100 {
+            textView.deleteBackward()
+        }
     }
     
     //MARK: - Actions
@@ -79,5 +88,15 @@ class UploadPostController: UIViewController {
 
                    ])
 
+    }
+}
+
+
+//MARK: - UITextFieldDelegate
+extension UploadPostController: UITextViewDelegate {
+    func textViewDidChange(_ textView: UITextView) {
+        checkMaxLength(textView)
+        let count = textView.text.count
+        characterCountLabel.text = "\(count)/100"
     }
 }

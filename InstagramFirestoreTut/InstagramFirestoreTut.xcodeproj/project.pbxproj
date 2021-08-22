@@ -20,7 +20,7 @@
 		71A1810626C6B3AF002899B9 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A1810526C6B3AF002899B9 /* ProfileCell.swift */; };
 		71A1810A26C6B3D3002899B9 /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A1810926C6B3D3002899B9 /* ProfileHeader.swift */; };
 		71AA9ADA26D153F700E5EEB1 /* UploadPostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AA9AD926D153F700E5EEB1 /* UploadPostController.swift */; };
-		71AA9ADD26D1561800E5EEB1 /* InputTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AA9ADC26D1561800E5EEB1 /* InputTextField.swift */; };
+		71AA9ADD26D1561800E5EEB1 /* InputTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AA9ADC26D1561800E5EEB1 /* InputTextView.swift */; };
 		71C309F926C1848900EB29B0 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C309F826C1848900EB29B0 /* CustomTextField.swift */; };
 		71D54E6326C173ED00A7D5EF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D54E6226C173ED00A7D5EF /* LoginViewController.swift */; };
 		71D54E6726C173FB00A7D5EF /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D54E6626C173FB00A7D5EF /* RegistrationViewController.swift */; };
@@ -55,7 +55,7 @@
 		71A1810526C6B3AF002899B9 /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
 		71A1810926C6B3D3002899B9 /* ProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeader.swift; sourceTree = "<group>"; };
 		71AA9AD926D153F700E5EEB1 /* UploadPostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPostController.swift; sourceTree = "<group>"; };
-		71AA9ADC26D1561800E5EEB1 /* InputTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTextField.swift; sourceTree = "<group>"; };
+		71AA9ADC26D1561800E5EEB1 /* InputTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTextView.swift; sourceTree = "<group>"; };
 		71C309F826C1848900EB29B0 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		71D54E6226C173ED00A7D5EF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		71D54E6626C173FB00A7D5EF /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
@@ -209,7 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				71029CC426C0832300EA08F4 /* Extensions.swift */,
-				71AA9ADC26D1561800E5EEB1 /* InputTextField.swift */,
+				71AA9ADC26D1561800E5EEB1 /* InputTextView.swift */,
 				71D5900926C98431006F38A2 /* Constants.swift */,
 			);
 			path = Utils;
@@ -368,7 +368,7 @@
 				71D5901326C98616006F38A2 /* ProfileHeaderViewModel.swift in Sources */,
 				71D5900D26C98489006F38A2 /* UserService.swift in Sources */,
 				714657FF26C542D000C4DCEF /* ImageUploader.swift in Sources */,
-				71AA9ADD26D1561800E5EEB1 /* InputTextField.swift in Sources */,
+				71AA9ADD26D1561800E5EEB1 /* InputTextView.swift in Sources */,
 				71029CC226C0821B00EA08F4 /* FeedCell.swift in Sources */,
 				71D54E6326C173ED00A7D5EF /* LoginViewController.swift in Sources */,
 				71D5901026C984BC006F38A2 /* User.swift in Sources */,
