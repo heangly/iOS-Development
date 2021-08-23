@@ -26,6 +26,8 @@
 		716AC9D326BEDE4500AE02B0 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716AC9D226BEDE4500AE02B0 /* ProfileViewController.swift */; };
 		718610D226C4246B00AF4B57 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 718610D126C4246B00AF4B57 /* GoogleService-Info.plist */; };
 		719430A726C2A98700F28E13 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719430A626C2A98700F28E13 /* AuthenticationViewModel.swift */; };
+		719DC43726D3DA4D003117EA /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719DC43626D3DA4D003117EA /* Post.swift */; };
+		719DC43A26D43076003117EA /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719DC43926D43076003117EA /* PostViewModel.swift */; };
 		71A6CA3626CD22140079E028 /* UserCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A6CA3526CD22140079E028 /* UserCellViewModel.swift */; };
 		71A87AD826CBD2C1002A945C /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A87AD726CBD2C1002A945C /* UserCell.swift */; };
 		71BD0A6826D28D8500AA7788 /* PostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BD0A6726D28D8500AA7788 /* PostService.swift */; };
@@ -62,6 +64,8 @@
 		716AC9D226BEDE4500AE02B0 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		718610D126C4246B00AF4B57 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		719430A626C2A98700F28E13 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
+		719DC43626D3DA4D003117EA /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		719DC43926D43076003117EA /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
 		71A6CA3526CD22140079E028 /* UserCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCellViewModel.swift; sourceTree = "<group>"; };
 		71A87AD726CBD2C1002A945C /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		71BD0A6726D28D8500AA7788 /* PostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostService.swift; sourceTree = "<group>"; };
@@ -143,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				714E4E1826C93E31004A9B48 /* User.swift */,
+				719DC43626D3DA4D003117EA /* Post.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -180,6 +185,7 @@
 				719430A626C2A98700F28E13 /* AuthenticationViewModel.swift */,
 				71FAC33826CA793B0075DDA1 /* ProfileHeaderViewModel.swift */,
 				71A6CA3526CD22140079E028 /* UserCellViewModel.swift */,
+				719DC43926D43076003117EA /* PostViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -354,6 +360,7 @@
 				71C1EDCF26C157F5001B4E34 /* LoginViewController.swift in Sources */,
 				71DFEE6F26D1496700AAD015 /* UploadPostController.swift in Sources */,
 				714657F626C53AE400C4DCEF /* ImageUploader.swift in Sources */,
+				719DC43A26D43076003117EA /* PostViewModel.swift in Sources */,
 				719430A726C2A98700F28E13 /* AuthenticationViewModel.swift in Sources */,
 				71A6CA3626CD22140079E028 /* UserCellViewModel.swift in Sources */,
 				71C1EDD426C15808001B4E34 /* RegisterationViewController.swift in Sources */,
@@ -368,6 +375,7 @@
 				71BD0A6826D28D8500AA7788 /* PostService.swift in Sources */,
 				714E4E1326C93976004A9B48 /* UserService.swift in Sources */,
 				716AC9CC26BEDE2100AE02B0 /* ImageSelectorViewController.swift in Sources */,
+				719DC43726D3DA4D003117EA /* Post.swift in Sources */,
 				714E4E1626C939DE004A9B48 /* Constants.swift in Sources */,
 				716AC9D326BEDE4500AE02B0 /* ProfileViewController.swift in Sources */,
 				711D6C2626BEAEBE0013E9FC /* SceneDelegate.swift in Sources */,
