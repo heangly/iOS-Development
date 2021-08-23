@@ -17,6 +17,8 @@
 		714657FF26C542D000C4DCEF /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714657FE26C542D000C4DCEF /* ImageUploader.swift */; };
 		715EA91B26C2B6F1006B8871 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715EA91A26C2B6F1006B8871 /* AuthenticationViewModel.swift */; };
 		716F11F826D2A94A00D274F0 /* PostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716F11F726D2A94A00D274F0 /* PostService.swift */; };
+		717CA0A226D434C5004D05E5 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717CA0A126D434C5004D05E5 /* Post.swift */; };
+		717CA0A526D4358D004D05E5 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717CA0A426D4358D004D05E5 /* PostViewModel.swift */; };
 		71992B6026C43F3F0010B70C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 71992B5F26C43F3F0010B70C /* GoogleService-Info.plist */; };
 		71A1810626C6B3AF002899B9 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A1810526C6B3AF002899B9 /* ProfileCell.swift */; };
 		71A1810A26C6B3D3002899B9 /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A1810926C6B3D3002899B9 /* ProfileHeader.swift */; };
@@ -53,6 +55,8 @@
 		714657FE26C542D000C4DCEF /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
 		715EA91A26C2B6F1006B8871 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		716F11F726D2A94A00D274F0 /* PostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostService.swift; sourceTree = "<group>"; };
+		717CA0A126D434C5004D05E5 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		717CA0A426D4358D004D05E5 /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
 		71992B5F26C43F3F0010B70C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		71A1810526C6B3AF002899B9 /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
 		71A1810926C6B3D3002899B9 /* ProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeader.swift; sourceTree = "<group>"; };
@@ -145,6 +149,7 @@
 			children = (
 				715EA91A26C2B6F1006B8871 /* AuthenticationViewModel.swift */,
 				71D5900F26C984BC006F38A2 /* User.swift */,
+				717CA0A126D434C5004D05E5 /* Post.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -177,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				71D5901226C98616006F38A2 /* ProfileHeaderViewModel.swift */,
+				717CA0A426D4358D004D05E5 /* PostViewModel.swift */,
 				7134E38D26CD39DB0033B70D /* UserCellViewModel.swift */,
 			);
 			path = ViewModels;
@@ -368,10 +374,12 @@
 				716F11F826D2A94A00D274F0 /* PostService.swift in Sources */,
 				71F3F6ED26BEEAB900619F53 /* ProfileViewController.swift in Sources */,
 				71F3F6E726BEEA9900619F53 /* ImageSelectorViewController.swift in Sources */,
+				717CA0A226D434C5004D05E5 /* Post.swift in Sources */,
 				714657FC26C5417E00C4DCEF /* AuthService.swift in Sources */,
 				71D5901326C98616006F38A2 /* ProfileHeaderViewModel.swift in Sources */,
 				71D5900D26C98489006F38A2 /* UserService.swift in Sources */,
 				714657FF26C542D000C4DCEF /* ImageUploader.swift in Sources */,
+				717CA0A526D4358D004D05E5 /* PostViewModel.swift in Sources */,
 				71AA9ADD26D1561800E5EEB1 /* InputTextView.swift in Sources */,
 				71029CC226C0821B00EA08F4 /* FeedCell.swift in Sources */,
 				71D54E6326C173ED00A7D5EF /* LoginViewController.swift in Sources */,
