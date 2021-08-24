@@ -23,9 +23,19 @@ class FeedViewController: UICollectionViewController {
         collectionView.backgroundColor = .systemBackground
         collectionView.register(FeedCell.self, forCellWithReuseIdentifier: reusableCell)
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(handleLogout))
+        navigationController?.title = "Feed"
+        
+        let refresher = UIRefreshControl()
+        refresher.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
+        collectionView.refreshControl = refresher
     }
 
     //MARK: - Actions
+    @objc func handleRefresh(){
+        posts.removeAll()
+        fetchPosts()
+    }
+    
     @objc func handleLogout() {
         do {
             try Auth.auth().signOut()
@@ -41,6 +51,7 @@ class FeedViewController: UICollectionViewController {
     func fetchPosts(){
         PostService.fetchPost { posts in
             self.posts = posts
+            self.collectionView.refreshControl?.endRefreshing()
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
             }
