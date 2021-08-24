@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 protocol UploadPostControllerDelegate: class {
     func controllerDidFinishUploadingPost(_ controller: UploadPostController)
@@ -14,7 +15,9 @@ protocol UploadPostControllerDelegate: class {
 class UploadPostController: UIViewController {
     //MARK: - Properties
     weak var delegate: UploadPostControllerDelegate?
-    
+
+    private var user: User?
+
     var selectedImage: UIImage? {
         didSet { photoImageView.image = selectedImage }
     }
@@ -50,6 +53,14 @@ class UploadPostController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        fetchCurrentUser()
+    }
+
+    //MARK: - API
+    func fetchCurrentUser() {
+        UserService.fetchUser { user in
+            self.user = user
+        }
     }
 
     //MARK: - Helpers
@@ -78,17 +89,17 @@ class UploadPostController: UIViewController {
     @objc func didTapDone() {
         guard let image = selectedImage else { return }
         guard let caption = captionTextView.text else { return }
+        guard let user = user else { return }
         showLoader(true)
-        PostService.uploadPost(caption: caption, image: image) { error in
+        PostService.uploadPost(caption: caption, image: image, user: user) { error in
             self.showLoader(false)
-            
+
             if let error = error {
                 print("DEBUG: Failed to upload post with error: \(error.localizedDescription)")
                 return
             }
 
             self.delegate?.controllerDidFinishUploadingPost(self)
-            
         }
     }
 

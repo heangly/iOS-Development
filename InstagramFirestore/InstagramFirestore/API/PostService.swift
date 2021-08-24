@@ -9,7 +9,7 @@ import UIKit
 import Firebase
 
 struct PostService {
-    static func uploadPost(caption: String, image: UIImage, completion: @escaping(FirestoreCompletion)) {
+    static func uploadPost(caption: String, image: UIImage, user: User, completion: @escaping(FirestoreCompletion)) {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         ImageUploader.uploadImage(image: image) { imageUrl in
             let data: [String: Any] = [
@@ -17,7 +17,9 @@ struct PostService {
                 "timestamp": Timestamp(date: Date()),
                 "likes": 0,
                 "imageUrl": imageUrl,
-                "ownerUid": uid
+                "ownerUid": uid,
+                "ownerUsername": user.username,
+                "ownerImageUrl": user.profileImageUrl
             ]
             COLLECTION_POSTS.addDocument(data: data, completion: completion)
         }

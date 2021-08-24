@@ -13,7 +13,7 @@ private let reuseIdentifier = "Cell"
 class FeedViewController: UICollectionViewController {
     //MARK: - Lifecycle
     private var posts = [Post]()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
@@ -40,9 +40,9 @@ class FeedViewController: UICollectionViewController {
             print("DEBUG: Failed to sign out")
         }
     }
-    
+
     //MARK: - API
-    func fetchPosts(){
+    func fetchPosts() {
         PostService.fetchPosts { posts in
             self.posts = posts
             DispatchQueue.main.async {
@@ -50,7 +50,7 @@ class FeedViewController: UICollectionViewController {
             }
         }
     }
-    
+
 }
 
 
