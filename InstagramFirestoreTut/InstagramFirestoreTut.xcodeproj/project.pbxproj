@@ -22,6 +22,8 @@
 		71992B6026C43F3F0010B70C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 71992B5F26C43F3F0010B70C /* GoogleService-Info.plist */; };
 		71A1810626C6B3AF002899B9 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A1810526C6B3AF002899B9 /* ProfileCell.swift */; };
 		71A1810A26C6B3D3002899B9 /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A1810926C6B3D3002899B9 /* ProfileHeader.swift */; };
+		71A5A77B26D68B9C007F6C52 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A5A77A26D68B9C007F6C52 /* CommentViewController.swift */; };
+		71A5A77E26D68BCA007F6C52 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A5A77D26D68BCA007F6C52 /* CommentCell.swift */; };
 		71AA9ADA26D153F700E5EEB1 /* UploadPostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AA9AD926D153F700E5EEB1 /* UploadPostController.swift */; };
 		71AA9ADD26D1561800E5EEB1 /* InputTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AA9ADC26D1561800E5EEB1 /* InputTextView.swift */; };
 		71C309F926C1848900EB29B0 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C309F826C1848900EB29B0 /* CustomTextField.swift */; };
@@ -60,6 +62,8 @@
 		71992B5F26C43F3F0010B70C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		71A1810526C6B3AF002899B9 /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
 		71A1810926C6B3D3002899B9 /* ProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeader.swift; sourceTree = "<group>"; };
+		71A5A77A26D68B9C007F6C52 /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
+		71A5A77D26D68BCA007F6C52 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		71AA9AD926D153F700E5EEB1 /* UploadPostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPostController.swift; sourceTree = "<group>"; };
 		71AA9ADC26D1561800E5EEB1 /* InputTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTextView.swift; sourceTree = "<group>"; };
 		71C309F826C1848900EB29B0 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
@@ -174,6 +178,7 @@
 				71029CC126C0821B00EA08F4 /* FeedCell.swift */,
 				71C309F826C1848900EB29B0 /* CustomTextField.swift */,
 				7136F1AE26CBDA6400D4C04C /* UserCell.swift */,
+				71A5A77D26D68BCA007F6C52 /* CommentCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -195,6 +200,7 @@
 				71F3F6DD26BEE9E900619F53 /* MainTabTableViewController.swift */,
 				71F3F6E026BEEA0B00619F53 /* FeedViewController.swift */,
 				71AA9AD926D153F700E5EEB1 /* UploadPostController.swift */,
+				71A5A77A26D68B9C007F6C52 /* CommentViewController.swift */,
 				71F3F6E326BEEA8100619F53 /* SearchViewController.swift */,
 				71F3F6E626BEEA9900619F53 /* ImageSelectorViewController.swift */,
 				71F3F6E926BEEAAB00619F53 /* NotificationViewController.swift */,
@@ -375,12 +381,14 @@
 				71F3F6ED26BEEAB900619F53 /* ProfileViewController.swift in Sources */,
 				71F3F6E726BEEA9900619F53 /* ImageSelectorViewController.swift in Sources */,
 				717CA0A226D434C5004D05E5 /* Post.swift in Sources */,
+				71A5A77B26D68B9C007F6C52 /* CommentViewController.swift in Sources */,
 				714657FC26C5417E00C4DCEF /* AuthService.swift in Sources */,
 				71D5901326C98616006F38A2 /* ProfileHeaderViewModel.swift in Sources */,
 				71D5900D26C98489006F38A2 /* UserService.swift in Sources */,
 				714657FF26C542D000C4DCEF /* ImageUploader.swift in Sources */,
 				717CA0A526D4358D004D05E5 /* PostViewModel.swift in Sources */,
 				71AA9ADD26D1561800E5EEB1 /* InputTextView.swift in Sources */,
+				71A5A77E26D68BCA007F6C52 /* CommentCell.swift in Sources */,
 				71029CC226C0821B00EA08F4 /* FeedCell.swift in Sources */,
 				71D54E6326C173ED00A7D5EF /* LoginViewController.swift in Sources */,
 				71D5901026C984BC006F38A2 /* User.swift in Sources */,
