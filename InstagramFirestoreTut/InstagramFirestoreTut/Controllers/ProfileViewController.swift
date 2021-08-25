@@ -12,15 +12,17 @@ private let headerIdentifier = "ProfileHeader"
 
 class ProfileViewController: UICollectionViewController {
     var user: User?
-    
+    private var posts = [Post]()
+
     var otherUserProfileId: String? {
         didSet { fetchUserWithId() }
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
         fetchUser()
+        fetchPosts()
     }
 
     //MARK: - Helpers
@@ -31,34 +33,53 @@ class ProfileViewController: UICollectionViewController {
     }
 
     //MARK: - API
-    func fetchUserStats(uid: String){
+    func fetchUserStats(uid: String) {
         UserService.fetchUserStats(uid: uid) { (stats) in
             self.user?.stats = stats
             self.collectionView.reloadData()
         }
     }
-    
+
     func fetchUser() {
         UserService.fetchUser { (user) in
             self.user = user
             self.navigationItem.title = user.username
+            self.fetchUserStats(uid: user.uid)
             self.collectionView.reloadData()
         }
     }
-    
-    func fetchUserWithId(){
+
+    func fetchUserWithId() {
         UserService.fetchUserWithId(id: otherUserProfileId) { (user) in
             self.user = user
             self.navigationItem.title = user.username
             self.checkIfUserIsFollowed(uid: user.uid)
             self.fetchUserStats(uid: user.uid)
-            
+
         }
     }
-    
-    func checkIfUserIsFollowed(uid: String){
+
+    func fetchPosts() {
+        if let id = otherUserProfileId {
+            UserService.fetchUserWithId(id: id) { user in
+                PostService.fetchPosts(forUser: user.uid) { posts in
+                    self.posts = posts
+                    self.collectionView.reloadData()
+                }
+            }
+        } else {
+            UserService.fetchUser() { user in
+                PostService.fetchPosts(forUser: user.uid) { posts in
+                    self.posts = posts
+                    self.collectionView.reloadData()
+                }
+            }
+        }
+    }
+
+    func checkIfUserIsFollowed(uid: String) {
         UserService.checkIfUserIsFollowed(uid: uid) { (isFollowed) in
-            self.user?.isFollowed  = isFollowed
+            self.user?.isFollowed = isFollowed
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
             }
@@ -69,20 +90,22 @@ class ProfileViewController: UICollectionViewController {
 // UICollectionView Datasource
 extension ProfileViewController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 9
+        return posts.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifer, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifer, for: indexPath) as! ProfileCell
+        cell.viewModel = PostViewModel(post: posts[indexPath.row])
         return cell
     }
 
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerIdentifier, for: indexPath) as! ProfileHeader
-        
+
         if let user = user {
             header.viewModel = ProfileHeaderViewModel(user: user)
         }
+
         header.delegate = self
         return header
     }
@@ -91,7 +114,11 @@ extension ProfileViewController {
 
 //MARK: - UICollectionView Delegate
 extension ProfileViewController {
-
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let controller = FeedViewController(collectionViewLayout: UICollectionViewFlowLayout())
+        controller.post = posts[indexPath.row]
+        navigationController?.pushViewController(controller, animated: true)
+    }
 }
 
 //MARK: - UIcollectionViewDelegateFlowLayout
@@ -117,15 +144,15 @@ extension ProfileViewController: UICollectionViewDelegateFlowLayout {
 //MARK: - ProfileHeaderDelegate
 extension ProfileViewController: ProfileHeaderDelegate {
     func header(_ profileHeader: ProfileHeader, didTapActionButtonFor user: User) {
-        if user.isCurrentUser{
+        if user.isCurrentUser {
             print("DEBUG: show edit profile here")
-        }else if user.isFollowed{
+        } else if user.isFollowed {
             UserService.unfollow(uid: user.uid) { (error) in
                 self.user?.isFollowed = false
                 self.collectionView.reloadData()
                 self.fetchUserStats(uid: user.uid)
             }
-        }else{
+        } else {
             UserService.follow(uid: user.uid) { (error) in
                 self.user?.isFollowed = true
                 self.collectionView.reloadData()
@@ -133,6 +160,6 @@ extension ProfileViewController: ProfileHeaderDelegate {
             }
         }
     }
-    
-    
+
+
 }
