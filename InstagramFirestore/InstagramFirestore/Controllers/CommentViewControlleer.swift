@@ -11,6 +11,10 @@ private let reuseIdentifier = "CommentCell"
 
 class CommentViewController: UICollectionViewController {
     //MARK: - Properties
+    private let post: Post
+    private var user: User?
+    private var comments = [Comment]()
+
     private lazy var commentInputView: CommentInputAccessoryView = {
         let frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 80)
         let cv = CommentInputAccessoryView(frame: frame)
@@ -18,10 +22,22 @@ class CommentViewController: UICollectionViewController {
         return cv
     }()
 
+    //MARK: - Lifecyle
+    init(post: Post) {
+        self.post = post
+        super.init(collectionViewLayout: UICollectionViewFlowLayout())
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        fetchUser()
+        fetchComments()
     }
 
     override var inputAccessoryView: UIView? {
@@ -29,18 +45,18 @@ class CommentViewController: UICollectionViewController {
     }
 
     override var canBecomeFirstResponder: Bool { return true }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tabBarController?.tabBar.isHidden = true
     }
 
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         tabBarController?.tabBar.isHidden = false
     }
-    
+
     //MARK: - helper
     func configureUI() {
         title = "Comments"
@@ -50,12 +66,28 @@ class CommentViewController: UICollectionViewController {
         collectionView.keyboardDismissMode = .interactive
     }
 
+    //MARK: - API
+    func fetchUser() {
+        UserService.fetchUser { user in
+            self.user = user
+        }
+    }
+    
+    func fetchComments(){
+        CommentService.fetchComments(forPost: post.postId) { comments in
+            self.comments = comments
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
+    }
+
 }
 
 //MARK: - UICollectionViewDatasource
 extension CommentViewController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return comments.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -75,6 +107,17 @@ extension CommentViewController: UICollectionViewDelegateFlowLayout {
 //MARK: - UICollectionViewDelegateDelegate
 extension CommentViewController: CommentInputAccessoryViewDelegate {
     func inputView(_ inputView: CommentInputAccessoryView, wantsToUploadComment comment: String) {
-        inputView.clearCommentTextView()
+
+        guard let user = user else { return }
+        
+        showLoader(true)
+        
+        print("POST", post)
+        
+        CommentService.uploadComment(comment: comment, postID: post.postId, user: user) { error in
+            self.showLoader(false)
+            inputView.clearCommentTextView()
+        }
     }
 }
+

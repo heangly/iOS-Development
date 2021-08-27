@@ -14,6 +14,8 @@
 		711D6C2626BEAEBE0013E9FC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711D6C2526BEAEBE0013E9FC /* SceneDelegate.swift */; };
 		711D6C2826BEAEBE0013E9FC /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711D6C2726BEAEBE0013E9FC /* MainTabViewController.swift */; };
 		711D6C3026BEAEBE0013E9FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 711D6C2E26BEAEBE0013E9FC /* LaunchScreen.storyboard */; };
+		7130B68A26D8F9B900208453 /* CommentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7130B68926D8F9B900208453 /* CommentService.swift */; };
+		7130B68D26D9014300208453 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7130B68C26D9014300208453 /* Comment.swift */; };
 		7133094826D7B07200E58868 /* CommentInputAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7133094726D7B07200E58868 /* CommentInputAccessoryView.swift */; };
 		714657F626C53AE400C4DCEF /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714657F526C53AE400C4DCEF /* ImageUploader.swift */; };
 		714657F926C53AF300C4DCEF /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714657F826C53AF300C4DCEF /* AuthService.swift */; };
@@ -55,6 +57,8 @@
 		711D6C2726BEAEBE0013E9FC /* MainTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
 		711D6C2F26BEAEBE0013E9FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		711D6C3126BEAEBE0013E9FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = InstagramFirestore/Resources/Info.plist; sourceTree = SOURCE_ROOT; };
+		7130B68926D8F9B900208453 /* CommentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentService.swift; sourceTree = "<group>"; };
+		7130B68C26D9014300208453 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		7133094726D7B07200E58868 /* CommentInputAccessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentInputAccessoryView.swift; sourceTree = "<group>"; };
 		714657F526C53AE400C4DCEF /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
 		714657F826C53AF300C4DCEF /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
@@ -153,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				714E4E1826C93E31004A9B48 /* User.swift */,
+				7130B68C26D9014300208453 /* Comment.swift */,
 				719DC43626D3DA4D003117EA /* Post.swift */,
 			);
 			path = Models;
@@ -217,6 +222,7 @@
 				714657F526C53AE400C4DCEF /* ImageUploader.swift */,
 				714E4E1226C93976004A9B48 /* UserService.swift */,
 				714657F826C53AF300C4DCEF /* AuthService.swift */,
+				7130B68926D8F9B900208453 /* CommentService.swift */,
 				71BD0A6726D28D8500AA7788 /* PostService.swift */,
 			);
 			path = API;
@@ -369,6 +375,7 @@
 				71C1EDCF26C157F5001B4E34 /* LoginViewController.swift in Sources */,
 				71DFEE6F26D1496700AAD015 /* UploadPostController.swift in Sources */,
 				7133094826D7B07200E58868 /* CommentInputAccessoryView.swift in Sources */,
+				7130B68D26D9014300208453 /* Comment.swift in Sources */,
 				714657F626C53AE400C4DCEF /* ImageUploader.swift in Sources */,
 				719DC43A26D43076003117EA /* PostViewModel.swift in Sources */,
 				719430A726C2A98700F28E13 /* AuthenticationViewModel.swift in Sources */,
@@ -383,6 +390,7 @@
 				716AC9C626BEDDF700AE02B0 /* FeedViewController.swift in Sources */,
 				71029CBB26C0455300EA08F4 /* Extensions.swift in Sources */,
 				71BD0A6826D28D8500AA7788 /* PostService.swift in Sources */,
+				7130B68A26D8F9B900208453 /* CommentService.swift in Sources */,
 				714E4E1326C93976004A9B48 /* UserService.swift in Sources */,
 				716AC9CC26BEDE2100AE02B0 /* ImageSelectorViewController.swift in Sources */,
 				719DC43726D3DA4D003117EA /* Post.swift in Sources */,

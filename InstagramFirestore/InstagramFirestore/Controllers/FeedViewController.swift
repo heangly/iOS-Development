@@ -58,7 +58,6 @@ class FeedViewController: UICollectionViewController {
 
     //MARK: - API
     func fetchPosts() {
-        print(post)
         guard post == nil else { return }
 
         PostService.fetchPosts { posts in
@@ -111,7 +110,7 @@ extension FeedViewController: FeedCellDelegate {
     func cell(_ cell: FeedCell, wantsToShowCommentsFor post: Post) {
         let layout = UICollectionViewFlowLayout()
         layout.estimatedItemSize = CGSize(width: 1, height: 1)
-        let controller = CommentViewController(collectionViewLayout: layout)
+        let controller = CommentViewController(post: post)
         navigationController?.pushViewController(controller, animated: true)
     }
 }
