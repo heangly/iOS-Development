@@ -13,6 +13,8 @@
 		7134E38E26CD39DB0033B70D /* UserCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7134E38D26CD39DB0033B70D /* UserCellViewModel.swift */; };
 		7136F1AF26CBDA6400D4C04C /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7136F1AE26CBDA6400D4C04C /* UserCell.swift */; };
 		713BC40E26C17376006034FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 713BC40D26C17376006034FD /* Assets.xcassets */; };
+		71440E8526D907EE00D2D1FE /* CommentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71440E8426D907EE00D2D1FE /* CommentService.swift */; };
+		71440E8826D90AD200D2D1FE /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71440E8726D90AD200D2D1FE /* Comment.swift */; };
 		714657FC26C5417E00C4DCEF /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714657FB26C5417E00C4DCEF /* AuthService.swift */; };
 		714657FF26C542D000C4DCEF /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714657FE26C542D000C4DCEF /* ImageUploader.swift */; };
 		715EA91B26C2B6F1006B8871 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715EA91A26C2B6F1006B8871 /* AuthenticationViewModel.swift */; };
@@ -54,6 +56,8 @@
 		7134E38D26CD39DB0033B70D /* UserCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCellViewModel.swift; sourceTree = "<group>"; };
 		7136F1AE26CBDA6400D4C04C /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		713BC40D26C17376006034FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		71440E8426D907EE00D2D1FE /* CommentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentService.swift; sourceTree = "<group>"; };
+		71440E8726D90AD200D2D1FE /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		714657FB26C5417E00C4DCEF /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		714657FE26C542D000C4DCEF /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
 		715EA91A26C2B6F1006B8871 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
@@ -154,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				715EA91A26C2B6F1006B8871 /* AuthenticationViewModel.swift */,
+				71440E8726D90AD200D2D1FE /* Comment.swift */,
 				71D5900F26C984BC006F38A2 /* User.swift */,
 				717CA0A126D434C5004D05E5 /* Post.swift */,
 			);
@@ -219,6 +224,7 @@
 				716F11F726D2A94A00D274F0 /* PostService.swift */,
 				71D5900C26C98489006F38A2 /* UserService.swift */,
 				714657FE26C542D000C4DCEF /* ImageUploader.swift */,
+				71440E8426D907EE00D2D1FE /* CommentService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -369,6 +375,7 @@
 				71AA9ADA26D153F700E5EEB1 /* UploadPostController.swift in Sources */,
 				71C309F926C1848900EB29B0 /* CustomTextField.swift in Sources */,
 				71F13F2E26D811E50007574B /* CommentInputAccessoryView.swift in Sources */,
+				71440E8826D90AD200D2D1FE /* Comment.swift in Sources */,
 				71F3F6BB26BEE89500619F53 /* AppDelegate.swift in Sources */,
 				715EA91B26C2B6F1006B8871 /* AuthenticationViewModel.swift in Sources */,
 				7134E38E26CD39DB0033B70D /* UserCellViewModel.swift in Sources */,
@@ -383,6 +390,7 @@
 				71F3F6E426BEEA8100619F53 /* SearchViewController.swift in Sources */,
 				716F11F826D2A94A00D274F0 /* PostService.swift in Sources */,
 				71F3F6ED26BEEAB900619F53 /* ProfileViewController.swift in Sources */,
+				71440E8526D907EE00D2D1FE /* CommentService.swift in Sources */,
 				71F3F6E726BEEA9900619F53 /* ImageSelectorViewController.swift in Sources */,
 				717CA0A226D434C5004D05E5 /* Post.swift in Sources */,
 				71A5A77B26D68B9C007F6C52 /* CommentViewController.swift in Sources */,
