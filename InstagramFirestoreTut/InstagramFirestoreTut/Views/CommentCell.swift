@@ -11,6 +11,8 @@ class CommentCell: UICollectionViewCell {
     static let reusuableIdentifier = "Comment Cell"
 
     //MARK: - Properties
+    var viewModel: CommentViewModel? { didSet { configure() } }
+
     private let profileImageView: UIImageView = {
         let iv = UIImageView()
         iv.contentMode = .scaleAspectFill
@@ -20,13 +22,7 @@ class CommentCell: UICollectionViewCell {
         return iv
     }()
 
-    private let commentLabel: UILabel = {
-        let lb = UILabel()
-        let attributeString = NSMutableAttributedString(string: "joker ", attributes: [.font: UIFont.boldSystemFont(ofSize: 14)])
-        attributeString.append(NSAttributedString(string: "Some test comment for now...", attributes: [.font: UIFont.systemFont(ofSize: 14)]))
-        lb.attributedText = attributeString
-        return lb
-    }()
+    private let commentLabel = UILabel()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -45,6 +41,8 @@ class CommentCell: UICollectionViewCell {
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
 
+        commentLabel.numberOfLines = 0
+
         let contraints = [
             profileImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
             profileImageView.leftAnchor.constraint(equalTo: layoutMarginsGuide.leftAnchor, constant: 8),
@@ -52,10 +50,17 @@ class CommentCell: UICollectionViewCell {
             profileImageView.heightAnchor.constraint(equalToConstant: 40),
 
             commentLabel.centerYAnchor.constraint(equalTo: profileImageView.centerYAnchor),
-            commentLabel.leftAnchor.constraint(equalTo: profileImageView.rightAnchor, constant: 8)
+            commentLabel.leftAnchor.constraint(equalTo: profileImageView.rightAnchor, constant: 8),
+            commentLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -8)
         ]
-        
+
         NSLayoutConstraint.activate(contraints)
+    }
+
+    func configure() {
+        guard let viewMode = viewModel else { return }
+        profileImageView.sd_setImage(with: viewMode.profileImageUrl)
+        commentLabel.attributedText = viewMode.commentLabelText()
     }
 
 }
