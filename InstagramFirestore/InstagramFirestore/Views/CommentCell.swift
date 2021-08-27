@@ -9,6 +9,10 @@ import UIKit
 
 class CommentCell: UICollectionViewCell {
     //MARK: - Properties
+    var viewModel: CommentViewModel? {
+        didSet { configure() }
+    }
+
     private let profileImageView: UIImageView = {
         let iv = UIImageView()
         iv.contentMode = .scaleAspectFill
@@ -18,14 +22,7 @@ class CommentCell: UICollectionViewCell {
         return iv
     }()
 
-    private let commentLabel: UILabel = {
-        let lb = UILabel()
-        let attributeString = NSMutableAttributedString(string: "joker ", attributes: [.font: UIFont.boldSystemFont(ofSize: 14)])
-        attributeString.append(NSAttributedString(string: "Some test comment for now...", attributes: [.font: UIFont.systemFont(ofSize: 14)]))
-        lb.attributedText = attributeString
-        return lb
-    }()
-
+    private let commentLabel = UILabel()
 
     //MARK: - Lifecycle
     override init(frame: CGRect) {
@@ -37,13 +34,15 @@ class CommentCell: UICollectionViewCell {
     }
 
     override func layoutSubviews() {
-      
+
         let allSubViews = [profileImageView, commentLabel]
-        
+
         allSubViews.forEach {
             addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
+        
+        commentLabel.numberOfLines = 0
 
         let contraints = [
             profileImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
@@ -53,11 +52,17 @@ class CommentCell: UICollectionViewCell {
 
             commentLabel.centerYAnchor.constraint(equalTo: profileImageView.centerYAnchor),
             commentLabel.leftAnchor.constraint(equalTo: profileImageView.rightAnchor, constant: 8),
+            commentLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -8),
         ]
 
         NSLayoutConstraint.activate(contraints)
     }
 
-
+    //MARK: - Helpers
+    func configure() {
+        guard let viewModel = viewModel else { return }
+        profileImageView.sd_setImage(with: viewModel.profileImageUrl)
+        commentLabel.attributedText = viewModel.commentLabelText()
+    }
 
 }

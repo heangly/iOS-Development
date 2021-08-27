@@ -30,9 +30,10 @@ struct CommentService {
                     let data = $0.document.data()
                     let comment = Comment(dictionary: data)
                     comments.append(comment)
+
                 }
             }
-            
+
             completion(comments)
         }
     }

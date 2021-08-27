@@ -25,7 +25,9 @@ class CommentViewController: UICollectionViewController {
     //MARK: - Lifecyle
     init(post: Post) {
         self.post = post
-        super.init(collectionViewLayout: UICollectionViewFlowLayout())
+        let layout = UICollectionViewFlowLayout()
+        layout.estimatedItemSize = CGSize(width: 1, height: 1)
+        super.init(collectionViewLayout: layout)
     }
 
     required init?(coder: NSCoder) {
@@ -72,8 +74,8 @@ class CommentViewController: UICollectionViewController {
             self.user = user
         }
     }
-    
-    func fetchComments(){
+
+    func fetchComments() {
         CommentService.fetchComments(forPost: post.postId) { comments in
             self.comments = comments
             DispatchQueue.main.async {
@@ -91,8 +93,18 @@ extension CommentViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! CommentCell
+        cell.viewModel = CommentViewModel(comment: comments[indexPath.row])
         return cell
+    }
+
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let uid = comments[indexPath.row].uid
+        let controller = ProfileViewController(collectionViewLayout: UICollectionViewFlowLayout())
+        controller.otherUserProfileID = uid
+        DispatchQueue.main.async {
+            self.navigationController?.pushViewController(controller, animated: true)
+        }
     }
 }
 
@@ -100,7 +112,9 @@ extension CommentViewController {
 //MARK: - UICollectionViewDelegateFlowLayout
 extension CommentViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: 80)
+        let viewModel = CommentViewModel(comment: comments[indexPath.row])
+        let height = viewModel.size(forWidth: view.frame.width).height + 32
+        return CGSize(width: view.frame.width, height: height)
     }
 }
 
@@ -109,11 +123,9 @@ extension CommentViewController: CommentInputAccessoryViewDelegate {
     func inputView(_ inputView: CommentInputAccessoryView, wantsToUploadComment comment: String) {
 
         guard let user = user else { return }
-        
+
         showLoader(true)
-        
-        print("POST", post)
-        
+
         CommentService.uploadComment(comment: comment, postID: post.postId, user: user) { error in
             self.showLoader(false)
             inputView.clearCommentTextView()
