@@ -8,7 +8,7 @@
 import Foundation
 
 struct PostViewModel {
-    let post: Post
+    var post: Post
     var imageUrl: URL? { return URL(string: post.imageUrl) }
     var caption: String { return post.caption }
     var likes: Int { return post.likes }
