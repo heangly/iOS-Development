@@ -14,7 +14,9 @@ class FeedViewController: UICollectionViewController {
 
     var post: Post?
 
-    private var posts = [Post]()
+    private var posts = [Post]() {
+        didSet { collectionView.reloadData() }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,8 +62,19 @@ class FeedViewController: UICollectionViewController {
         PostService.fetchPost { posts in
             self.posts = posts
             self.collectionView.refreshControl?.endRefreshing()
+            self.checkIfUserLikedPosts()
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
+            }
+        }
+    }
+
+    func checkIfUserLikedPosts() {
+        posts.forEach { post in
+            PostService.checkIfUserLikedPost(post: post) { didLike in
+                if let index = self.posts.firstIndex(where: { $0.postId == post.postId }) {
+                    self.posts[index].didLike = didLike
+                }
             }
         }
     }
@@ -76,13 +89,13 @@ extension FeedViewController: UICollectionViewDelegateFlowLayout {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reusableCell, for: indexPath) as! FeedCell
         cell.delegate = self
-        
+
         if let post = post {
             cell.viewModel = PostViewModel(post: post)
-        }else{
+        } else {
             cell.viewModel = PostViewModel(post: posts[indexPath.row])
         }
-   
+
         return cell
     }
 
@@ -96,22 +109,30 @@ extension FeedViewController: UICollectionViewDelegateFlowLayout {
 
 //MARK: - FeedCell Delegate
 extension FeedViewController: FeedCellDelegate {
+    func cell(_ cell: FeedCell, wantsToShowProfileFor uid: String) {
+        let controller = ProfileViewController(collectionViewLayout: UICollectionViewFlowLayout())
+        controller.otherUserProfileId = uid
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
+
     func cell(_ cell: FeedCell, wantsToShowCommentsFor post: Post) {
         let controller = CommentViewController(post: post)
         navigationController?.pushViewController(controller, animated: true)
     }
-    
-    func cell(_ cell: FeedCell,  didLike post: Post){
+
+    func cell(_ cell: FeedCell, didLike post: Post) {
         cell.viewModel?.post.didLike.toggle()
         if post.didLike {
             PostService.unlikePost(post: post) { _ in
                 cell.likeButton.setImage(#imageLiteral(resourceName: "like_unselected"), for: .normal)
                 cell.likeButton.tintColor = .black
+                cell.viewModel?.post.likes = post.likes - 1
             }
-        }else{
+        } else {
             PostService.likePost(post: post) { _ in
                 cell.likeButton.setImage(#imageLiteral(resourceName: "like_selected"), for: .normal)
                 cell.likeButton.tintColor = .red
+                cell.viewModel?.post.likes = post.likes + 1
             }
         }
     }
