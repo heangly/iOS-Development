@@ -17,6 +17,7 @@
 		7130B68A26D8F9B900208453 /* CommentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7130B68926D8F9B900208453 /* CommentService.swift */; };
 		7130B68D26D9014300208453 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7130B68C26D9014300208453 /* Comment.swift */; };
 		7133094826D7B07200E58868 /* CommentInputAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7133094726D7B07200E58868 /* CommentInputAccessoryView.swift */; };
+		71333B1A26DCFC8C00E09E72 /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71333B1926DCFC8C00E09E72 /* NotificationCell.swift */; };
 		714657F626C53AE400C4DCEF /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714657F526C53AE400C4DCEF /* ImageUploader.swift */; };
 		714657F926C53AF300C4DCEF /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714657F826C53AF300C4DCEF /* AuthService.swift */; };
 		714E4E1326C93976004A9B48 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714E4E1226C93976004A9B48 /* UserService.swift */; };
@@ -61,6 +62,7 @@
 		7130B68926D8F9B900208453 /* CommentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentService.swift; sourceTree = "<group>"; };
 		7130B68C26D9014300208453 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		7133094726D7B07200E58868 /* CommentInputAccessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentInputAccessoryView.swift; sourceTree = "<group>"; };
+		71333B1926DCFC8C00E09E72 /* NotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
 		714657F526C53AE400C4DCEF /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
 		714657F826C53AF300C4DCEF /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		714E4E1226C93976004A9B48 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				71EF9C4526C6A34100957372 /* Profile */,
 				71029CB626C044A500EA08F4 /* FeedCell.swift */,
 				71F1D0E526C17EE700E9265B /* CustomTextField.swift */,
+				71333B1926DCFC8C00E09E72 /* NotificationCell.swift */,
 				718A187D26D6772E0085A769 /* CommentCell.swift */,
 				7133094726D7B07200E58868 /* CommentInputAccessoryView.swift */,
 				711D6C2E26BEAEBE0013E9FC /* LaunchScreen.storyboard */,
@@ -401,6 +404,7 @@
 				718A187B26D675570085A769 /* CommentViewControlleer.swift in Sources */,
 				716AC9D326BEDE4500AE02B0 /* ProfileViewController.swift in Sources */,
 				711D6C2626BEAEBE0013E9FC /* SceneDelegate.swift in Sources */,
+				71333B1A26DCFC8C00E09E72 /* NotificationCell.swift in Sources */,
 				71029CB726C044A500EA08F4 /* FeedCell.swift in Sources */,
 				71FAC33926CA793B0075DDA1 /* ProfileHeaderViewModel.swift in Sources */,
 				718A187E26D6772E0085A769 /* CommentCell.swift in Sources */,
