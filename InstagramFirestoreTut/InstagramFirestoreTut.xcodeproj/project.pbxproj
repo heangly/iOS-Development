@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0908608AC46779D564C230A7 /* Pods_InstagramFirestoreTut.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B64C473A12A7E63042DC51B /* Pods_InstagramFirestoreTut.framework */; };
+		710045C026DE516400662BEF /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710045BF26DE516400662BEF /* NotificationService.swift */; };
+		710045C326DE520000662BEF /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710045C226DE520000662BEF /* Notification.swift */; };
 		71029CC226C0821B00EA08F4 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71029CC126C0821B00EA08F4 /* FeedCell.swift */; };
 		71029CC526C0832300EA08F4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71029CC426C0832300EA08F4 /* Extensions.swift */; };
 		7134E38E26CD39DB0033B70D /* UserCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7134E38D26CD39DB0033B70D /* UserCellViewModel.swift */; };
@@ -53,6 +55,8 @@
 		4B64C473A12A7E63042DC51B /* Pods_InstagramFirestoreTut.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InstagramFirestoreTut.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		588F19D5AE3437CFD424E2A1 /* Pods-InstagramFirestoreTut.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramFirestoreTut.release.xcconfig"; path = "Target Support Files/Pods-InstagramFirestoreTut/Pods-InstagramFirestoreTut.release.xcconfig"; sourceTree = "<group>"; };
 		6337619C9C4F9BCEF03D8FC5 /* Pods-InstagramFirestoreTut.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramFirestoreTut.debug.xcconfig"; path = "Target Support Files/Pods-InstagramFirestoreTut/Pods-InstagramFirestoreTut.debug.xcconfig"; sourceTree = "<group>"; };
+		710045BF26DE516400662BEF /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		710045C226DE520000662BEF /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		71029CC126C0821B00EA08F4 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		71029CC426C0832300EA08F4 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		7134E38D26CD39DB0033B70D /* UserCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCellViewModel.swift; sourceTree = "<group>"; };
@@ -162,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				715EA91A26C2B6F1006B8871 /* AuthenticationViewModel.swift */,
+				710045C226DE520000662BEF /* Notification.swift */,
 				71440E8726D90AD200D2D1FE /* Comment.swift */,
 				71D5900F26C984BC006F38A2 /* User.swift */,
 				717CA0A126D434C5004D05E5 /* Post.swift */,
@@ -228,6 +233,7 @@
 			children = (
 				714657FB26C5417E00C4DCEF /* AuthService.swift */,
 				716F11F726D2A94A00D274F0 /* PostService.swift */,
+				710045BF26DE516400662BEF /* NotificationService.swift */,
 				71D5900C26C98489006F38A2 /* UserService.swift */,
 				714657FE26C542D000C4DCEF /* ImageUploader.swift */,
 				71440E8426D907EE00D2D1FE /* CommentService.swift */,
@@ -383,10 +389,12 @@
 				71F13F2E26D811E50007574B /* CommentInputAccessoryView.swift in Sources */,
 				71440E8826D90AD200D2D1FE /* Comment.swift in Sources */,
 				71F3F6BB26BEE89500619F53 /* AppDelegate.swift in Sources */,
+				710045C026DE516400662BEF /* NotificationService.swift in Sources */,
 				715EA91B26C2B6F1006B8871 /* AuthenticationViewModel.swift in Sources */,
 				7134E38E26CD39DB0033B70D /* UserCellViewModel.swift in Sources */,
 				71F3F6BD26BEE89500619F53 /* SceneDelegate.swift in Sources */,
 				71F3F6E126BEEA0B00619F53 /* FeedViewController.swift in Sources */,
+				710045C326DE520000662BEF /* Notification.swift in Sources */,
 				71F3F6EA26BEEAAB00619F53 /* NotificationViewController.swift in Sources */,
 				71F3F6DE26BEE9E900619F53 /* MainTabTableViewController.swift in Sources */,
 				71A1810A26C6B3D3002899B9 /* ProfileHeader.swift in Sources */,
