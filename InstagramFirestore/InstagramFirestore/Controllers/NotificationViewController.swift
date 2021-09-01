@@ -33,7 +33,6 @@ class NotificationViewController: UITableViewController {
     func fetchNotifications() {
         NotificationService.fetchNotifications { notifications in
             self.notifications = notifications
-            print("DEBUG: Notification \(notifications)")
         }
     }
 }
@@ -47,6 +46,7 @@ extension NotificationViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: NotificationCell.reusableIdentifier, for: indexPath) as! NotificationCell
+        cell.viewModel = NotificationViewModel(notification: notifications[indexPath.row])
         return cell
     }
 }

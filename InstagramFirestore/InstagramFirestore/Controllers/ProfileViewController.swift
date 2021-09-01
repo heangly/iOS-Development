@@ -13,6 +13,7 @@ private let headerIdeentifier = "ProfileHeader"
 class ProfileViewController: UICollectionViewController {
     //MARK: - Properties
     var user: User?
+    var currentUser: User?
     private var posts = [Post]()
 
     var otherUserProfileID: String? {
@@ -45,6 +46,7 @@ class ProfileViewController: UICollectionViewController {
     func fetchUser() {
         UserService.fetchUser { user in
             self.user = user
+            self.currentUser = user
             self.navigationItem.title = user.username
             self.fetchUserStats(uid: user.uid)
             self.collectionView.reloadData()
@@ -111,7 +113,6 @@ extension ProfileViewController {
         }
 
         header.delegate = self
-
         return header
     }
 }
@@ -162,6 +163,12 @@ extension ProfileViewController: ProfileHeaderDelegate {
             UserService.follow(uid: user.uid) { (error) in
                 self.user?.isFollowed = true
                 self.collectionView.reloadData()
+                
+                UserService.fetchUser { currentUser in
+                    let currentUid = currentUser.uid
+                    NotificationService.uploadNotification(toUid: currentUid, fromUser: user, type: .follow)
+                }
+                
             }
         }
     }

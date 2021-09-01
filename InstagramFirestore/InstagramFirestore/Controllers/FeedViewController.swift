@@ -122,7 +122,7 @@ extension FeedViewController: FeedCellDelegate {
         controller.otherUserProfileID = uid
         self.navigationController?.pushViewController(controller, animated: true)
     }
-    
+
     func cell(_ cell: FeedCell, wantsToShowCommentsFor post: Post) {
         let controller = CommentViewController(post: post)
         navigationController?.pushViewController(controller, animated: true)
@@ -130,6 +130,7 @@ extension FeedViewController: FeedCellDelegate {
 
     func cell(_ cell: FeedCell, didLike post: Post) {
         cell.viewModel?.post.didLike.toggle()
+        
         if post.didLike {
             PostService.unlikePost(post: post) { _ in
                 cell.likeButton.setImage(#imageLiteral(resourceName: "like_unselected"), for: .normal)
@@ -142,7 +143,9 @@ extension FeedViewController: FeedCellDelegate {
                 cell.likeButton.tintColor = .red
                 cell.viewModel?.post.likes = post.likes + 1
                 
-                NotificationService.uploadNotification(toUid: post.ownerUid, type: .like, post: post)
+                UserService.fetchUser { user in
+                    NotificationService.uploadNotification(toUid: post.ownerUid, fromUser: user, type: .like, post: post)
+                }
             }
         }
     }

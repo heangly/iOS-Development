@@ -9,6 +9,10 @@ import UIKit
 
 class NotificationCell: UITableViewCell {
     //MARK: - Properties
+    var viewModel: NotificationViewModel? {
+        didSet { configure() }
+    }
+
     static var reusableIdentifier = "Notification Cell"
 
     private let profileImageView: UIImageView = {
@@ -25,6 +29,7 @@ class NotificationCell: UITableViewCell {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 14)
         label.text = "venom"
+        label.numberOfLines = 0
         return label
     }()
 
@@ -83,17 +88,17 @@ class NotificationCell: UITableViewCell {
 
             infoLabel.centerYAnchor.constraint(equalTo: profileImageView.centerYAnchor),
             infoLabel.leftAnchor.constraint(equalTo: profileImageView.rightAnchor, constant: 8),
-            
+
             followButton.widthAnchor.constraint(equalToConstant: 100),
             followButton.heightAnchor.constraint(equalToConstant: 32),
             followButton.centerYAnchor.constraint(equalTo: centerYAnchor),
             followButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -12),
-            
+
             postImageView.widthAnchor.constraint(equalToConstant: 40),
             postImageView.heightAnchor.constraint(equalToConstant: 40),
             postImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
             postImageView.rightAnchor.constraint(equalTo: rightAnchor, constant: -12),
-            
+
         ]
 
         NSLayoutConstraint.activate(customConstraints)
@@ -107,5 +112,12 @@ class NotificationCell: UITableViewCell {
 
     @objc func handlePostTapped() {
 
+    }
+
+    func configure() {
+        guard let viewModel = viewModel else { return }
+        profileImageView.sd_setImage(with: viewModel.profileImageUrl, completed: nil)
+        postImageView.sd_setImage(with: viewModel.postImageUrl, completed: nil)
+        infoLabel.attributedText = viewModel.notificationMessage
     }
 }
