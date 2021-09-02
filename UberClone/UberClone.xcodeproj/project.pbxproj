@@ -9,19 +9,23 @@
 /* Begin PBXBuildFile section */
 		71204CEF26DFA46600D0ECFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71204CEE26DFA46600D0ECFC /* AppDelegate.swift */; };
 		71204CF126DFA46600D0ECFC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71204CF026DFA46600D0ECFC /* SceneDelegate.swift */; };
-		71204CF326DFA46600D0ECFC /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71204CF226DFA46600D0ECFC /* LoginController.swift */; };
+		71204CF326DFA46600D0ECFC /* LogInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71204CF226DFA46600D0ECFC /* LogInController.swift */; };
 		71204CF826DFA46700D0ECFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71204CF726DFA46700D0ECFC /* Assets.xcassets */; };
 		71204CFB26DFA46700D0ECFC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71204CF926DFA46700D0ECFC /* LaunchScreen.storyboard */; };
+		717FB5E326E0EB4100F190F8 /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717FB5E226E0EB4100F190F8 /* UIExtensions.swift */; };
+		717FB5E626E1246D00F190F8 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717FB5E526E1246D00F190F8 /* SignUpController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		71204CEB26DFA46600D0ECFC /* UberClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UberClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71204CEE26DFA46600D0ECFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		71204CF026DFA46600D0ECFC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		71204CF226DFA46600D0ECFC /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		71204CF226DFA46600D0ECFC /* LogInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInController.swift; sourceTree = "<group>"; };
 		71204CF726DFA46700D0ECFC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		71204CFA26DFA46700D0ECFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		71204CFC26DFA46700D0ECFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		717FB5E226E0EB4100F190F8 /* UIExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
+		717FB5E526E1246D00F190F8 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +72,7 @@
 		71204D0326DFA52500D0ECFC /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				717FB5E226E0EB4100F190F8 /* UIExtensions.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -82,7 +87,8 @@
 		71204D0526DFA53200D0ECFC /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				71204CF226DFA46600D0ECFC /* LoginController.swift */,
+				71204CF226DFA46600D0ECFC /* LogInController.swift */,
+				717FB5E526E1246D00F190F8 /* SignUpController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -181,9 +187,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71204CF326DFA46600D0ECFC /* LoginController.swift in Sources */,
+				71204CF326DFA46600D0ECFC /* LogInController.swift in Sources */,
 				71204CEF26DFA46600D0ECFC /* AppDelegate.swift in Sources */,
 				71204CF126DFA46600D0ECFC /* SceneDelegate.swift in Sources */,
+				717FB5E626E1246D00F190F8 /* SignUpController.swift in Sources */,
+				717FB5E326E0EB4100F190F8 /* UIExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
