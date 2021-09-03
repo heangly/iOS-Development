@@ -6,23 +6,22 @@
 //
 
 import UIKit
+import Firebase
 
 class LogInController: UIViewController {
     //MARK: - Properties
     private let titleLabel = UILabel().uberLabel()
-    
-    private let emailContainerView: UIView = {
-        let textField = UITextField().textField(withPlaceHolder: "Email")
-        return UIView().inputTextFieldContainerView(withImage: #imageLiteral(resourceName: "ic_mail_outline_white_2x"), withTexfield: textField)
+
+    private let emailTextField = UITextField().textField(withPlaceHolder: "Email")
+
+    private let passwordTextField = UITextField().textField(withPlaceHolder: "Password", isSecureText: true)
+
+    private let loginButton: UIButton = {
+        let btn = UIButton().authMainButton(title: "Sign In")
+        btn.addTarget(self, action: #selector(handleLogin), for: .touchUpInside)
+        return btn
     }()
 
-    private let passwordContainerView: UIView = {
-        let textField = UITextField().textField(withPlaceHolder: "Password", isSecureText: true)
-        return UIView().inputTextFieldContainerView(withImage: #imageLiteral(resourceName: "ic_lock_outline_white_2x"), withTexfield: textField)
-    }()
-
-    private let loginButton = UIButton().authMainButton(title: "Sign In")
-    
     private let dontHaveAccountButton: UIButton = {
         let btn = UIButton().authNavigationBottomButton(firstPart: "Don't have an account? ", secondPart: "Sign Up")
         btn.addTarget(self, action: #selector(handleShowSignUp), for: .touchUpInside)
@@ -35,27 +34,81 @@ class LogInController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureMainUI()
+        addNotificationObservers()
     }
-    
+
     //MARK: - Actions
-    @objc func handleShowSignUp(){
+    @objc func handleShowSignUp() {
         let controller = SignUpController()
         navigationController?.pushViewController(controller, animated: true)
     }
 
+    @objc func handleLogin() {
+        if validateAllInput(){
+            let email = emailTextField.text!
+            let password = passwordTextField.text!
+            
+            Auth.auth().signIn(withEmail: email, password: password) { result, error in
+                if let error = error {
+                    print("Error login \(error.localizedDescription)")
+                    return
+                }
+                
+                print("Successfully login")
+            }
+        }
+    }
+
     //MARK: - Helpers
+    func addNotificationObservers() {
+        emailTextField.addTarget(self, action: #selector(inputDidChange), for: .editingChanged)
+        passwordTextField.addTarget(self, action: #selector(inputDidChange), for: .editingChanged)
+    }
+
+    @objc func inputDidChange() {
+        if validateAllInput() {
+            loginButton.isUserInteractionEnabled = true
+            loginButton.isEnabled = true
+            loginButton.setTitleColor(.white, for: .normal)
+            loginButton.backgroundColor = .mainBlueTint
+        } else {
+            loginButton.isUserInteractionEnabled = false
+            loginButton.isEnabled = false
+            loginButton.setTitleColor(UIColor.white.withAlphaComponent(0.8), for: .normal)
+            loginButton.backgroundColor = UIColor.mainBlueTint.withAlphaComponent(0.8)
+        }
+    }
+
+    func validateAllInput() -> Bool {
+        if let email = emailTextField.text,
+            let password = passwordTextField.text,
+            !email.isEmpty,
+            !password.isEmpty {
+            return true
+        }
+
+        return false
+    }
+
     func configureMainUI() {
         view.backgroundColor = .black
         navigationController?.navigationBar.isHidden = true
         navigationController?.navigationBar.barStyle = .black
+
+        addAllSubviews()
+        addAllConstraints()
     }
-    
-    func addSubviews() {
+
+
+    func addAllSubviews() {
         let allSubviews = [titleLabel, stackViews, dontHaveAccountButton]
         allSubviews.forEach {
             view.addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
+
+        let emailContainerView = UIView().inputTextFieldContainerView(withImage: #imageLiteral(resourceName: "ic_mail_outline_white_2x"), withTexfield: emailTextField)
+        let passwordContainerView = UIView().inputTextFieldContainerView(withImage: #imageLiteral(resourceName: "ic_lock_outline_white_2x"), withTexfield: passwordTextField)
 
         let subViewsInStackViews = [emailContainerView, passwordContainerView, loginButton]
         subViewsInStackViews.forEach {
@@ -67,11 +120,7 @@ class LogInController: UIViewController {
     }
 
     //MARK: - Constraints
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-
-        addSubviews()
-
+    func addAllConstraints() {
         let layout = view.safeAreaLayoutGuide
 
         let customContraints = [

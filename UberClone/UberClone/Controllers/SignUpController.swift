@@ -6,38 +6,33 @@
 //
 
 import UIKit
+import Firebase
 
 class SignUpController: UIViewController {
     //MARK: - Properties
     private let titleLabel = UILabel().uberLabel()
 
-    private let emailContainerView: UIView = {
-        let textField = UITextField().textField(withPlaceHolder: "Email")
-        return UIView().inputTextFieldContainerView(withImage: #imageLiteral(resourceName: "ic_mail_outline_white_2x"), withTexfield: textField)
-    }()
+    private let emailTextField = UITextField().textField(withPlaceHolder: "Email")
 
-    private let fullnameContainerView: UIView = {
-        let textField = UITextField().textField(withPlaceHolder: "Fulll Name")
-        return UIView().inputTextFieldContainerView(withImage: #imageLiteral(resourceName: "ic_account_box_white_2x"), withTexfield: textField)
-    }()
+    private let fullNameTextField = UITextField().textField(withPlaceHolder: "Fulll Name")
 
-    private let passwordContainerView: UIView = {
-        let textField = UITextField().textField(withPlaceHolder: "Password", isSecureText: true)
-        return UIView().inputTextFieldContainerView(withImage: #imageLiteral(resourceName: "ic_lock_outline_white_2x"), withTexfield: textField)
-    }()
+    private let passwordTextField = UITextField().textField(withPlaceHolder: "Password", isSecureText: true)
 
-    private let accountTypeContainerView: UIView = {
+    private let accountTypeSegmentedControl: UISegmentedControl = {
         let sc = UISegmentedControl(items: ["Rider", "Driver"])
         sc.setTitleTextAttributes([.foregroundColor: UIColor.white], for: .normal)
         sc.setTitleTextAttributes([.foregroundColor: UIColor.black], for: .selected)
         sc.layer.borderWidth = 1
         sc.layer.borderColor = UIColor.lightGray.cgColor
         sc.selectedSegmentIndex = 0
-        return UIView().accountTypeContainerView(withImage: #imageLiteral(resourceName: "ic_account_box_white_2x"), segmentedControl: sc)
+        return sc
     }()
 
-
-    private let signUpButton = UIButton().authMainButton(title: "Sign Up")
+    private let signUpButton: UIButton = {
+        let btn = UIButton().authMainButton(title: "Sign Up")
+        btn.addTarget(self, action: #selector(handleSignUp), for: .touchUpInside)
+        return btn
+    }()
 
     private let alreadyHaveAccountButton: UIButton = {
         let btn = UIButton().authNavigationBottomButton(firstPart: "Already have an account? ", secondPart: "Sign in")
@@ -51,6 +46,7 @@ class SignUpController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureMainUI()
+        addNotificationObservers()
     }
 
     //MARK: - Actions
@@ -58,36 +54,101 @@ class SignUpController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
 
+    func addNotificationObservers() {
+        emailTextField.addTarget(self, action: #selector(inputDidChange), for: .editingChanged)
+        fullNameTextField.addTarget(self, action: #selector(inputDidChange), for: .editingChanged)
+        passwordTextField.addTarget(self, action: #selector(inputDidChange), for: .editingChanged)
+    }
+
+    func validateInputFields() -> Bool {
+        if let email = emailTextField.text,
+            let fullName = fullNameTextField.text,
+            let password = passwordTextField.text,
+            !email.isEmpty, !fullName.isEmpty, !password.isEmpty {
+            return true
+        }
+
+        return false
+    }
+
+    @objc func inputDidChange() {
+        if validateInputFields() {
+            signUpButton.isUserInteractionEnabled = true
+            signUpButton.isEnabled = true
+            signUpButton.setTitleColor(.white, for: .normal)
+            signUpButton.backgroundColor = .mainBlueTint
+        } else {
+            signUpButton.isUserInteractionEnabled = false
+            signUpButton.isEnabled = false
+            signUpButton.setTitleColor(UIColor.white.withAlphaComponent(0.8), for: .normal)
+            signUpButton.backgroundColor = UIColor.mainBlueTint.withAlphaComponent(0.8)
+        }
+    }
+
+    @objc func handleSignUp() {
+        if validateInputFields() {
+            let email = emailTextField.text!
+            let fullname = fullNameTextField.text!
+            let password = passwordTextField.text!
+            let accountTypeIndex = accountTypeSegmentedControl.selectedSegmentIndex
+
+            Auth.auth().createUser(withEmail: email, password: password) { result, error in
+                if let error = error {
+                    print("Failed to register user with error \(error)")
+                    return
+                }
+
+                guard let uid = result?.user.uid else { return }
+                
+                let values: [String: Any] = [
+                    "email": email,
+                    "fullname": fullname,
+                    "accountTypeIndex": accountTypeIndex
+                ]
+                
+                Database.database().reference().child("users").child(uid).updateChildValues(values) { error, ref in
+                    print("Succesfullly registered user and saved data..")
+                }
+
+            }
+        }
+
+    }
+
     //MARK: - Helpers
     func configureMainUI() {
         view.backgroundColor = .black
         navigationController?.navigationBar.barStyle = .black
         navigationController?.navigationBar.isHidden = true
+        addAllSubViews()
+        addAllConstraints()
     }
 
-    func addSubViews() {
+    func addAllSubViews() {
         let allSubViews = [titleLabel, stackViews, alreadyHaveAccountButton]
         allSubViews.forEach {
             view.addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
 
+        let emailContainerView = UIView().inputTextFieldContainerView(withImage: #imageLiteral(resourceName: "ic_mail_outline_white_2x"), withTexfield: emailTextField)
+        let fullnameContainerView = UIView().inputTextFieldContainerView(withImage: #imageLiteral(resourceName: "ic_person_outline_white_2x"), withTexfield: fullNameTextField)
+        let passwordContainerView = UIView().inputTextFieldContainerView(withImage: #imageLiteral(resourceName: "ic_lock_outline_white_2x"), withTexfield: passwordTextField)
+        let accountTypeContainerView = UIView().accountTypeFieldContainerView(withImage: #imageLiteral(resourceName: "ic_account_box_white_2x"), segmentedControl: accountTypeSegmentedControl)
+
         let subViewsInStackViews = [emailContainerView, fullnameContainerView, passwordContainerView, signUpButton]
         subViewsInStackViews.forEach {
             stackViews.addArrangedSubview($0)
             $0.heightAnchor.constraint(equalToConstant: 50).isActive = true
         }
-        
+
         stackViews.distribution = .fill
         stackViews.insertArrangedSubview(accountTypeContainerView, at: 3)
         accountTypeContainerView.heightAnchor.constraint(equalToConstant: 90).isActive = true
         stackViews.setCustomSpacing(50, after: accountTypeContainerView)
     }
 
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        addSubViews()
-
+    func addAllConstraints() {
         let layout = view.safeAreaLayoutGuide
 
         let customConstraints = [

@@ -59,7 +59,7 @@ extension UIColor {
 }
 
 extension UIView {
-    func accountTypeContainerView(withImage image: UIImage, segmentedControl: UISegmentedControl) -> UIView {
+    func accountTypeFieldContainerView(withImage image: UIImage, segmentedControl: UISegmentedControl) -> UIView {
         let uiView = UIView()
 
         let imageView = UIImageView()
@@ -137,6 +137,7 @@ extension UITextField {
         tf.font = UIFont.systemFont(ofSize: 16)
         tf.keyboardAppearance = .dark
         tf.borderStyle = .none
+        tf.autocapitalizationType = .none
         return tf
     }
 }
