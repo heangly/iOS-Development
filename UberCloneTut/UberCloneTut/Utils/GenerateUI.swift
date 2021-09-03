@@ -12,7 +12,7 @@ class GenerateUI {
         let sv = UIStackView()
         sv.axis = .vertical
         sv.distribution = .fillEqually
-        sv.spacing = 50
+        sv.spacing = 30
         return sv
     }
 
@@ -27,7 +27,7 @@ class GenerateUI {
     static func forAuthMainButton(title: String) -> UIButton {
         let btn = UIButton(type: .system)
         btn.setTitle(title, for: .normal)
-        btn.setTitleColor(UIColor(white: 1, alpha: 0.5), for: .normal)
+        btn.setTitleColor(UIColor(white: 1, alpha: 0.8), for: .normal)
         btn.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         btn.backgroundColor = UIColor.mainBlueTint.withAlphaComponent(0.8)
         btn.layer.cornerRadius = 5
@@ -111,7 +111,7 @@ class GenerateUI {
         return uiView
     }
 
-   static func forTextField(withPlaceHolder placeholder: String, isSecureText: Bool = false) -> UITextField {
+    static func forTextField(withPlaceHolder placeholder: String, isSecureText: Bool = false) -> UITextField {
         let tf = UITextField()
         let attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [.foregroundColor: UIColor.lightGray])
         tf.attributedPlaceholder = attributedPlaceholder
@@ -120,6 +120,7 @@ class GenerateUI {
         tf.font = UIFont.systemFont(ofSize: 16)
         tf.keyboardAppearance = .dark
         tf.borderStyle = .none
+        tf.autocapitalizationType = .none
         return tf
     }
 
