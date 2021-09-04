@@ -54,7 +54,11 @@ class LogInController: UIViewController {
                     return
                 }
                 
-                print("Successfully login")
+                DispatchQueue.main.async {
+                    let controller = HomeController()
+                    controller.modalPresentationStyle = .fullScreen
+                    self.present(controller, animated: true, completion: nil)
+                }
             }
         }
     }

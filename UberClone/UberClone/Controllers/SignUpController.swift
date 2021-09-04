@@ -107,7 +107,12 @@ class SignUpController: UIViewController {
                 ]
                 
                 Database.database().reference().child("users").child(uid).updateChildValues(values) { error, ref in
-                    print("Succesfullly registered user and saved data..")
+                    
+                    DispatchQueue.main.async {
+                        let nav = UINavigationController(rootViewController: HomeController())
+                        nav.modalPresentationStyle = .fullScreen
+                        self.present(nav, animated: true)
+                    }
                 }
 
             }

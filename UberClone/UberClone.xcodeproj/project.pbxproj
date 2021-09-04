@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,7 +13,8 @@
 		71204CF326DFA46600D0ECFC /* LogInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71204CF226DFA46600D0ECFC /* LogInController.swift */; };
 		71204CF826DFA46700D0ECFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71204CF726DFA46700D0ECFC /* Assets.xcassets */; };
 		71204CFB26DFA46700D0ECFC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71204CF926DFA46700D0ECFC /* LaunchScreen.storyboard */; };
-		713FDBBD26E239A200CAE923 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 713FDBBC26E239A200CAE923 /* GoogleService-Info.plist */; };
+		713A502C26E38D12008B5802 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 713A502B26E38D12008B5802 /* GoogleService-Info.plist */; };
+		713A502F26E38D80008B5802 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713A502E26E38D80008B5802 /* HomeController.swift */; };
 		717FB5E326E0EB4100F190F8 /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717FB5E226E0EB4100F190F8 /* UIExtensions.swift */; };
 		717FB5E626E1246D00F190F8 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717FB5E526E1246D00F190F8 /* SignUpController.swift */; };
 /* End PBXBuildFile section */
@@ -26,7 +27,8 @@
 		71204CF726DFA46700D0ECFC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		71204CFA26DFA46700D0ECFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		71204CFC26DFA46700D0ECFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		713FDBBC26E239A200CAE923 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		713A502B26E38D12008B5802 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		713A502E26E38D80008B5802 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		717FB5E226E0EB4100F190F8 /* UIExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
 		717FB5E526E1246D00F190F8 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 		78A34D08EB140AB868BB3183 /* Pods_UberClone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UberClone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -52,7 +54,6 @@
 				C5C89DA800310DEA6913C52E /* Pods-UberClone.debug.xcconfig */,
 				78F64B8D1046F256AFC80381 /* Pods-UberClone.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -84,7 +85,7 @@
 				71204D0326DFA52500D0ECFC /* Utils */,
 				71204D0826DFA57B00D0ECFC /* Resources */,
 				71204CFC26DFA46700D0ECFC /* Info.plist */,
-				713FDBBC26E239A200CAE923 /* GoogleService-Info.plist */,
+				713A502B26E38D12008B5802 /* GoogleService-Info.plist */,
 			);
 			path = UberClone;
 			sourceTree = "<group>";
@@ -108,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				71204CF226DFA46600D0ECFC /* LogInController.swift */,
+				713A502E26E38D80008B5802 /* HomeController.swift */,
 				717FB5E526E1246D00F190F8 /* SignUpController.swift */,
 			);
 			path = Controllers;
@@ -207,7 +209,7 @@
 			files = (
 				71204CFB26DFA46700D0ECFC /* LaunchScreen.storyboard in Resources */,
 				71204CF826DFA46700D0ECFC /* Assets.xcassets in Resources */,
-				713FDBBD26E239A200CAE923 /* GoogleService-Info.plist in Resources */,
+				713A502C26E38D12008B5802 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,6 +264,7 @@
 			files = (
 				71204CF326DFA46600D0ECFC /* LogInController.swift in Sources */,
 				71204CEF26DFA46600D0ECFC /* AppDelegate.swift in Sources */,
+				713A502F26E38D80008B5802 /* HomeController.swift in Sources */,
 				71204CF126DFA46600D0ECFC /* SceneDelegate.swift in Sources */,
 				717FB5E626E1246D00F190F8 /* SignUpController.swift in Sources */,
 				717FB5E326E0EB4100F190F8 /* UIExtensions.swift in Sources */,
