@@ -83,7 +83,12 @@ class LoginController: UIViewController {
                     print("DEBUG: Error login -> \(error.localizedDescription)")
                     return
                 }
-                print("DEBUG: Successfully Login...")
+                
+                DispatchQueue.main.async {
+                    let controller = HomeController()
+                    controller.modalPresentationStyle = .fullScreen
+                    self.present(controller, animated: true)
+                }
             }
         }
     }

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		40F3ABD61C51E48E983EEB85 /* Pods_UberCloneTut.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 943591DE72769B9B60E8B3F9 /* Pods_UberCloneTut.framework */; };
+		7110BD1826E39CFA00B32BB0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7110BD1726E39CFA00B32BB0 /* GoogleService-Info.plist */; };
+		7110BD1C26E39D1700B32BB0 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7110BD1B26E39D1700B32BB0 /* HomeController.swift */; };
 		71204D1926E00C4D00D0ECFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71204D1826E00C4D00D0ECFC /* AppDelegate.swift */; };
 		71204D1B26E00C4D00D0ECFC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71204D1A26E00C4D00D0ECFC /* SceneDelegate.swift */; };
 		71204D1D26E00C4D00D0ECFC /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71204D1C26E00C4D00D0ECFC /* LoginController.swift */; };
@@ -16,10 +18,11 @@
 		712D1C1026E163440042CA6E /* SignupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712D1C0F26E163440042CA6E /* SignupController.swift */; };
 		7165EE6D26E15B1000D14832 /* GenerateUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7165EE6C26E15B1000D14832 /* GenerateUI.swift */; };
 		7165EE7026E15CE300D14832 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7165EE6F26E15CE300D14832 /* Extensions.swift */; };
-		71DEF34726E292790087240F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 71DEF34626E292790087240F /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7110BD1726E39CFA00B32BB0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		7110BD1B26E39D1700B32BB0 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		71204D1526E00C4D00D0ECFC /* UberCloneTut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UberCloneTut.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71204D1826E00C4D00D0ECFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		71204D1A26E00C4D00D0ECFC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -30,7 +33,6 @@
 		712D1C0F26E163440042CA6E /* SignupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupController.swift; sourceTree = "<group>"; };
 		7165EE6C26E15B1000D14832 /* GenerateUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateUI.swift; sourceTree = "<group>"; };
 		7165EE6F26E15CE300D14832 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		71DEF34626E292790087240F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		76F3DDA68F85416D4D13EB20 /* Pods-UberCloneTut.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UberCloneTut.debug.xcconfig"; path = "Target Support Files/Pods-UberCloneTut/Pods-UberCloneTut.debug.xcconfig"; sourceTree = "<group>"; };
 		943591DE72769B9B60E8B3F9 /* Pods_UberCloneTut.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UberCloneTut.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4322BDC0BC3805EF82A5EC2 /* Pods-UberCloneTut.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UberCloneTut.release.xcconfig"; path = "Target Support Files/Pods-UberCloneTut/Pods-UberCloneTut.release.xcconfig"; sourceTree = "<group>"; };
@@ -85,7 +87,7 @@
 				71204D3126E00C6C00D0ECFC /* Utils */,
 				71204D3326E00C7800D0ECFC /* Resources */,
 				71204D2626E00C4F00D0ECFC /* Info.plist */,
-				71DEF34626E292790087240F /* GoogleService-Info.plist */,
+				7110BD1726E39CFA00B32BB0 /* GoogleService-Info.plist */,
 			);
 			path = UberCloneTut;
 			sourceTree = "<group>";
@@ -108,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				71204D1C26E00C4D00D0ECFC /* LoginController.swift */,
+				7110BD1B26E39D1700B32BB0 /* HomeController.swift */,
 				712D1C0F26E163440042CA6E /* SignupController.swift */,
 			);
 			path = Controllers;
@@ -208,8 +211,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				71204D2526E00C4F00D0ECFC /* LaunchScreen.storyboard in Resources */,
+				7110BD1826E39CFA00B32BB0 /* GoogleService-Info.plist in Resources */,
 				71204D2226E00C4F00D0ECFC /* Assets.xcassets in Resources */,
-				71DEF34726E292790087240F /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +267,7 @@
 			files = (
 				7165EE7026E15CE300D14832 /* Extensions.swift in Sources */,
 				71204D1D26E00C4D00D0ECFC /* LoginController.swift in Sources */,
+				7110BD1C26E39D1700B32BB0 /* HomeController.swift in Sources */,
 				7165EE6D26E15B1000D14832 /* GenerateUI.swift in Sources */,
 				712D1C1026E163440042CA6E /* SignupController.swift in Sources */,
 				71204D1926E00C4D00D0ECFC /* AppDelegate.swift in Sources */,
