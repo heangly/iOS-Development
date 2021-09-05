@@ -8,7 +8,7 @@
 import UIKit
 
 extension UIStackView {
-    func authStackViews() -> UIStackView{
+    func authStackViews() -> UIStackView {
         let sv = UIStackView()
         sv.axis = .vertical
         sv.distribution = .fillEqually
@@ -25,7 +25,7 @@ extension UIButton {
         btn.setAttributedTitle(attributedText, for: .normal)
         return btn
     }
-    
+
     func authMainButton(title: String) -> UIButton {
         let btn = UIButton(type: .system)
         btn.setTitle(title, for: .normal)
@@ -72,18 +72,18 @@ extension UIView {
         uiView.addSubview(imageView)
         uiView.addSubview(segmentedControl)
         uiView.addSubview(lineSeperator)
-        
+
         imageView.translatesAutoresizingMaskIntoConstraints = false
         segmentedControl.translatesAutoresizingMaskIntoConstraints = false
         lineSeperator.translatesAutoresizingMaskIntoConstraints = false
-        
+
         imageView.leftAnchor.constraint(equalTo: uiView.leftAnchor).isActive = true
         imageView.heightAnchor.constraint(equalToConstant: 24).isActive = true
         imageView.widthAnchor.constraint(equalToConstant: 24).isActive = true
-        
+
         segmentedControl.centerYAnchor.constraint(equalTo: uiView.centerYAnchor, constant: 5).isActive = true
         segmentedControl.widthAnchor.constraint(equalTo: uiView.widthAnchor).isActive = true
-     
+
         lineSeperator.heightAnchor.constraint(equalToConstant: 1.5).isActive = true
         lineSeperator.rightAnchor.constraint(equalTo: uiView.rightAnchor).isActive = true
         lineSeperator.bottomAnchor.constraint(equalTo: uiView.bottomAnchor).isActive = true
@@ -91,7 +91,7 @@ extension UIView {
 
         return uiView
     }
-    
+
     func inputTextFieldContainerView(withImage image: UIImage, withTexfield texfield: UITextField) -> UIView {
         let uiView = UIView()
 
@@ -124,6 +124,13 @@ extension UIView {
         lineSeperator.leftAnchor.constraint(equalTo: uiView.leftAnchor).isActive = true
 
         return uiView
+    }
+
+    func addShadow() {
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOpacity = 0.55
+        layer.shadowOffset = CGSize(width: 0.5, height: 0.5)
+        layer.masksToBounds = false
     }
 }
 
