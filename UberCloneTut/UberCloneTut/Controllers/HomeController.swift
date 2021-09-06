@@ -19,6 +19,10 @@ class HomeController: UIViewController {
 
     private let locationInputView = LocationInputView()
 
+    private let tableView = UITableView()
+
+    private final let locationInputViewHeight: CGFloat = 200
+
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +39,7 @@ class HomeController: UIViewController {
         addAllSubviews()
         addAllConstraints()
         configureMapView()
+        configureTableView()
 
         inputActivationView.alpha = 0
         UIView.animate(withDuration: 1.5) { self.inputActivationView.alpha = 1 }
@@ -48,17 +53,28 @@ class HomeController: UIViewController {
         mapView.frame = view.frame
     }
 
+    func configureTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(LocationCell.self, forCellReuseIdentifier: LocationCell.identifier)
+        tableView.rowHeight = 60
+        let height = view.frame.height - locationInputViewHeight
+        tableView.frame = CGRect(x: 0, y: view.frame.height, width: view.frame.width, height: height)
+        tableView.addShadow()
+    }
+
     func toggleLocationInputView(opacity: CGFloat) {
         UIView.animate(withDuration: 0.2, animations: {
             self.locationInputView.alpha = opacity
         }) { _ in
-            if opacity == 0 { return }
-            print("present table view")
+            UIView.animate(withDuration: 0.3, animations: {
+                self.tableView.frame.origin.y = opacity == 0 ? self.view.frame.height : self.locationInputViewHeight
+            })
         }
     }
 
     func addAllSubviews() {
-        let subviews = [mapView, inputActivationView, locationInputView]
+        let subviews = [mapView, inputActivationView, locationInputView, tableView]
         subviews.forEach {
             view.addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
@@ -77,7 +93,7 @@ class HomeController: UIViewController {
             locationInputView.topAnchor.constraint(equalTo: view.topAnchor),
             locationInputView.leftAnchor.constraint(equalTo: view.leftAnchor),
             locationInputView.rightAnchor.constraint(equalTo: view.rightAnchor),
-            locationInputView.heightAnchor.constraint(equalToConstant: 200),
+            locationInputView.heightAnchor.constraint(equalToConstant: locationInputViewHeight),
         ]
 
         NSLayoutConstraint.activate(constraints)
@@ -137,8 +153,20 @@ extension HomeController: LocationInputActivationViewDelegate, LocationInputView
     func presentLocationInputView() {
         toggleLocationInputView(opacity: 1)
     }
-    
+
     func dimissLocationInputView() {
         toggleLocationInputView(opacity: 0)
+    }
+}
+
+
+extension HomeController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: LocationCell.identifier, for: indexPath) as? LocationCell else { return UITableViewCell() }
+        return cell
     }
 }
