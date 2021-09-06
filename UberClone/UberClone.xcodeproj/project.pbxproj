@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5FE052BC1073FD60B96473B7 /* Pods_UberClone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78A34D08EB140AB868BB3183 /* Pods_UberClone.framework */; };
+		7114C0A226E6753400D615FA /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7114C0A126E6753400D615FA /* LocationCell.swift */; };
 		71204CEF26DFA46600D0ECFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71204CEE26DFA46600D0ECFC /* AppDelegate.swift */; };
 		71204CF126DFA46600D0ECFC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71204CF026DFA46600D0ECFC /* SceneDelegate.swift */; };
 		71204CF326DFA46600D0ECFC /* LogInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71204CF226DFA46600D0ECFC /* LogInController.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7114C0A126E6753400D615FA /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		71204CEB26DFA46600D0ECFC /* UberClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UberClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71204CEE26DFA46600D0ECFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		71204CF026DFA46600D0ECFC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 			children = (
 				7120963926E4DF4D00E487D6 /* LocationInputActivationView.swift */,
 				7120963D26E4ECB900E487D6 /* LocationInputView.swift */,
+				7114C0A126E6753400D615FA /* LocationCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 				71204CF126DFA46600D0ECFC /* SceneDelegate.swift in Sources */,
 				717FB5E626E1246D00F190F8 /* SignUpController.swift in Sources */,
 				7120963A26E4DF4D00E487D6 /* LocationInputActivationView.swift in Sources */,
+				7114C0A226E6753400D615FA /* LocationCell.swift in Sources */,
 				7120963E26E4ECB900E487D6 /* LocationInputView.swift in Sources */,
 				717FB5E326E0EB4100F190F8 /* UIExtensions.swift in Sources */,
 			);
