@@ -23,14 +23,20 @@ class HomeController: UIViewController {
 
     private final let locationInputViewHeight: CGFloat = 200
 
+    private var user: User? {
+        didSet { locationInputView.user = user }
+    }
+
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configureMainUI()
         enableLocationServices()
+        fetchUserAPI()
 
         inputActivationView.delegate = self
         locationInputView.delegate = self
+
     }
 
     //MARK: - Helpers
@@ -62,21 +68,15 @@ class HomeController: UIViewController {
         let height = view.frame.height - locationInputViewHeight
         tableView.frame = CGRect(x: 0, y: view.frame.height, width: view.frame.width, height: height)
         tableView.addShadow()
+        tableView.tableFooterView = UIView()
     }
 
     func toggleLocationInputView(opacity: CGFloat) {
         UIView.animate(withDuration: 0.2, animations: {
             self.locationInputView.alpha = opacity
         }) { _ in
-            if opacity == 0 {
-                UIView.animate(withDuration: 0.3, animations: {
-                    self.tableView.frame.origin.y = self.view.frame.height
-                })
-                return
-            }
-            
             UIView.animate(withDuration: 0.3, animations: {
-                self.tableView.frame.origin.y = self.locationInputViewHeight
+                self.tableView.frame.origin.y = opacity == 0 ? self.view.frame.height : self.locationInputViewHeight
             })
         }
     }
@@ -102,12 +102,17 @@ class HomeController: UIViewController {
             locationInputView.leftAnchor.constraint(equalTo: view.leftAnchor),
             locationInputView.rightAnchor.constraint(equalTo: view.rightAnchor),
             locationInputView.heightAnchor.constraint(equalToConstant: locationInputViewHeight),
-
         ]
 
         NSLayoutConstraint.activate(constraints)
     }
 
+    //MARK: - API
+    func fetchUserAPI() {
+        Service.shared.fetchUserData { user in
+            self.user = user
+        }
+    }
 
     //MARK: - Actions
     @objc func signOut() {
@@ -169,10 +174,18 @@ extension HomeController: LocationInputActivationViewDelegate, LocationInputView
     }
 }
 
-
+//MARK: - UITableViewDatasource & Delegate
 extension HomeController: UITableViewDelegate, UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return section == 0 ? 2 : 5
+    }
+
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "test"
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

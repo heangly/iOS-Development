@@ -15,6 +15,10 @@ class LocationInputView: UIView {
     //MARK: - Properties
     weak var delegate: LocationInputViewDelegate?
 
+    var user: User? {
+        didSet { titleLabel.text = user?.fullname }
+    }
+
     private let backButton: UIButton = {
         let btn = UIButton(type: .system)
         btn.setImage(#imageLiteral(resourceName: "baseline_arrow_back_black_36dp").withRenderingMode(.alwaysOriginal), for: .normal)
@@ -24,7 +28,6 @@ class LocationInputView: UIView {
 
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Heang Ly"
         label.textColor = .darkGray
         label.font = UIFont.systemFont(ofSize: 16)
         return label
@@ -130,17 +133,17 @@ class LocationInputView: UIView {
             destinationLocationTextField.leftAnchor.constraint(equalTo: leftAnchor, constant: 40),
             destinationLocationTextField.rightAnchor.constraint(equalTo: rightAnchor, constant: -40),
             destinationLocationTextField.heightAnchor.constraint(equalToConstant: 30),
-            
+
             startLocationIndicatorView.centerYAnchor.constraint(equalTo: startingLocationTextField.centerYAnchor),
             startLocationIndicatorView.centerXAnchor.constraint(equalTo: backButton.centerXAnchor),
             startLocationIndicatorView.widthAnchor.constraint(equalToConstant: 6),
             startLocationIndicatorView.heightAnchor.constraint(equalToConstant: 6),
-            
+
             destinationIndicatorView.centerYAnchor.constraint(equalTo: destinationLocationTextField.centerYAnchor),
             destinationIndicatorView.centerXAnchor.constraint(equalTo: backButton.centerXAnchor),
             destinationIndicatorView.widthAnchor.constraint(equalToConstant: 6),
             destinationIndicatorView.heightAnchor.constraint(equalToConstant: 6),
-            
+
             linkingView.centerXAnchor.constraint(equalTo: startLocationIndicatorView.centerXAnchor),
             linkingView.topAnchor.constraint(equalTo: startLocationIndicatorView.bottomAnchor, constant: 5),
             linkingView.bottomAnchor.constraint(equalTo: destinationIndicatorView.topAnchor, constant: -5),
