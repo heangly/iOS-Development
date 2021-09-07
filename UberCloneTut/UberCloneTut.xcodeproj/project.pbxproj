@@ -16,6 +16,8 @@
 		71204D2226E00C4F00D0ECFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71204D2126E00C4F00D0ECFC /* Assets.xcassets */; };
 		71204D2526E00C4F00D0ECFC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71204D2326E00C4F00D0ECFC /* LaunchScreen.storyboard */; };
 		712D1C1026E163440042CA6E /* SignupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712D1C0F26E163440042CA6E /* SignupController.swift */; };
+		71478CF526E7BDBA009BE3CF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71478CF426E7BDBA009BE3CF /* User.swift */; };
+		71478CF826E7BE10009BE3CF /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71478CF726E7BE10009BE3CF /* Service.swift */; };
 		71521D3126E504A900C6B047 /* LocationInputActivationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71521D3026E504A900C6B047 /* LocationInputActivationView.swift */; };
 		71521D3426E5069800C6B047 /* LocationInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71521D3326E5069800C6B047 /* LocationInputView.swift */; };
 		7165EE6D26E15B1000D14832 /* GenerateUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7165EE6C26E15B1000D14832 /* GenerateUI.swift */; };
@@ -34,6 +36,8 @@
 		71204D2426E00C4F00D0ECFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		71204D2626E00C4F00D0ECFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		712D1C0F26E163440042CA6E /* SignupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupController.swift; sourceTree = "<group>"; };
+		71478CF426E7BDBA009BE3CF /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		71478CF726E7BE10009BE3CF /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		71521D3026E504A900C6B047 /* LocationInputActivationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationInputActivationView.swift; sourceTree = "<group>"; };
 		71521D3326E5069800C6B047 /* LocationInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationInputView.swift; sourceTree = "<group>"; };
 		7165EE6C26E15B1000D14832 /* GenerateUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateUI.swift; sourceTree = "<group>"; };
@@ -101,6 +105,7 @@
 		71204D2D26E00C5500D0ECFC /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				71478CF426E7BDBA009BE3CF /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -128,6 +133,7 @@
 		71204D3026E00C6900D0ECFC /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				71478CF726E7BE10009BE3CF /* Service.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -279,11 +285,13 @@
 				7110BD1C26E39D1700B32BB0 /* HomeController.swift in Sources */,
 				71521D3426E5069800C6B047 /* LocationInputView.swift in Sources */,
 				7165EE6D26E15B1000D14832 /* GenerateUI.swift in Sources */,
+				71478CF826E7BE10009BE3CF /* Service.swift in Sources */,
 				712D1C1026E163440042CA6E /* SignupController.swift in Sources */,
 				71F8F30726E67D94003D3531 /* LocationCell.swift in Sources */,
 				71204D1926E00C4D00D0ECFC /* AppDelegate.swift in Sources */,
 				71521D3126E504A900C6B047 /* LocationInputActivationView.swift in Sources */,
 				71204D1B26E00C4D00D0ECFC /* SceneDelegate.swift in Sources */,
+				71478CF526E7BDBA009BE3CF /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

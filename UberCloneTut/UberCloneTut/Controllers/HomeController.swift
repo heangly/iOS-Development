@@ -23,11 +23,16 @@ class HomeController: UIViewController {
 
     private final let locationInputViewHeight: CGFloat = 200
 
+    private var user: User? {
+        didSet { locationInputView.user = user }
+    }
+
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configureMainUI()
         enableLocationServices()
+        fetchUserAPI()
 
         inputActivationView.delegate = self
         locationInputView.delegate = self
@@ -61,6 +66,7 @@ class HomeController: UIViewController {
         let height = view.frame.height - locationInputViewHeight
         tableView.frame = CGRect(x: 0, y: view.frame.height, width: view.frame.width, height: height)
         tableView.addShadow()
+        tableView.tableFooterView = UIView()
     }
 
     func toggleLocationInputView(opacity: CGFloat) {
@@ -73,6 +79,16 @@ class HomeController: UIViewController {
         }
     }
 
+    //MARK: - API
+    func fetchUserAPI() {
+        Service.shared.fetchUserData { user in
+            print(user)
+            self.user = user
+        }
+    }
+
+
+    //MARK: - Add Subviews & Constraints
     func addAllSubviews() {
         let subviews = [mapView, inputActivationView, locationInputView, tableView]
         subviews.forEach {
@@ -160,9 +176,14 @@ extension HomeController: LocationInputActivationViewDelegate, LocationInputView
 }
 
 
+//MARK: - UITabelViewDatasource & Delegate
 extension HomeController: UITableViewDelegate, UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return section == 0 ? 2 : 5
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
