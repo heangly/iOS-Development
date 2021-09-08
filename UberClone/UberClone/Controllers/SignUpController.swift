@@ -7,9 +7,12 @@
 
 import UIKit
 import Firebase
+import GeoFire
 
 class SignUpController: UIViewController {
     //MARK: - Properties
+    private var location = LocationHandler.shared.locationManager.location
+
     private let titleLabel = UILabel().uberLabel()
 
     private let emailTextField = UITextField().textField(withPlaceHolder: "Email")
@@ -99,21 +102,24 @@ class SignUpController: UIViewController {
                 }
 
                 guard let uid = result?.user.uid else { return }
-                
+
+
                 let values: [String: Any] = [
                     "email": email,
                     "fullname": fullname,
                     "accountTypeIndex": accountTypeIndex
                 ]
-                
-                Database.database().reference().child("users").child(uid).updateChildValues(values) { error, ref in
-                    
-                    DispatchQueue.main.async {
-                        let nav = UINavigationController(rootViewController: HomeController())
-                        nav.modalPresentationStyle = .fullScreen
-                        self.present(nav, animated: true)
+
+                if accountTypeIndex == 1 {
+                    guard let location = self.location else { return }
+                    let geofire = GeoFire(firebaseRef: REF_DRIVER_LOCATIONS)
+                    geofire.setLocation(location, forKey: uid) { error in
+                        self.uploadUserDataAndShowHomeController(uid: uid, values: values)
                     }
+                } else {
+                    self.uploadUserDataAndShowHomeController(uid: uid, values: values)
                 }
+
 
             }
         }
@@ -121,6 +127,16 @@ class SignUpController: UIViewController {
     }
 
     //MARK: - Helpers
+    func uploadUserDataAndShowHomeController(uid: String, values: [String: Any]) {
+        REF_USERS.child(uid).updateChildValues(values) { error, ref in
+            DispatchQueue.main.async {
+                let nav = UINavigationController(rootViewController: HomeController())
+                nav.modalPresentationStyle = .fullScreen
+                self.present(nav, animated: true)
+            }
+        }
+    }
+
     func configureMainUI() {
         view.backgroundColor = .black
         navigationController?.navigationBar.barStyle = .black

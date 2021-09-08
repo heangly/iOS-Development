@@ -13,7 +13,7 @@ class HomeController: UIViewController {
     //MARK: - Properties
     private let mapView = MKMapView()
 
-    private let locationManager = CLLocationManager()
+    private let locationManager = LocationHandler.shared.locationManager
 
     private let inputActivationView = LocationInputActivationView()
 
@@ -33,6 +33,7 @@ class HomeController: UIViewController {
         configureMainUI()
         enableLocationServices()
         fetchUserAPI()
+        fetchDrivers()
 
         inputActivationView.delegate = self
         locationInputView.delegate = self
@@ -81,36 +82,20 @@ class HomeController: UIViewController {
         }
     }
 
-    func addAllSubviews() {
-        let subviews = [mapView, inputActivationView, locationInputView, tableView]
-        subviews.forEach {
-            view.addSubview($0)
-            $0.translatesAutoresizingMaskIntoConstraints = false
+    //MARK: - API
+    func fetchUserAPI() {
+        guard let currentUid = Auth.auth().currentUser?.uid else { return }
+        Service.shared.fetchUserData(uid: currentUid) { user in
+            self.user = user
         }
     }
 
-    func addAllConstraints() {
-        let layout = view.safeAreaLayoutGuide
-
-        let constraints = [
-            inputActivationView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            inputActivationView.topAnchor.constraint(equalTo: layout.topAnchor, constant: 32),
-            inputActivationView.heightAnchor.constraint(equalToConstant: 50),
-            inputActivationView.widthAnchor.constraint(equalToConstant: view.frame.width - 64),
-
-            locationInputView.topAnchor.constraint(equalTo: view.topAnchor),
-            locationInputView.leftAnchor.constraint(equalTo: view.leftAnchor),
-            locationInputView.rightAnchor.constraint(equalTo: view.rightAnchor),
-            locationInputView.heightAnchor.constraint(equalToConstant: locationInputViewHeight),
-        ]
-
-        NSLayoutConstraint.activate(constraints)
-    }
-
-    //MARK: - API
-    func fetchUserAPI() {
-        Service.shared.fetchUserData { user in
-            self.user = user
+    func fetchDrivers() {
+        guard let location = locationManager?.location else { return }
+        Service.shared.fetchDrivers(location: location) { driver in
+            guard let coordinate = driver.location?.coordinate else { return }
+            let annotation = DriverAnnotation(uid: driver.uid, coordinate: coordinate)
+            self.mapView.addAnnotation(annotation)
         }
     }
 
@@ -134,9 +119,9 @@ class HomeController: UIViewController {
 
 
 //MARK: - LocationServices
-extension HomeController: CLLocationManagerDelegate {
+extension HomeController {
     func enableLocationServices() {
-        locationManager.delegate = self
+        guard let locationManager = locationManager else { return }
 
         switch locationManager.authorizationStatus {
         case .notDetermined:
@@ -154,12 +139,6 @@ extension HomeController: CLLocationManagerDelegate {
 
         default:
             break
-        }
-    }
-
-    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        if manager.authorizationStatus == .authorizedWhenInUse {
-            manager.requestAlwaysAuthorization()
         }
     }
 }
@@ -195,5 +174,34 @@ extension HomeController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
+    }
+}
+
+//MARK: - Add Subviews & Constraints
+extension HomeController {
+    func addAllSubviews() {
+        let subviews = [mapView, inputActivationView, locationInputView, tableView]
+        subviews.forEach {
+            view.addSubview($0)
+            $0.translatesAutoresizingMaskIntoConstraints = false
+        }
+    }
+
+    func addAllConstraints() {
+        let layout = view.safeAreaLayoutGuide
+
+        let constraints = [
+            inputActivationView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            inputActivationView.topAnchor.constraint(equalTo: layout.topAnchor, constant: 32),
+            inputActivationView.heightAnchor.constraint(equalToConstant: 50),
+            inputActivationView.widthAnchor.constraint(equalToConstant: view.frame.width - 64),
+
+            locationInputView.topAnchor.constraint(equalTo: view.topAnchor),
+            locationInputView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            locationInputView.rightAnchor.constraint(equalTo: view.rightAnchor),
+            locationInputView.heightAnchor.constraint(equalToConstant: locationInputViewHeight),
+        ]
+
+        NSLayoutConstraint.activate(constraints)
     }
 }

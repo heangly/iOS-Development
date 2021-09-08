@@ -22,6 +22,8 @@
 		716E058826E79BA400FB8862 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716E058726E79BA400FB8862 /* User.swift */; };
 		717FB5E326E0EB4100F190F8 /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717FB5E226E0EB4100F190F8 /* UIExtensions.swift */; };
 		717FB5E626E1246D00F190F8 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717FB5E526E1246D00F190F8 /* SignUpController.swift */; };
+		71A3BDB726E8C8F1009B3701 /* LocationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A3BDB626E8C8F1009B3701 /* LocationHandler.swift */; };
+		71A3BDBA26E8D78C009B3701 /* DriverAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A3BDB926E8D78C009B3701 /* DriverAnnotation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +43,8 @@
 		716E058726E79BA400FB8862 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		717FB5E226E0EB4100F190F8 /* UIExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
 		717FB5E526E1246D00F190F8 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
+		71A3BDB626E8C8F1009B3701 /* LocationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHandler.swift; sourceTree = "<group>"; };
+		71A3BDB926E8D78C009B3701 /* DriverAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverAnnotation.swift; sourceTree = "<group>"; };
 		78A34D08EB140AB868BB3183 /* Pods_UberClone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UberClone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		78F64B8D1046F256AFC80381 /* Pods-UberClone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UberClone.release.xcconfig"; path = "Target Support Files/Pods-UberClone/Pods-UberClone.release.xcconfig"; sourceTree = "<group>"; };
 		C5C89DA800310DEA6913C52E /* Pods-UberClone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UberClone.debug.xcconfig"; path = "Target Support Files/Pods-UberClone/Pods-UberClone.debug.xcconfig"; sourceTree = "<group>"; };
@@ -104,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				717FB5E226E0EB4100F190F8 /* UIExtensions.swift */,
+				71A3BDB626E8C8F1009B3701 /* LocationHandler.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -140,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				716E058726E79BA400FB8862 /* User.swift */,
+				71A3BDB926E8D78C009B3701 /* DriverAnnotation.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -280,6 +286,8 @@
 				71204CF326DFA46600D0ECFC /* LogInController.swift in Sources */,
 				71204CEF26DFA46600D0ECFC /* AppDelegate.swift in Sources */,
 				713A502F26E38D80008B5802 /* HomeController.swift in Sources */,
+				71A3BDB726E8C8F1009B3701 /* LocationHandler.swift in Sources */,
+				71A3BDBA26E8D78C009B3701 /* DriverAnnotation.swift in Sources */,
 				71204CF126DFA46600D0ECFC /* SceneDelegate.swift in Sources */,
 				717FB5E626E1246D00F190F8 /* SignUpController.swift in Sources */,
 				7120963A26E4DF4D00E487D6 /* LocationInputActivationView.swift in Sources */,
