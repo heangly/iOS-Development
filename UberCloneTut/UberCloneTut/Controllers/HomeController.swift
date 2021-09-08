@@ -13,7 +13,7 @@ class HomeController: UIViewController {
     //MARK: - Properties
     private let mapView = MKMapView()
 
-    private let locationManager = CLLocationManager()
+    private let locationManager = LocationHandler.shared.locationManager
 
     private let inputActivationView = LocationInputActivationView()
 
@@ -81,9 +81,18 @@ class HomeController: UIViewController {
 
     //MARK: - API
     func fetchUserAPI() {
-        Service.shared.fetchUserData { user in
-            print(user)
+        guard let currentUid = Auth.auth().currentUser?.uid else { return }
+        Service.shared.fetchUserData(uid: currentUid) { user in
             self.user = user
+        }
+    }
+
+    func fetchDrivers() {
+        guard let location = locationManager?.location else { return }
+        Service.shared.fetchDrivers(location: location) { driver in
+            guard let coordinate = driver.location?.coordinate else { return }
+            let annotation = DriverAnnotation(uid: driver.uid, coordinate: coordinate)
+            self.mapView.addAnnotation(annotation)
         }
     }
 
@@ -135,10 +144,9 @@ class HomeController: UIViewController {
 
 
 //MARK: - LocationServices
-extension HomeController: CLLocationManagerDelegate {
+extension HomeController {
     func enableLocationServices() {
-        locationManager.delegate = self
-
+        guard let locationManager = locationManager else { return }
         switch locationManager.authorizationStatus {
         case .notDetermined:
             locationManager.requestWhenInUseAuthorization()
@@ -181,7 +189,7 @@ extension HomeController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return section == 0 ? 2 : 5
     }

@@ -7,9 +7,12 @@
 
 import UIKit
 import Firebase
+import GeoFire
 
 class SignupController: UIViewController {
     //MARK: - Properties
+    private var location = LocationHandler.shared.locationManager.location
+
     private let titleLabel = GenerateUI.forMainLabel()
 
     private let emailTextField = GenerateUI.forTextField(withPlaceHolder: "Email")
@@ -89,20 +92,24 @@ class SignupController: UIViewController {
                 }
 
                 guard let uid = result?.user.uid else { return }
-                
-                let values:[String: Any] = [
+
+                let values: [String: Any] = [
                     "email": email,
                     "fulllname": fullname,
                     "accountTypeIndex": accountTypeIndex
                 ]
-                
-                Database.database().reference().child("users").child(uid).updateChildValues(values) { error, ref in
-                    DispatchQueue.main.async {
-                        let controller = HomeController()
-                        controller.modalPresentationStyle = .fullScreen
-                        self.present(controller, animated: true)
+
+                if accountTypeIndex == 1 {
+                    guard let location = self.location else { return }
+                    let geofire = GeoFire(firebaseRef: REF_DRIVER_LOCATIONS)
+                    geofire.setLocation(location, forKey: uid) { error in
+                        self.uploadUserDataAndShowHomeController(uid: uid, values: values)
                     }
+                } else {
+                    self.uploadUserDataAndShowHomeController(uid: uid, values: values)
                 }
+
+
             }
 
         }
@@ -119,6 +126,16 @@ class SignupController: UIViewController {
             signUpButton.isEnabled = false
             signUpButton.setTitleColor(UIColor.white.withAlphaComponent(0.8), for: .normal)
             signUpButton.backgroundColor = UIColor.mainBlueTint.withAlphaComponent(0.8)
+        }
+    }
+
+    func uploadUserDataAndShowHomeController(uid: String, values: [String: Any]) {
+        REF_USERS.child(uid).updateChildValues(values) { error, ref in
+            DispatchQueue.main.async {
+                let controller = HomeController()
+                controller.modalPresentationStyle = .fullScreen
+                self.present(controller, animated: true)
+            }
         }
     }
 
