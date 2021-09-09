@@ -9,6 +9,8 @@ import UIKit
 import Firebase
 import MapKit
 
+private let annotaionIdentifier = "DriverAnnotation"
+
 class HomeController: UIViewController {
     //MARK: - Properties
     private let mapView = MKMapView()
@@ -59,6 +61,7 @@ class HomeController: UIViewController {
         mapView.frame = view.frame
         mapView.showsUserLocation = true
         mapView.userTrackingMode = .follow
+        mapView.delegate = self
     }
 
     func configureTableView() {
@@ -95,7 +98,23 @@ class HomeController: UIViewController {
         Service.shared.fetchDrivers(location: location) { driver in
             guard let coordinate = driver.location?.coordinate else { return }
             let annotation = DriverAnnotation(uid: driver.uid, coordinate: coordinate)
-            self.mapView.addAnnotation(annotation)
+
+            var driverIsVisible: Bool {
+                return self.mapView.annotations.contains { annotation -> Bool in
+                    guard let driverAnno = annotation as? DriverAnnotation else { return false }
+                    if driverAnno.uid == driver.uid {
+                        driverAnno.updateAnnotationPosition(withCoordinate: coordinate)
+                        return true
+                    }
+                    return false
+                }
+            }
+
+            if !driverIsVisible {
+                self.mapView.addAnnotation(annotation)
+            }
+
+
         }
     }
 
@@ -117,6 +136,17 @@ class HomeController: UIViewController {
     }
 }
 
+//MARK: - MKMapViewDelegate
+extension HomeController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if let annotation = annotation as? DriverAnnotation {
+            let view = MKAnnotationView(annotation: annotation, reuseIdentifier: annotaionIdentifier)
+            view.image = #imageLiteral(resourceName: "chevron-sign-to-right")
+            return view
+        }
+        return nil
+    }
+}
 
 //MARK: - LocationServices
 extension HomeController {
