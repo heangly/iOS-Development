@@ -7,13 +7,14 @@
 
 import UIKit
 
-protocol LocationInputViewDelegate: class {
+protocol LocationInputViewDelegate {
     func dismissLocationInputView()
+    func executeSearch(query: String)
 }
 
 class LocationInputView: UIView {
     //MARK: - Properties
-    weak var delegate: LocationInputViewDelegate?
+    var delegate: LocationInputViewDelegate?
 
     var user: User? {
         didSet { titleLabel.text = user?.fullname }
@@ -67,6 +68,7 @@ class LocationInputView: UIView {
         tf.backgroundColor = UIColor.darkGray.withAlphaComponent(0.3)
         tf.returnKeyType = .search
         tf.font = UIFont.systemFont(ofSize: 14)
+        tf.delegate = self
         addLeftPadding(toTextField: tf, withHeight: 30, withWidth: 8)
         return tf
     }()
@@ -154,3 +156,12 @@ class LocationInputView: UIView {
     }
 }
 
+//MARK: - UITextFieldDelegate
+extension LocationInputView: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        guard let query = textField.text else { return false }
+        delegate?.executeSearch(query: query)
+        return true
+    }
+
+}
