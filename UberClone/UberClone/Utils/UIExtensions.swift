@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MapKit
 
 extension UIStackView {
     func authStackViews() -> UIStackView {
@@ -146,5 +147,19 @@ extension UITextField {
         tf.borderStyle = .none
         tf.autocapitalizationType = .none
         return tf
+    }
+}
+
+
+extension MKPlacemark {
+    var address: String? {
+        get {
+            guard let subThroughFare = subThoroughfare else { return nil }
+            guard let thoroughFare = thoroughfare else { return nil }
+            guard let locality = locality else { return nil }
+            guard let adminArea = administrativeArea else { return nil }
+            
+            return "\(subThroughFare) \(thoroughfare), \(locality), \(adminArea)"
+        }
     }
 }
