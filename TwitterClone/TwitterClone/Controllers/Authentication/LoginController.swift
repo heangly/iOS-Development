@@ -18,6 +18,7 @@ class LoginController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loginView.delegate = self
         configureUI()
     }
     
@@ -31,4 +32,16 @@ class LoginController: UIViewController {
         navigationController?.navigationBar.barStyle = .black
     }
 
+}
+
+//MARK: - LoginView Delegate
+extension LoginController : LoginViewDelegate {
+    func didTapLoginButton(_ loginView: LoginView) {
+        print("Login Tapped")
+    }
+    
+    func didTapDontHaveAccountButton(_ loginView: LoginView) {
+        print("dont have account")
+    }
+    
 }

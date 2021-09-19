@@ -7,8 +7,15 @@
 
 import UIKit
 
+protocol LoginViewDelegate: AnyObject {
+    func didTapLoginButton(_ loginView: LoginView)
+    func didTapDontHaveAccountButton(_ loginView: LoginView)
+}
+
 class LoginView: UIView {
     //MARK: - Properties
+    weak var delegate: LoginViewDelegate?
+
     private let logoImageView: UIImageView = {
         let iv = UIImageView()
         iv.clipsToBounds = true
@@ -18,60 +25,31 @@ class LoginView: UIView {
     }()
 
     private lazy var emailContainerView: UIView = {
-        let view = UIView()
+        let image = #imageLiteral(resourceName: "ic_mail_outline_white_2x-1")
+        let textFieldPlaceHolder = "Email"
+        let view = Utilities().inputContainerView(withImage: image, withTextFieldPlaceholder: textFieldPlaceHolder)
         return view
-    }()
-
-    private let emailImage: UIImageView = {
-        let ei = UIImageView()
-        ei.image = #imageLiteral(resourceName: "mail")
-        ei.tintColor = .white
-        return ei
-    }()
-
-    private let emailTextField: UITextField = {
-        let et = UITextField()
-        et.placeholder = "Email"
-        return et
-    }()
-
-    private let emailBottomLine: UIView = {
-        let el = UIView()
-        el.backgroundColor = .white
-        return el
     }()
 
     private lazy var passwordContainerView: UIView = {
-        let view = UIView()
+        let image = #imageLiteral(resourceName: "ic_lock_outline_white_2x")
+        let textFieldPlaceHolder = "Password"
+        let view = Utilities().inputContainerView(withImage: image, withTextFieldPlaceholder: textFieldPlaceHolder, isSecureTextEntry: true)
         return view
     }()
 
-    private let passwordImage: UIImageView = {
-        let pi = UIImageView()
-        pi.image = #imageLiteral(resourceName: "ic_lock_outline_white_2x")
-        pi.tintColor = .white
-        return pi
+    private lazy var loginButton: UIButton = {
+        let btn = Utilities().authButton(title: "Log In")
+        btn.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
+        return btn
     }()
 
-    private let passwordTextField: UITextField = {
-        let pt = UITextField()
-        pt.placeholder = "password"
-        return pt
-    }()
-    
-    private let passwordBottomLine: UIView = {
-        let pl = UIView()
-        pl.backgroundColor = .white
-        return pl
-    }()
+    private let stackView = Utilities().stackView()
 
-
-    private let stackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .vertical
-        stackView.distribution = .fillEqually
-        stackView.spacing = 10
-        return stackView
+    private let dontHaveAccountbutton: UIButton = {
+        let btn = Utilities().attributeTextButton(firstPartTitle: "Don't have an account? ", secondPartTitle: "Sign Up")
+        btn.addTarget(self, action: #selector(dontHaveAccountButtonTapped), for: .touchUpInside)
+        return btn
     }()
 
     //MARK: - LifeCycle
@@ -88,30 +66,26 @@ class LoginView: UIView {
     //MARK: - Helpers
     func configureUI() {
         backgroundColor = .twitterBlue
+    }
 
+    //MARK: - Actions
+    @objc func loginButtonTapped() {
+        delegate?.didTapLoginButton(self)
+    }
+
+    @objc func dontHaveAccountButtonTapped() {
+        delegate?.didTapDontHaveAccountButton(self)
     }
 
     //MARK: - AddSubviews
     func addAllSubViews() {
-        let emailContainerSubViews = [emailImage, emailTextField, emailBottomLine]
-        emailContainerSubViews.forEach {
-            $0.translatesAutoresizingMaskIntoConstraints = false
-            emailContainerView.addSubview($0)
-        }
-        
-        let passwordContainerSubViews = [passwordImage, passwordTextField, passwordBottomLine]
-        passwordContainerSubViews.forEach {
-            $0.translatesAutoresizingMaskIntoConstraints = false
-            passwordContainerView.addSubview($0)
-        }
-        
-        let subStackViews = [emailContainerView, passwordContainerView]
+        let subStackViews = [emailContainerView, passwordContainerView, loginButton]
         subStackViews.forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
             stackView.addArrangedSubview($0)
         }
 
-        let subViews = [logoImageView, stackView]
+        let subViews = [logoImageView, stackView, dontHaveAccountbutton]
         subViews.forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
             addSubview($0)
@@ -126,26 +100,23 @@ class LoginView: UIView {
 
         NSLayoutConstraint.activate([
             logoImageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.2),
-            logoImageView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.5),
+            logoImageView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.4),
             logoImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
             logoImageView.topAnchor.constraint(equalTo: layout.topAnchor),
 
             stackView.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 20),
             stackView.leftAnchor.constraint(equalTo: layout.leftAnchor, constant: 40),
-            stackView.rightAnchor.constraint(equalTo: layout.rightAnchor, constant:  -40),
+            stackView.rightAnchor.constraint(equalTo: layout.rightAnchor, constant: -40),
 
             emailContainerView.heightAnchor.constraint(equalToConstant: 50),
-            passwordContainerView.heightAnchor.constraint(equalToConstant: 50),
-            
-            emailImage.leftAnchor.constraint(equalTo: emailContainerView.leftAnchor),
-            
-            emailTextField.leftAnchor.constraint(equalTo: emailImage.rightAnchor, constant: 10),
-            
-            emailBottomLine.heightAnchor.constraint(equalToConstant: 2),
-            emailBottomLine.leftAnchor.constraint(equalTo: emailContainerView.leftAnchor),
-            emailBottomLine.rightAnchor.constraint(equalTo: emailContainerView.rightAnchor),
-            emailBottomLine.bottomAnchor.constraint(equalTo: emailImage.bottomAnchor, constant: 10),
 
+            passwordContainerView.heightAnchor.constraint(equalToConstant: 50),
+
+            loginButton.heightAnchor.constraint(equalToConstant: 50),
+
+            dontHaveAccountbutton.bottomAnchor.constraint(greaterThanOrEqualTo: layout.bottomAnchor, constant: -10),
+            dontHaveAccountbutton.centerXAnchor.constraint(equalTo: centerXAnchor),
             ])
     }
 }
+
