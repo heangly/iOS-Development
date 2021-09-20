@@ -56,7 +56,7 @@ class Utilities {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.distribution = .fillEqually
-        stackView.spacing = 80
+        stackView.spacing = 25
         return stackView
     }
 

@@ -10,24 +10,24 @@ import UIKit
 class LoginController: UIViewController {
     //MARK: - Properties
     private let loginView = LoginView()
-    
+
     //MARK: - LifeCycle
     override func loadView() {
         view = loginView
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         loginView.delegate = self
         configureUI()
     }
-    
-    func configureUI(){
+
+    func configureUI() {
         configureNavigationBar()
-        
+
     }
-    
-    func configureNavigationBar(){
+
+    func configureNavigationBar() {
         navigationController?.navigationBar.isHidden = true
         navigationController?.navigationBar.barStyle = .black
     }
@@ -35,13 +35,16 @@ class LoginController: UIViewController {
 }
 
 //MARK: - LoginView Delegate
-extension LoginController : LoginViewDelegate {
+extension LoginController: LoginViewDelegate {
     func didTapLoginButton(_ loginView: LoginView) {
         print("Login Tapped")
     }
-    
+
     func didTapDontHaveAccountButton(_ loginView: LoginView) {
-        print("dont have account")
+        let controller = SignUpController()
+        DispatchQueue.main.async {
+            self.navigationController?.pushViewController(controller, animated: true)
+        }
     }
-    
+
 }

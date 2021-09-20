@@ -46,7 +46,7 @@ class LoginView: UIView {
 
     private let stackView = Utilities().stackView()
 
-    private let dontHaveAccountbutton: UIButton = {
+    private let dontHaveAccountButton: UIButton = {
         let btn = Utilities().attributeTextButton(firstPartTitle: "Don't have an account? ", secondPartTitle: "Sign Up")
         btn.addTarget(self, action: #selector(dontHaveAccountButtonTapped), for: .touchUpInside)
         return btn
@@ -85,7 +85,7 @@ class LoginView: UIView {
             stackView.addArrangedSubview($0)
         }
 
-        let subViews = [logoImageView, stackView, dontHaveAccountbutton]
+        let subViews = [logoImageView, stackView, dontHaveAccountButton]
         subViews.forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
             addSubview($0)
@@ -114,8 +114,8 @@ class LoginView: UIView {
 
             loginButton.heightAnchor.constraint(equalToConstant: 50),
 
-            dontHaveAccountbutton.bottomAnchor.constraint(greaterThanOrEqualTo: layout.bottomAnchor, constant: -10),
-            dontHaveAccountbutton.centerXAnchor.constraint(equalTo: centerXAnchor),
+            dontHaveAccountButton.bottomAnchor.constraint(greaterThanOrEqualTo: layout.bottomAnchor, constant: -10),
+            dontHaveAccountButton.centerXAnchor.constraint(equalTo: centerXAnchor),
             ])
     }
 }
