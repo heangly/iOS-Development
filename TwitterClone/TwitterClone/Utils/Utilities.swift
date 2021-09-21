@@ -8,7 +8,7 @@
 import UIKit
 
 class Utilities {
-    func inputContainerView(withImage image: UIImage, withTextFieldPlaceholder placeholder: String, isSecureTextEntry: Bool = false) -> UIView {
+    func inputContainerView(withImage image: UIImage, withTextField textField: UITextField, withTextFieldPlaceholder placeholder: String, isSecureTextEntry: Bool = false) -> UIView {
 
         let containerView = UIView()
 
@@ -16,7 +16,6 @@ class Utilities {
         imageView.image = image
         imageView.tintColor = .white
 
-        let textField = UITextField()
         let attributes: [NSAttributedString.Key: Any] = [
                 .foregroundColor: UIColor.white,
                 .font: UIFont.systemFont(ofSize: 20)

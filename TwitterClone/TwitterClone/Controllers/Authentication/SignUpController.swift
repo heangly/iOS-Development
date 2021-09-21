@@ -46,8 +46,8 @@ extension SignUpController: SignUpViewDelegte {
         navigationController?.popViewController(animated: true)
     }
 
-    func didTapSignUpButton(_ signUpView: SignUpView) {
-        print("tap sign up button")
+    func didTapSignUpButton(_ signUpView: SignUpView, inputTextFieldValues: [String: String], profileImage: UIImage) {
+        AuthenticationAPI.registerUser(with: inputTextFieldValues, profileImage: profileImage)
     }
 
 }

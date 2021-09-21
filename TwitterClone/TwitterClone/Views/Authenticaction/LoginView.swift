@@ -24,17 +24,21 @@ class LoginView: UIView {
         return iv
     }()
 
+    private let emailTextField = UITextField()
+
     private lazy var emailContainerView: UIView = {
         let image = #imageLiteral(resourceName: "ic_mail_outline_white_2x-1")
         let textFieldPlaceHolder = "Email"
-        let view = Utilities().inputContainerView(withImage: image, withTextFieldPlaceholder: textFieldPlaceHolder)
+        let view = Utilities().inputContainerView(withImage: image, withTextField: emailTextField, withTextFieldPlaceholder: textFieldPlaceHolder)
         return view
     }()
+
+    let passwordTextField = UITextField()
 
     private lazy var passwordContainerView: UIView = {
         let image = #imageLiteral(resourceName: "ic_lock_outline_white_2x")
         let textFieldPlaceHolder = "Password"
-        let view = Utilities().inputContainerView(withImage: image, withTextFieldPlaceholder: textFieldPlaceHolder, isSecureTextEntry: true)
+        let view = Utilities().inputContainerView(withImage: image, withTextField: passwordTextField, withTextFieldPlaceholder: textFieldPlaceHolder, isSecureTextEntry: true)
         return view
     }()
 
@@ -102,7 +106,7 @@ class LoginView: UIView {
             logoImageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.2),
             logoImageView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.4),
             logoImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            logoImageView.topAnchor.constraint(equalTo: layout.topAnchor),
+            logoImageView.topAnchor.constraint(equalTo: layout.topAnchor, constant: 10),
 
             stackView.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 20),
             stackView.leftAnchor.constraint(equalTo: layout.leftAnchor, constant: 40),

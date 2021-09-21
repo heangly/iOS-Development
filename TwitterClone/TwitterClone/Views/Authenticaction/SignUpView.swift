@@ -10,12 +10,14 @@ import UIKit
 protocol SignUpViewDelegte: AnyObject {
     func didTapPlusPhotoButtonTapped(_ signUpView: SignUpView)
     func didTapAlreadyHaveAccountButton(_ signUpView: SignUpView)
-    func didTapSignUpButton(_ signUpView: SignUpView)
+    func didTapSignUpButton(_ signUpView: SignUpView, inputTextFieldValues: [String: String], profileImage: UIImage)
 }
 
 class SignUpView: UIView {
     //MARK: - Properties
     weak var delegate: SignUpViewDelegte?
+
+    private var profileImage: UIImage?
 
     let plusPhotoButton: UIButton = {
         let btn = UIButton(type: .system)
@@ -25,31 +27,40 @@ class SignUpView: UIView {
         return btn
     }()
 
+    private let emailTextField = UITextField()
+
     private lazy var emailContainerView: UIView = {
         let image = #imageLiteral(resourceName: "ic_mail_outline_white_2x-1")
         let textFieldPlaceHolder = "Email"
-        let view = Utilities().inputContainerView(withImage: image, withTextFieldPlaceholder: textFieldPlaceHolder)
+        let view = Utilities().inputContainerView(withImage: image, withTextField: emailTextField, withTextFieldPlaceholder: textFieldPlaceHolder)
         return view
     }()
+
+
+    private let passwordTextField = UITextField()
 
     private lazy var passwordContainerView: UIView = {
         let image = #imageLiteral(resourceName: "ic_lock_outline_white_2x")
         let textFieldPlaceHolder = "Password"
-        let view = Utilities().inputContainerView(withImage: image, withTextFieldPlaceholder: textFieldPlaceHolder, isSecureTextEntry: true)
+        let view = Utilities().inputContainerView(withImage: image, withTextField: passwordTextField, withTextFieldPlaceholder: textFieldPlaceHolder, isSecureTextEntry: true)
         return view
     }()
+
+    private let fullnameTextField = UITextField()
 
     private lazy var fullnameContainerView: UIView = {
         let image = #imageLiteral(resourceName: "ic_person_outline_white_2x")
         let textFieldPlaceHolder = "Full Name"
-        let view = Utilities().inputContainerView(withImage: image, withTextFieldPlaceholder: textFieldPlaceHolder)
+        let view = Utilities().inputContainerView(withImage: image, withTextField: fullnameTextField, withTextFieldPlaceholder: textFieldPlaceHolder)
         return view
     }()
+
+    private let usernameTextField = UITextField()
 
     private lazy var usernameContainerView: UIView = {
         let image = #imageLiteral(resourceName: "ic_person_outline_white_2x")
         let textFieldPlaceHolder = "Username"
-        let view = Utilities().inputContainerView(withImage: image, withTextFieldPlaceholder: textFieldPlaceHolder)
+        let view = Utilities().inputContainerView(withImage: image, withTextField: usernameTextField, withTextFieldPlaceholder: textFieldPlaceHolder)
         return view
     }()
 
@@ -85,7 +96,20 @@ class SignUpView: UIView {
 
     //MARK: - Actions
     @objc func signUpButtonTapped() {
-        delegate?.didTapSignUpButton(self)
+        guard let email = emailTextField.text else { return }
+        guard let password = passwordTextField.text else { return }
+        guard let fullname = fullnameTextField.text else { return }
+        guard let username = usernameTextField.text else { return }
+        guard let profileImage = profileImage else { return }
+
+        let inputTextFieldValues = [
+            "email": email,
+            "password": password,
+            "fullname": fullname,
+            "username": username
+        ]
+
+        delegate?.didTapSignUpButton(self, inputTextFieldValues: inputTextFieldValues, profileImage: profileImage)
     }
 
     @objc func alreadyHaveAccountButtonTapped() {
@@ -104,6 +128,8 @@ class SignUpView: UIView {
         plusPhotoButton.layer.borderColor = UIColor.white.cgColor
         plusPhotoButton.imageView?.contentMode = .scaleAspectFill
         plusPhotoButton.imageView?.clipsToBounds = true
+
+        profileImage = image
     }
 
     //MARK: - AddSubviews
@@ -132,7 +158,7 @@ class SignUpView: UIView {
             plusPhotoButton.heightAnchor.constraint(equalToConstant: 128),
             plusPhotoButton.widthAnchor.constraint(equalToConstant: 128),
             plusPhotoButton.centerXAnchor.constraint(equalTo: centerXAnchor),
-            plusPhotoButton.topAnchor.constraint(equalTo: layout.topAnchor),
+            plusPhotoButton.topAnchor.constraint(equalTo: layout.topAnchor, constant: 10),
 
             stackView.topAnchor.constraint(equalTo: plusPhotoButton.bottomAnchor, constant: 20),
             stackView.leftAnchor.constraint(equalTo: layout.leftAnchor, constant: 40),
