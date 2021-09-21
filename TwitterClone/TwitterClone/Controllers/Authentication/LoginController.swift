@@ -24,7 +24,6 @@ class LoginController: UIViewController {
 
     func configureUI() {
         configureNavigationBar()
-
     }
 
     func configureNavigationBar() {
@@ -36,8 +35,19 @@ class LoginController: UIViewController {
 
 //MARK: - LoginView Delegate
 extension LoginController: LoginViewDelegate {
-    func didTapLoginButton(_ loginView: LoginView) {
-        print("Login Tapped")
+    func didTapLoginButton(_ loginView: LoginView, email: String, password: String) {
+        AuthenticationAPI.shared.loginUser(withEmail: email, password: password) { result, error in
+            if let error = error {
+                print("DEbUBG: Error logging in \(error.localizedDescription)")
+                return
+            }
+
+            DispatchQueue.main.async {
+                let controller = MainTabController()
+                controller.modalPresentationStyle = .fullScreen
+                self.present(controller, animated: true)
+            }
+        }
     }
 
     func didTapDontHaveAccountButton(_ loginView: LoginView) {

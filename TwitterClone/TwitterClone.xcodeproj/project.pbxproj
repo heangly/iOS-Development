@@ -23,8 +23,9 @@
 		7150803E26F6740C00A8E0A4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7150803D26F6740C00A8E0A4 /* Extensions.swift */; };
 		7150804026F6741800A8E0A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7150803F26F6741800A8E0A4 /* Assets.xcassets */; };
 		71685E2426F7476900B98E44 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71685E2326F7476900B98E44 /* Utilities.swift */; };
-		71A3051426F9375800BE295E /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A3051326F9375800BE295E /* Authentication.swift */; };
-		71B1E2DE26F904F40035D637 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 71B1E2DD26F904F40035D637 /* GoogleService-Info.plist */; };
+		7171A54A26F9F2DC0076CEC4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7171A54926F9F2DC0076CEC4 /* Constants.swift */; };
+		7171A54C26F9FBBE0076CEC4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7171A54B26F9FBBE0076CEC4 /* GoogleService-Info.plist */; };
+		71A3051426F9375800BE295E /* AuthenticationAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A3051326F9375800BE295E /* AuthenticationAPI.swift */; };
 		71C30B3326F8AEDC00AFF46B /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C30B3226F8AEDC00AFF46B /* SignUpViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -48,8 +49,9 @@
 		7150803D26F6740C00A8E0A4 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		7150803F26F6741800A8E0A4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		71685E2326F7476900B98E44 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
-		71A3051326F9375800BE295E /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
-		71B1E2DD26F904F40035D637 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		7171A54926F9F2DC0076CEC4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		7171A54B26F9FBBE0076CEC4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		71A3051326F9375800BE295E /* AuthenticationAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationAPI.swift; sourceTree = "<group>"; };
 		71C30B3226F8AEDC00AFF46B /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		C920DE1F5309B41D1D434043 /* Pods-TwitterClone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwitterClone.debug.xcconfig"; path = "Target Support Files/Pods-TwitterClone/Pods-TwitterClone.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -103,7 +105,7 @@
 				7150801E26F63BE200A8E0A4 /* Utils */,
 				7150801C26F63BDF00A8E0A4 /* Resources */,
 				7150801226F63BC100A8E0A4 /* Info.plist */,
-				71B1E2DD26F904F40035D637 /* GoogleService-Info.plist */,
+				7171A54B26F9FBBE0076CEC4 /* GoogleService-Info.plist */,
 			);
 			path = TwitterClone;
 			sourceTree = "<group>";
@@ -158,7 +160,7 @@
 		7150801D26F63BE000A8E0A4 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				71A3051326F9375800BE295E /* Authentication.swift */,
+				71A3051326F9375800BE295E /* AuthenticationAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -168,6 +170,7 @@
 			children = (
 				7150803D26F6740C00A8E0A4 /* Extensions.swift */,
 				71685E2326F7476900B98E44 /* Utilities.swift */,
+				7171A54926F9F2DC0076CEC4 /* Constants.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -276,7 +279,7 @@
 			files = (
 				7150804026F6741800A8E0A4 /* Assets.xcassets in Resources */,
 				7150801126F63BC100A8E0A4 /* LaunchScreen.storyboard in Resources */,
-				71B1E2DE26F904F40035D637 /* GoogleService-Info.plist in Resources */,
+				7171A54C26F9FBBE0076CEC4 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,8 +339,9 @@
 				71685E2426F7476900B98E44 /* Utilities.swift in Sources */,
 				7150803C26F6603200A8E0A4 /* SignUpView.swift in Sources */,
 				71C30B3326F8AEDC00AFF46B /* SignUpViewModel.swift in Sources */,
+				7171A54A26F9F2DC0076CEC4 /* Constants.swift in Sources */,
 				7150803526F65FB900A8E0A4 /* LoginController.swift in Sources */,
-				71A3051426F9375800BE295E /* Authentication.swift in Sources */,
+				71A3051426F9375800BE295E /* AuthenticationAPI.swift in Sources */,
 				7150803726F65FD200A8E0A4 /* SignUpController.swift in Sources */,
 				7150800726F63BC000A8E0A4 /* SceneDelegate.swift in Sources */,
 				7150803E26F6740C00A8E0A4 /* Extensions.swift in Sources */,

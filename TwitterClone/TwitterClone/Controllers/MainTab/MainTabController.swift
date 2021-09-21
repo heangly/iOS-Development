@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class MainTabController: UITabBarController {
     //MARK: - Properties
@@ -24,6 +25,7 @@ class MainTabController: UITabBarController {
         super.viewDidLoad()
         configureUI()
         addAllSubviews()
+//        logout()
     }
 
     //MARK: - Helpers
@@ -42,10 +44,26 @@ class MainTabController: UITabBarController {
         vc.navigationBar.barTintColor = .white
         return vc
     }
-    
+
     //MARK: - Actions
-    @objc func actionButtonTapped(){
+    @objc func actionButtonTapped() {
         print("Action button tapped")
+    }
+
+    func logout() {
+        do {
+            try Auth.auth().signOut()
+            
+            DispatchQueue.main.async {
+                let controller = UINavigationController(rootViewController: LoginController()) 
+                controller.modalPresentationStyle = .fullScreen
+                self.present(controller, animated: true)
+            }
+            
+        } catch {
+            print("Error logout user -> \(error.localizedDescription)")
+        }
+
     }
 }
 

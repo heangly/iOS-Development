@@ -10,7 +10,7 @@ import UIKit
 protocol SignUpViewDelegte: AnyObject {
     func didTapPlusPhotoButtonTapped(_ signUpView: SignUpView)
     func didTapAlreadyHaveAccountButton(_ signUpView: SignUpView)
-    func didTapSignUpButton(_ signUpView: SignUpView, inputTextFieldValues: [String: String], profileImage: UIImage)
+    func didTapSignUpButton(_ signUpView: SignUpView, inputTextFieldValues: [String: String], profileImage: Data)
 }
 
 class SignUpView: UIView {
@@ -96,11 +96,11 @@ class SignUpView: UIView {
 
     //MARK: - Actions
     @objc func signUpButtonTapped() {
-        guard let email = emailTextField.text else { return }
-        guard let password = passwordTextField.text else { return }
-        guard let fullname = fullnameTextField.text else { return }
-        guard let username = usernameTextField.text else { return }
-        guard let profileImage = profileImage else { return }
+        guard let email = emailTextField.text, !email.isEmpty else { return }
+        guard let password = passwordTextField.text, !password.isEmpty else { return }
+        guard let fullname = fullnameTextField.text, !fullname.isEmpty else { return }
+        guard let username = usernameTextField.text, !username.isEmpty else { return }
+        guard let profileImage = profileImage?.jpegData(compressionQuality: 0.3) else { return }
 
         let inputTextFieldValues = [
             "email": email,

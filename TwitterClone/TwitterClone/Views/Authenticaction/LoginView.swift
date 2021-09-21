@@ -8,7 +8,7 @@
 import UIKit
 
 protocol LoginViewDelegate: AnyObject {
-    func didTapLoginButton(_ loginView: LoginView)
+    func didTapLoginButton(_ loginView: LoginView, email: String, password: String)
     func didTapDontHaveAccountButton(_ loginView: LoginView)
 }
 
@@ -74,7 +74,9 @@ class LoginView: UIView {
 
     //MARK: - Actions
     @objc func loginButtonTapped() {
-        delegate?.didTapLoginButton(self)
+        guard let email = emailTextField.text, !email.isEmpty else { return }
+        guard let password = passwordTextField.text, !password.isEmpty else { return }
+        delegate?.didTapLoginButton(self, email: email, password: password)
     }
 
     @objc func dontHaveAccountButtonTapped() {

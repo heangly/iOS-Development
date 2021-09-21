@@ -46,8 +46,19 @@ extension SignUpController: SignUpViewDelegte {
         navigationController?.popViewController(animated: true)
     }
 
-    func didTapSignUpButton(_ signUpView: SignUpView, inputTextFieldValues: [String: String], profileImage: UIImage) {
-        AuthenticationAPI.registerUser(with: inputTextFieldValues, profileImage: profileImage)
+    func didTapSignUpButton(_ signUpView: SignUpView, inputTextFieldValues: [String: String], profileImage: Data) {
+        AuthenticationAPI.shared.registerUser(with: inputTextFieldValues, profileImage: profileImage) { error, ref in
+            if let error = error {
+                print("Error Authenticate user -> \(error.localizedDescription)")
+                return
+            }
+
+            DispatchQueue.main.async {
+                let controller = MainTabController()
+                controller.modalPresentationStyle = .fullScreen
+                self.present(controller, animated: true)
+            }
+        }
     }
 
 }
