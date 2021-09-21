@@ -10,6 +10,14 @@ import Firebase
 
 class MainTabController: UITabBarController {
     //MARK: - Properties
+    private var user: User? {
+        didSet {
+            guard let nav = viewControllers?[0] as? UINavigationController else { return }
+            guard let feed = nav.viewControllers.first as? FeedController else { return }
+            feed.user = user
+        }
+    }
+
     let actionButton: UIButton = {
         let btn = UIButton(type: .system)
         btn.tintColor = .white
@@ -25,7 +33,7 @@ class MainTabController: UITabBarController {
         super.viewDidLoad()
         configureUI()
         addAllSubviews()
-//        logout()
+        fetchUser()
     }
 
     //MARK: - Helpers
@@ -47,23 +55,35 @@ class MainTabController: UITabBarController {
 
     //MARK: - Actions
     @objc func actionButtonTapped() {
-        print("Action button tapped")
+        let ac = UIAlertController(title: "Logout?", message: nil, preferredStyle: .actionSheet)
+        ac.addAction(UIAlertAction(title: "Ok", style: .default, handler: { _ in
+            self.logout()
+        }))
+        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        present(ac, animated: true)
     }
 
     func logout() {
         do {
             try Auth.auth().signOut()
-            
+
             DispatchQueue.main.async {
-                let controller = UINavigationController(rootViewController: LoginController()) 
+                let controller = UINavigationController(rootViewController: LoginController())
                 controller.modalPresentationStyle = .fullScreen
                 self.present(controller, animated: true)
             }
-            
+
         } catch {
             print("Error logout user -> \(error.localizedDescription)")
         }
 
+    }
+
+    //MARK: - API
+    func fetchUser() {
+        UserAPI.shared.fetchUser { user in
+            self.user = user
+        }
     }
 }
 
