@@ -15,6 +15,7 @@ class MainTabController: UITabBarController {
             guard let nav = viewControllers?[0] as? UINavigationController else { return }
             guard let feed = nav.viewControllers.first as? FeedController else { return }
             feed.user = user
+            actionButton.isEnabled = true
         }
     }
 
@@ -24,6 +25,7 @@ class MainTabController: UITabBarController {
         btn.backgroundColor = .twitterBlue
         btn.setImage(UIImage(named: "new_tweet"), for: .normal)
         btn.layer.cornerRadius = 56 / 2
+        btn.isEnabled = false
         btn.addTarget(self, action: #selector(actionButtonTapped), for: .touchUpInside)
         return btn
     }()
@@ -55,12 +57,12 @@ class MainTabController: UITabBarController {
 
     //MARK: - Actions
     @objc func actionButtonTapped() {
-        let ac = UIAlertController(title: "Logout?", message: nil, preferredStyle: .actionSheet)
-        ac.addAction(UIAlertAction(title: "Ok", style: .default, handler: { _ in
-            self.logout()
-        }))
-        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-        present(ac, animated: true)
+        guard let user = user else { return }
+        DispatchQueue.main.async {
+            let nav = UINavigationController(rootViewController: UploadTweetController(user: user))
+            nav.modalPresentationStyle = .fullScreen
+            self.present(nav, animated: true)
+        }
     }
 
     func logout() {

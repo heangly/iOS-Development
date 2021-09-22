@@ -30,6 +30,7 @@ class FeedView: UIView {
     func configureUI() {
         backgroundColor = .white
     }
+    
 
     //MARK: - AddSubviews
     func addAllSubViews() {
