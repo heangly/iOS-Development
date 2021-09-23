@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5A3826E1DD16865E87D21DE5 /* Pods_TwitterClone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E25259EABB26DAD08A87572 /* Pods_TwitterClone.framework */; };
+		71353DC826FC97B10036E58D /* TweetAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71353DC726FC97B10036E58D /* TweetAPI.swift */; };
 		7142361926FB482B00FBF72C /* UploadTweetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7142361826FB482B00FBF72C /* UploadTweetController.swift */; };
 		7142361B26FB486400FBF72C /* UploadTweetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7142361A26FB486400FBF72C /* UploadTweetView.swift */; };
 		7142361D26FB567E00FBF72C /* UploadTweetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7142361C26FB567E00FBF72C /* UploadTweetViewModel.swift */; };
@@ -38,6 +39,7 @@
 /* Begin PBXFileReference section */
 		4E25259EABB26DAD08A87572 /* Pods_TwitterClone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TwitterClone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AA78CD7FA8934350DFA33A1 /* Pods-TwitterClone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwitterClone.release.xcconfig"; path = "Target Support Files/Pods-TwitterClone/Pods-TwitterClone.release.xcconfig"; sourceTree = "<group>"; };
+		71353DC726FC97B10036E58D /* TweetAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetAPI.swift; sourceTree = "<group>"; };
 		7142361826FB482B00FBF72C /* UploadTweetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadTweetController.swift; sourceTree = "<group>"; };
 		7142361A26FB486400FBF72C /* UploadTweetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadTweetView.swift; sourceTree = "<group>"; };
 		7142361C26FB567E00FBF72C /* UploadTweetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadTweetViewModel.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 			children = (
 				71A3051326F9375800BE295E /* AuthenticationAPI.swift */,
 				715E58CA26FA3012005DCBC4 /* UserAPI.swift */,
+				71353DC726FC97B10036E58D /* TweetAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 				7150800926F63BC000A8E0A4 /* MainTabController.swift in Sources */,
 				7150800526F63BC000A8E0A4 /* AppDelegate.swift in Sources */,
 				7142361D26FB567E00FBF72C /* UploadTweetViewModel.swift in Sources */,
+				71353DC826FC97B10036E58D /* TweetAPI.swift in Sources */,
 				7142361B26FB486400FBF72C /* UploadTweetView.swift in Sources */,
 				7150802926F63EFE00A8E0A4 /* NotificationController.swift in Sources */,
 				715E58CB26FA3012005DCBC4 /* UserAPI.swift in Sources */,

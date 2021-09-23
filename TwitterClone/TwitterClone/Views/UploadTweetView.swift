@@ -26,9 +26,8 @@ class UploadTweetView: UIView, UITextViewDelegate {
         return ul
     }()
 
-    private let textView: UITextView = {
+    let textView: UITextView = {
         let tv = UITextView()
-        tv.isScrollEnabled = false
         tv.font = UIFont.systemFont(ofSize: 16)
         return tv
     }()
