@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5A3826E1DD16865E87D21DE5 /* Pods_TwitterClone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E25259EABB26DAD08A87572 /* Pods_TwitterClone.framework */; };
+		7101424526FCFF4100EEAC36 /* Observablle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7101424426FCFF4100EEAC36 /* Observablle.swift */; };
 		71353DC826FC97B10036E58D /* TweetAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71353DC726FC97B10036E58D /* TweetAPI.swift */; };
 		7142361926FB482B00FBF72C /* UploadTweetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7142361826FB482B00FBF72C /* UploadTweetController.swift */; };
 		7142361B26FB486400FBF72C /* UploadTweetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7142361A26FB486400FBF72C /* UploadTweetView.swift */; };
@@ -39,6 +40,7 @@
 /* Begin PBXFileReference section */
 		4E25259EABB26DAD08A87572 /* Pods_TwitterClone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TwitterClone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AA78CD7FA8934350DFA33A1 /* Pods-TwitterClone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwitterClone.release.xcconfig"; path = "Target Support Files/Pods-TwitterClone/Pods-TwitterClone.release.xcconfig"; sourceTree = "<group>"; };
+		7101424426FCFF4100EEAC36 /* Observablle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observablle.swift; sourceTree = "<group>"; };
 		71353DC726FC97B10036E58D /* TweetAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetAPI.swift; sourceTree = "<group>"; };
 		7142361826FB482B00FBF72C /* UploadTweetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadTweetController.swift; sourceTree = "<group>"; };
 		7142361A26FB486400FBF72C /* UploadTweetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadTweetView.swift; sourceTree = "<group>"; };
@@ -90,6 +92,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		7101424326FCFF3300EEAC36 /* Observable */ = {
+			isa = PBXGroup;
+			children = (
+				7101424426FCFF4100EEAC36 /* Observablle.swift */,
+			);
+			path = Observable;
+			sourceTree = "<group>";
+		};
 		71507FF826F63BC000A8E0A4 = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +128,7 @@
 				7150801D26F63BE000A8E0A4 /* API */,
 				7150801E26F63BE200A8E0A4 /* Utils */,
 				7150801C26F63BDF00A8E0A4 /* Resources */,
+				7101424326FCFF3300EEAC36 /* Observable */,
 				7150801226F63BC100A8E0A4 /* Info.plist */,
 				7171A54B26F9FBBE0076CEC4 /* GoogleService-Info.plist */,
 			);
@@ -366,6 +377,7 @@
 				71C30B3326F8AEDC00AFF46B /* SignUpViewModel.swift in Sources */,
 				715E58CF26FA33DF005DCBC4 /* FeedView.swift in Sources */,
 				7171A54A26F9F2DC0076CEC4 /* Constants.swift in Sources */,
+				7101424526FCFF4100EEAC36 /* Observablle.swift in Sources */,
 				7150803526F65FB900A8E0A4 /* LoginController.swift in Sources */,
 				71A3051426F9375800BE295E /* AuthenticationAPI.swift in Sources */,
 				7150803726F65FD200A8E0A4 /* SignUpController.swift in Sources */,
