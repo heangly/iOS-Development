@@ -40,7 +40,7 @@ class MainTabController: UITabBarController {
 
     //MARK: - Helpers
     func configureUI() {
-        let feed = configureTabBar(viewController: FeedController(), imageName: "home_unselected")
+        let feed = configureTabBar(viewController: FeedController(collectionViewLayout: UICollectionViewFlowLayout()), imageName: "home_unselected")
         let explore = configureTabBar(viewController: ExploreController(), imageName: "search_unselected")
         let notification = configureTabBar(viewController: NotificationController(), imageName: "like_unselected")
         let conversation = configureTabBar(viewController: ConversationController(), imageName: "ic_mail_outline_white_2x-1")
