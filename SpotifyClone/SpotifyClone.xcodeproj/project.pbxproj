@@ -26,6 +26,8 @@
 		714D643626FFD8E800D9B442 /* PlaylistViewControllere.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714D643526FFD8E800D9B442 /* PlaylistViewControllere.swift */; };
 		714D643826FFD90C00D9B442 /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714D643726FFD90C00D9B442 /* SearchResultsViewController.swift */; };
 		717D484F2700926500C90D4C /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717D484E2700926500C90D4C /* Secret.swift */; };
+		717D48522700992B00C90D4C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717D48512700992B00C90D4C /* Extensions.swift */; };
+		717D48542700D07800C90D4C /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717D48532700D07800C90D4C /* AuthResponse.swift */; };
 		71E54C8C26FFDAF5009A98DB /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E54C8B26FFDAF5009A98DB /* AuthManager.swift */; };
 		71E54C8E26FFDAFB009A98DB /* APICalleer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E54C8D26FFDAFB009A98DB /* APICalleer.swift */; };
 		71E54C9026FFDB0E009A98DB /* HapticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E54C8F26FFDB0E009A98DB /* HapticsManager.swift */; };
@@ -78,6 +80,8 @@
 		714D643526FFD8E800D9B442 /* PlaylistViewControllere.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistViewControllere.swift; sourceTree = "<group>"; };
 		714D643726FFD90C00D9B442 /* SearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
 		717D484E2700926500C90D4C /* Secret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secret.swift; sourceTree = "<group>"; };
+		717D48512700992B00C90D4C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		717D48532700D07800C90D4C /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
 		71E54C8B26FFDAF5009A98DB /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		71E54C8D26FFDAFB009A98DB /* APICalleer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICalleer.swift; sourceTree = "<group>"; };
 		71E54C8F26FFDB0E009A98DB /* HapticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsManager.swift; sourceTree = "<group>"; };
@@ -139,6 +143,7 @@
 				714D641C26FFD5D600D9B442 /* Views */,
 				714D641B26FFD5D500D9B442 /* ViewModels */,
 				714D641826FFD5D100D9B442 /* Manager */,
+				717D48502700991800C90D4C /* Utils+Extensions */,
 				714D641F26FFD6A600D9B442 /* Resources */,
 				717D484E2700926500C90D4C /* Secret.swift */,
 				714D63F626FFD49800D9B442 /* Info.plist */,
@@ -178,6 +183,7 @@
 		714D641A26FFD5D400D9B442 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				717D48532700D07800C90D4C /* AuthResponse.swift */,
 				71E54C9126FFDB25009A98DB /* Playlist.swift */,
 				71E54C9326FFDB2D009A98DB /* AudioTrack.swift */,
 				71E54C9526FFDB36009A98DB /* Artist.swift */,
@@ -252,6 +258,14 @@
 				714D643726FFD90C00D9B442 /* SearchResultsViewController.swift */,
 			);
 			path = Other;
+			sourceTree = "<group>";
+		};
+		717D48502700991800C90D4C /* Utils+Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				717D48512700992B00C90D4C /* Extensions.swift */,
+			);
+			path = "Utils+Extensions";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -383,6 +397,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				717D48522700992B00C90D4C /* Extensions.swift in Sources */,
 				714D642B26FFD87500D9B442 /* WelcomeViewController.swift in Sources */,
 				71E54C9426FFDB2D009A98DB /* AudioTrack.swift in Sources */,
 				71E54C9826FFDC9C009A98DB /* UserProfile.swift in Sources */,
@@ -404,6 +419,7 @@
 				714D642226FFD7CD00D9B442 /* TabBarViewControlller.swift in Sources */,
 				71E54C9026FFDB0E009A98DB /* HapticsManager.swift in Sources */,
 				71E54C9626FFDB36009A98DB /* Artist.swift in Sources */,
+				717D48542700D07800C90D4C /* AuthResponse.swift in Sources */,
 				714D63E826FFD49700D9B442 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
