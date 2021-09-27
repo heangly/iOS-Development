@@ -29,6 +29,7 @@ class TabBarViewController: UITabBarController {
         allNavs.forEach {
             $0.navigationItem.largeTitleDisplayMode = .always
             $0.navigationBar.prefersLargeTitles = true
+            $0.navigationBar.tintColor = .label
         }
         
         setViewControllers(allNavs, animated: false)
