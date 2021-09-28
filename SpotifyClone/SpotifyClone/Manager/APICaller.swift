@@ -28,7 +28,7 @@ final class APICaller {
                     completion(.failure(APIError.failedToGetData))
                     return
                 }
-                
+
                 do {
                     let result = try JSONDecoder().decode(UserProfile.self, from: data)
                     completion(.success(result))
@@ -41,12 +41,93 @@ final class APICaller {
         }
     }
 
+    public func getNewReleases(completion: @escaping (Result<NewReleasesResponse, Error>) -> Void) {
+        createRequest(with: URL(string: Constants.baseAPIURL + "/browse/new-releases?limit=2"), type: .GET) { request in
+            let task = URLSession.shared.dataTask(with: request) { data, _, error in
+                guard let data = data, error == nil else {
+                    completion(.failure(APIError.failedToGetData))
+                    return
+                }
+                do {
+                    let result = try JSONDecoder().decode(NewReleasesResponse.self, from: data)
+                    completion(.success(result))
+                } catch {
+                    print("DEBUG: Error converting newRelease data to JSON \(error.localizedDescription)")
+                    completion(.failure(error))
+                }
+            }
+            task.resume()
+        }
+    }
+
+    public func getFeaturedPlayLists(completion: @escaping (Result < FeaturedPlaylistsResponse, Error >) -> Void) {
+        createRequest(with: URL(string: Constants.baseAPIURL + "/browse/featured-playlists?limit=2"), type: .GET) { request in
+            let task = URLSession.shared.dataTask(with: request) { data, _, error in
+                guard let data = data, error == nil else {
+                    completion(.failure(APIError.failedToGetData))
+                    return
+                }
+
+                do {
+                    let result = try JSONDecoder().decode(FeaturedPlaylistsResponse.self, from: data)
+                    completion(.success(result))
+                } catch {
+                    print("DEBUG: Error convert feturedPlaylist to JSON because -> \(error.localizedDescription)")
+                    completion(.failure(error))
+                }
+            }
+            task.resume()
+        }
+    }
+
+    func getRecommendation(genres: Set<String>, completion: @escaping (Result < RecommendationResponse, Error >) -> Void) {
+        let seeds = genres.joined(separator: ",")
+        createRequest(with: URL(string: Constants.baseAPIURL + "/recommendations?limit=40&seed_genres=\(seeds)"), type: .GET) { request in
+            let task = URLSession.shared.dataTask(with: request) { data, _, error in
+                guard let data = data, error == nil else {
+                    completion(.failure(APIError.failedToGetData))
+                    return
+                }
+
+                do {
+                    let result = try JSONDecoder().decode(RecommendationResponse.self, from: data)
+                    completion(.success(result))
+                } catch {
+                    print("DEBUG: Error convert feturedPlaylist to JSON because -> \(error.localizedDescription)")
+                    completion(.failure(error))
+                }
+            }
+            task.resume()
+        }
+    }
+    
+        func getRecommendedGenres(completion: @escaping (Result < RecommendedGenresResponse, Error >) -> Void) {
+            createRequest(with: URL(string: Constants.baseAPIURL + "/recommendations/available-genre-seeds"), type: .GET) { request in
+                let task = URLSession.shared.dataTask(with: request) { data, _, error in
+                    guard let data = data, error == nil else {
+                        completion(.failure(APIError.failedToGetData))
+                        return
+                    }
+    
+                    do {
+                        let result = try JSONDecoder().decode(RecommendedGenresResponse.self, from: data)
+                        completion(.success(result))
+                    } catch {
+                        print("DEBUG: Error convert feturedPlaylist to JSON because -> \(error.localizedDescription)")
+                        completion(.failure(error))
+                    }
+                }
+                task.resume()
+            }
+        }
+
+    //MARK: - Private
     enum HTTPMethod: String {
         case GET
         case POST
     }
 
-    //MARK: - Private
+
     private func createRequest(with url: URL?, type: HTTPMethod, completion: @escaping(URLRequest) -> Void) {
         AuthManager.shared.withValidToken { token in
             guard let apiURL = url else { return }
