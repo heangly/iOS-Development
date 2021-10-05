@@ -112,6 +112,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         return cell
     }
 
+
     static func createSectionLauyout(section: Int) -> NSCollectionLayoutSection {
         switch section {
         case 0:
