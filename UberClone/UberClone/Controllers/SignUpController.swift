@@ -93,7 +93,7 @@ class SignUpController: UIViewController {
             let email = emailTextField.text!
             let fullname = fullNameTextField.text!
             let password = passwordTextField.text!
-            let accountTypeIndex = accountTypeSegmentedControl.selectedSegmentIndex
+//            let accountTypeIndex = accountTypeSegmentedControl.selectedSegmentIndex
 
             Auth.auth().createUser(withEmail: email, password: password) { result, error in
                 if let error = error {
@@ -107,18 +107,18 @@ class SignUpController: UIViewController {
                 let values: [String: Any] = [
                     "email": email,
                     "fullname": fullname,
-                    "accountTypeIndex": accountTypeIndex
+//                    "accountTypeIndex": accountTypeIndex
                 ]
-
-                if accountTypeIndex == 1 {
-                    guard let location = self.location else { return }
-                    let geofire = GeoFire(firebaseRef: REF_DRIVER_LOCATIONS)
-                    geofire.setLocation(location, forKey: uid) { error in
-                        self.uploadUserDataAndShowHomeController(uid: uid, values: values)
-                    }
-                } else {
-                    self.uploadUserDataAndShowHomeController(uid: uid, values: values)
-                }
+//
+//                if accountTypeIndex == 1 {
+//                    guard let location = self.location else { return }
+//                    let geofire = GeoFire(firebaseRef: REF_DRIVER_LOCATIONS)
+//                    geofire.setLocation(location, forKey: uid) { error in
+//                        self.uploadUserDataAndShowHomeController(uid: uid, values: values)
+//                    }
+//                } else {
+//                    self.uploadUserDataAndShowHomeController(uid: uid, values: values)
+//                }
 
 
             }
@@ -155,7 +155,7 @@ class SignUpController: UIViewController {
         let emailContainerView = UIView().inputTextFieldContainerView(withImage: #imageLiteral(resourceName: "ic_mail_outline_white_2x"), withTexfield: emailTextField)
         let fullnameContainerView = UIView().inputTextFieldContainerView(withImage: #imageLiteral(resourceName: "ic_person_outline_white_2x"), withTexfield: fullNameTextField)
         let passwordContainerView = UIView().inputTextFieldContainerView(withImage: #imageLiteral(resourceName: "ic_lock_outline_white_2x"), withTexfield: passwordTextField)
-        let accountTypeContainerView = UIView().accountTypeFieldContainerView(withImage: #imageLiteral(resourceName: "ic_account_box_white_2x"), segmentedControl: accountTypeSegmentedControl)
+//        let accountTypeContainerView = UIView().accountTypeFieldContainerView(withImage: #imageLiteral(resourceName: "ic_account_box_white_2x"), segmentedControl: accountTypeSegmentedControl)
 
         let subViewsInStackViews = [emailContainerView, fullnameContainerView, passwordContainerView, signUpButton]
         subViewsInStackViews.forEach {
@@ -164,9 +164,9 @@ class SignUpController: UIViewController {
         }
 
         stackViews.distribution = .fill
-        stackViews.insertArrangedSubview(accountTypeContainerView, at: 3)
-        accountTypeContainerView.heightAnchor.constraint(equalToConstant: 90).isActive = true
-        stackViews.setCustomSpacing(50, after: accountTypeContainerView)
+//        stackViews.insertArrangedSubview(accountTypeContainerView, at: 3)
+//        accountTypeContainerView.heightAnchor.constraint(equalToConstant: 90).isActive = true
+//        stackViews.setCustomSpacing(50, after: accountTypeContainerView)
     }
 
     func addAllConstraints() {

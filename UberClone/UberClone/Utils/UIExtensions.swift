@@ -42,7 +42,7 @@ extension UIButton {
 extension UILabel {
     func uberLabel() -> UILabel {
         let lb = UILabel()
-        lb.text = "uber".uppercased()
+        lb.text = "Vet Pal".uppercased()
         lb.font = UIFont(name: "Avenir-Light", size: 36)
         lb.textColor = .white
         lb.textAlignment = .center
