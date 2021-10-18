@@ -24,7 +24,6 @@ class SearchTableViewCell: UITableViewCell {
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
         stack.distribution = .fillEqually
-        stack.spacing = 10
         return stack
     }()
 
