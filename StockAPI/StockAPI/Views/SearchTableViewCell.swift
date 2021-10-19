@@ -31,6 +31,7 @@ class SearchTableViewCell: UITableViewCell {
         let lb = UILabel()
         lb.font = UIFont.boldSystemFont(ofSize: 18)
         lb.text = "BA"
+        lb.numberOfLines = 0
         return lb
     }()
 
@@ -39,6 +40,7 @@ class SearchTableViewCell: UITableViewCell {
         lb.font = UIFont.systemFont(ofSize: 16)
         lb.textColor = .gray
         lb.text = "USD"
+        lb.numberOfLines = 0
         return lb
     }()
 
@@ -53,6 +55,8 @@ class SearchTableViewCell: UITableViewCell {
         lb.font = UIFont.systemFont(ofSize: 18)
         lb.text = "The Boeing Company"
         lb.textAlignment = .right
+        lb.numberOfLines = 0
+        lb.adjustsFontSizeToFitWidth = true
         return lb
     }()
 
@@ -68,6 +72,14 @@ class SearchTableViewCell: UITableViewCell {
 
     private func configureMainUI() {
         configureSubViewsAndContraints()
+    }
+
+    func configure(with searchResult: SearchResult) {
+        assetNameLabel.text = searchResult.name
+        assetSymbolLabel.text = searchResult.symbol
+        assetTypeLabel.text = searchResult.type
+            .appending(" ")
+            .appending(searchResult.currency)
     }
 
     //MARK: - AddSubViews & Constraints
@@ -87,8 +99,7 @@ class SearchTableViewCell: UITableViewCell {
             horizontalStackContainer.topAnchor.constraint(equalTo: topAnchor, constant: 10),
             horizontalStackContainer.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
             horizontalStackContainer.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor, constant: 30),
-            horizontalStackContainer.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor, constant: -30)
-           
+            horizontalStackContainer.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor, constant: -30),
             ])
     }
 
