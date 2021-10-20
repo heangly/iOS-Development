@@ -148,7 +148,7 @@ extension SearchTableViewController: UISearchResultsUpdating, UISearchController
 }
 
 
-//MARK: - UITableViewDelegate
+//MARK: - UITableView Data Source & Delegate
 extension SearchTableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let items = searchResults?.items else { return 0 }
@@ -174,5 +174,10 @@ extension SearchTableViewController {
         self.searchResults = nil
         self.tableView.reloadData()
         mode = .onboarding
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = SearchDetailTableViewController()
+        let selectedCell = tableView.cellForRow(at: indexPath)
     }
 }
