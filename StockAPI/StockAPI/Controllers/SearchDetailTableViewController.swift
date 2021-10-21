@@ -18,16 +18,29 @@ class SearchDetailTableViewController: UITableViewController {
 
     //MARK: - Helpers
     private func configureMainUI() {
+        configureNavBar()
         configureTableView()
+    }
+    
+    private func configureNavBar(){
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(backButtonDidTap))
     }
 
     private func configureTableView() {
         tableView.register(SearchDetailTableViewFirstCell.self, forCellReuseIdentifier: SearchDetailTableViewFirstCell.reuseableID)
-        tableView.rowHeight = 220
+        tableView.register(SearchDetailTableViewSecondCell.self, forCellReuseIdentifier: SearchDetailTableViewSecondCell.reuseableID)
+        tableView.rowHeight = 260
+        tableView.separatorStyle = .none
+    }
+    
+    //MARK: - Actions
+    @objc private func backButtonDidTap(){
+        DispatchQueue.main.async {
+            self.dismiss(animated: true)
+        }
     }
 
     // MARK: - Table view data source
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
     }
@@ -38,7 +51,8 @@ class SearchDetailTableViewController: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: SearchDetailTableViewFirstCell.reuseableID, for: indexPath) as! SearchDetailTableViewFirstCell
             return cell
         case [0, 1]:
-            return UITableViewCell()
+            let cell = tableView.dequeueReusableCell(withIdentifier: SearchDetailTableViewSecondCell.reuseableID, for: indexPath) as! SearchDetailTableViewSecondCell
+            return cell
         default:
             return UITableViewCell()
         }

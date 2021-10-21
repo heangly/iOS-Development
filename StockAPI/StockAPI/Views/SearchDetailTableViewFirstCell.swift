@@ -143,6 +143,7 @@ class SearchDetailTableViewFirstCell: UITableViewCell {
     //MARK: - Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        configureUI()
         addSubViewsAndConstraints()
     }
 
@@ -151,6 +152,9 @@ class SearchDetailTableViewFirstCell: UITableViewCell {
     }
 
     //MARK: - Helpers
+    private func configureUI(){
+        selectionStyle = .none
+    }
 
 
     //MARK: - Actions

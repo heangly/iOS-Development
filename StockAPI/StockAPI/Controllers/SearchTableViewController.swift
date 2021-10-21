@@ -175,9 +175,12 @@ extension SearchTableViewController {
         self.tableView.reloadData()
         mode = .onboarding
     }
-    
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = SearchDetailTableViewController()
-        let selectedCell = tableView.cellForRow(at: indexPath)
+        DispatchQueue.main.async {
+            let vc = UINavigationController(rootViewController: SearchDetailTableViewController())
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true)
+        }
     }
 }
