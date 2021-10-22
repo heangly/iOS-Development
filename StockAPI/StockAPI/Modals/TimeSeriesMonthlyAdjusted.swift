@@ -13,7 +13,6 @@ struct TimeseriesMonthlyAdjusted: Codable {
     let timeSeries: [String: OHLC]
 }
 
-
 struct Meta: Codable {
     let symbol: String
     
