@@ -9,6 +9,7 @@ import UIKit
 
 class SearchDetailTableViewController: UITableViewController {
     //MARK: - Properties
+    var asset: Asset?
 
     //MARK: - Life Cycle
     override func viewDidLoad() {
@@ -21,8 +22,8 @@ class SearchDetailTableViewController: UITableViewController {
         configureNavBar()
         configureTableView()
     }
-    
-    private func configureNavBar(){
+
+    private func configureNavBar() {
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(backButtonDidTap))
     }
 
@@ -32,9 +33,9 @@ class SearchDetailTableViewController: UITableViewController {
         tableView.rowHeight = 260
         tableView.separatorStyle = .none
     }
-    
+
     //MARK: - Actions
-    @objc private func backButtonDidTap(){
+    @objc private func backButtonDidTap() {
         DispatchQueue.main.async {
             self.dismiss(animated: true)
         }
@@ -49,6 +50,7 @@ class SearchDetailTableViewController: UITableViewController {
         switch indexPath {
         case [0, 0]:
             let cell = tableView.dequeueReusableCell(withIdentifier: SearchDetailTableViewFirstCell.reuseableID, for: indexPath) as! SearchDetailTableViewFirstCell
+            cell.configureAssetInCell(asset: asset)
             return cell
         case [0, 1]:
             let cell = tableView.dequeueReusableCell(withIdentifier: SearchDetailTableViewSecondCell.reuseableID, for: indexPath) as! SearchDetailTableViewSecondCell

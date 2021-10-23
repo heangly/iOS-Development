@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6AC4655F0C0C33CFAE21A501 /* Pods_StockAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5806EAE4AE2084495C6EA76B /* Pods_StockAPI.framework */; };
+		7114B764272440FB00339308 /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7114B763272440FB00339308 /* Asset.swift */; };
 		713987C4271C47330009EC02 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713987C3271C47330009EC02 /* AppDelegate.swift */; };
 		713987C6271C47330009EC02 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713987C5271C47330009EC02 /* SceneDelegate.swift */; };
 		713987C8271C47330009EC02 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713987C7271C47330009EC02 /* SearchTableViewController.swift */; };
@@ -26,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		5806EAE4AE2084495C6EA76B /* Pods_StockAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StockAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7114B763272440FB00339308 /* Asset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Asset.swift; sourceTree = "<group>"; };
 		713987C0271C47330009EC02 /* StockAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StockAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		713987C3271C47330009EC02 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		713987C5271C47330009EC02 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 			children = (
 				719B30E0271DD2AC00C7D5D7 /* SearchResult.swift */,
 				71AB4E582721ADF20074D3CA /* TimeSeriesMonthlyAdjusted.swift */,
+				7114B763272440FB00339308 /* Asset.swift */,
 			);
 			path = Modals;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				71629FEA27203615005B065E /* SearchDetailTableViewFirstCell.swift in Sources */,
+				7114B764272440FB00339308 /* Asset.swift in Sources */,
 				713987C8271C47330009EC02 /* SearchTableViewController.swift in Sources */,
 				7152AD6C271F106400B51C38 /* UIanimatable.swift in Sources */,
 				719B30E1271DD2AC00C7D5D7 /* SearchResult.swift in Sources */,

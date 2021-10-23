@@ -19,6 +19,7 @@ class SearchTableViewController: UITableViewController, UIAnimatable {
     private let apiService = APIService()
     private var subscriber = Set<AnyCancellable>()
     private var searchResults: SearchResults?
+
     @Published private var mode: Mode = .onboarding
     @Published private var searchQuery = String()
 
@@ -27,7 +28,7 @@ class SearchTableViewController: UITableViewController, UIAnimatable {
         let sc = UISearchController(searchResultsController: nil)
         sc.searchResultsUpdater = self
         sc.delegate = self
-        sc.obscuresBackgroundDuringPresentation = false
+//        sc.obscuresBackgroundDuringPresentation = false
         sc.searchBar.placeholder = "Enter a company name or symbol"
         sc.searchBar.autocapitalizationType = .allCharacters
         return sc
@@ -125,6 +126,30 @@ class SearchTableViewController: UITableViewController, UIAnimatable {
         }.store(in: &subscriber)
     }
 
+    private func handleSelection(for symbol: String, searchResult: SearchResult) {
+        showLoadingAnimation()
+        apiService.fetchTimeSeriesMonthlyAdjustedPublisher(keywords: symbol).sink {[weak self] completionResult in
+            self?.hideLoadingAnimation()
+            switch completionResult {
+            case .failure(let error):
+                print(error)
+            case .finished:
+                break
+            }
+        } receiveValue: { [weak self] timeSeriesMonthlyAdjusted in
+            self?.hideLoadingAnimation()
+            DispatchQueue.main.async {
+                let asset = Asset(searchResult: searchResult, timeSeriesMonthlyAdjusted: timeSeriesMonthlyAdjusted)
+
+                let vc = SearchDetailTableViewController()
+                vc.asset = asset
+                let nav = UINavigationController(rootViewController: vc)
+                nav.modalPresentationStyle = .fullScreen
+                self?.present(nav, animated: true)
+            }
+        }.store(in: &subscriber)
+    }
+
     //MARK: - Subviews & Constraints
     private func configureSearchPlaceHolderStackView() {
         view.addSubview(searchPlaceHolderStackView)
@@ -177,10 +202,10 @@ extension SearchTableViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        DispatchQueue.main.async {
-            let vc = UINavigationController(rootViewController: SearchDetailTableViewController())
-            vc.modalPresentationStyle = .fullScreen
-            self.present(vc, animated: true)
+        if let searchResults = self.searchResults {
+            let searchResult = searchResults.items[indexPath.item]
+            let symbol = searchResult.symbol
+            handleSelection(for: symbol, searchResult: searchResult)
         }
     }
 }

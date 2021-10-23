@@ -100,14 +100,12 @@ class SearchDetailTableViewSecondCell: UITableViewCell {
 
     //MARK: - Helpers
     private func configureMainUI() {
-//        isUserInteractionEnabled = true
         selectionStyle = .none
         addSubViewsAndConstraints()
     }
 
     //MARK: - Actions
     @objc private func sliderDidChangeValue(sender: UISlider!){
-        print(sender.value)
     }
 
 
