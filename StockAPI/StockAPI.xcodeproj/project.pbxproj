@@ -14,6 +14,8 @@
 		713987C8271C47330009EC02 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713987C7271C47330009EC02 /* SearchTableViewController.swift */; };
 		713987CD271C47340009EC02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 713987CC271C47340009EC02 /* Assets.xcassets */; };
 		713987D0271C47340009EC02 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 713987CE271C47340009EC02 /* LaunchScreen.storyboard */; };
+		71479D1C272582BE0008D12A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71479D1B272582BE0008D12A /* Extensions.swift */; };
+		71479D1E27258FC60008D12A /* ShowDateSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71479D1D27258FC60008D12A /* ShowDateSelectionTableViewController.swift */; };
 		7152AD6C271F106400B51C38 /* UIanimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7152AD6B271F106400B51C38 /* UIanimatable.swift */; };
 		71629FE8272035E2005B065E /* SearchDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71629FE7272035E2005B065E /* SearchDetailTableViewController.swift */; };
 		71629FEA27203615005B065E /* SearchDetailTableViewFirstCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71629FE927203615005B065E /* SearchDetailTableViewFirstCell.swift */; };
@@ -35,6 +37,8 @@
 		713987CC271C47340009EC02 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		713987CF271C47340009EC02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		713987D1271C47340009EC02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		71479D1B272582BE0008D12A /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		71479D1D27258FC60008D12A /* ShowDateSelectionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDateSelectionTableViewController.swift; sourceTree = "<group>"; };
 		7152AD6B271F106400B51C38 /* UIanimatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIanimatable.swift; sourceTree = "<group>"; };
 		71629FE7272035E2005B065E /* SearchDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailTableViewController.swift; sourceTree = "<group>"; };
 		71629FE927203615005B065E /* SearchDetailTableViewFirstCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailTableViewFirstCell.swift; sourceTree = "<group>"; };
@@ -95,12 +99,21 @@
 				71E094F6271C4C870014FA6B /* Controllers */,
 				719B30DA271DD05300C7D5D7 /* Service */,
 				7152AD6A271F104600B51C38 /* Protocol */,
+				71479D1A2725829E0008D12A /* Extensions+Utils */,
 				71E094F5271C4C220014FA6B /* Resources */,
 				719B30DD271DD14600C7D5D7 /* Secret */,
 				713987CE271C47340009EC02 /* LaunchScreen.storyboard */,
 				713987D1271C47340009EC02 /* Info.plist */,
 			);
 			path = StockAPI;
+			sourceTree = "<group>";
+		};
+		71479D1A2725829E0008D12A /* Extensions+Utils */ = {
+			isa = PBXGroup;
+			children = (
+				71479D1B272582BE0008D12A /* Extensions.swift */,
+			);
+			path = "Extensions+Utils";
 			sourceTree = "<group>";
 		};
 		7152AD6A271F104600B51C38 /* Protocol */ = {
@@ -142,6 +155,7 @@
 			children = (
 				713987C7271C47330009EC02 /* SearchTableViewController.swift */,
 				71629FE7272035E2005B065E /* SearchDetailTableViewController.swift */,
+				71479D1D27258FC60008D12A /* ShowDateSelectionTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -293,6 +307,7 @@
 				713987C8271C47330009EC02 /* SearchTableViewController.swift in Sources */,
 				7152AD6C271F106400B51C38 /* UIanimatable.swift in Sources */,
 				719B30E1271DD2AC00C7D5D7 /* SearchResult.swift in Sources */,
+				71479D1E27258FC60008D12A /* ShowDateSelectionTableViewController.swift in Sources */,
 				71629FE8272035E2005B065E /* SearchDetailTableViewController.swift in Sources */,
 				719B30DC271DD07200C7D5D7 /* APIService.swift in Sources */,
 				71E094FA271C4E970014FA6B /* SearchTableViewCell.swift in Sources */,
@@ -301,6 +316,7 @@
 				716446D32720787100A13F66 /* SearchDetailTableViewSecondCell.swift in Sources */,
 				713987C6271C47330009EC02 /* SceneDelegate.swift in Sources */,
 				71AB4E592721ADF20074D3CA /* TimeSeriesMonthlyAdjusted.swift in Sources */,
+				71479D1C272582BE0008D12A /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -19,12 +19,7 @@ class SearchDetailTableViewController: UITableViewController {
 
     //MARK: - Helpers
     private func configureMainUI() {
-        configureNavBar()
         configureTableView()
-    }
-
-    private func configureNavBar() {
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(backButtonDidTap))
     }
 
     private func configureTableView() {
@@ -34,12 +29,6 @@ class SearchDetailTableViewController: UITableViewController {
         tableView.separatorStyle = .none
     }
 
-    //MARK: - Actions
-    @objc private func backButtonDidTap() {
-        DispatchQueue.main.async {
-            self.dismiss(animated: true)
-        }
-    }
 
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -54,12 +43,19 @@ class SearchDetailTableViewController: UITableViewController {
             return cell
         case [0, 1]:
             let cell = tableView.dequeueReusableCell(withIdentifier: SearchDetailTableViewSecondCell.reuseableID, for: indexPath) as! SearchDetailTableViewSecondCell
+            cell.delegate = self
             return cell
         default:
             return UITableViewCell()
         }
 
     }
+}
 
-
+extension SearchDetailTableViewController: SearchDetailTableViewSecondCellDelegate{
+    func moveIntialInvestmentTextFieldToShowDateSelection() {
+        let vc = ShowDateSelectionTableViewController()
+        vc.timeSeriesMonthlyAdjusted = asset?.timeSeriesMonthlyAdjusted
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }

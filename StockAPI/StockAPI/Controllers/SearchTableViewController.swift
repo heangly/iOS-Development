@@ -143,9 +143,7 @@ class SearchTableViewController: UITableViewController, UIAnimatable {
 
                 let vc = SearchDetailTableViewController()
                 vc.asset = asset
-                let nav = UINavigationController(rootViewController: vc)
-                nav.modalPresentationStyle = .fullScreen
-                self?.present(nav, animated: true)
+                self?.navigationController?.pushViewController(vc, animated: true)
             }
         }.store(in: &subscriber)
     }
