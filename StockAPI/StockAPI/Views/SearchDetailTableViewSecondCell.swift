@@ -118,6 +118,10 @@ class SearchDetailTableViewSecondCell: UITableViewCell {
         addSubViewsAndConstraints()
     }
     
+    public func configureinItialDateInvestment(dateString: String){
+        initialDateInvestmentTextField.text = dateString
+    }
+    
     //MARK: - Actions
     @objc private func sliderDidChangeValue(sender: UISlider!) {
     }

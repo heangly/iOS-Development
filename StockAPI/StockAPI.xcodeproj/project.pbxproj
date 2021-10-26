@@ -24,6 +24,7 @@
 		719B30DF271DD16600C7D5D7 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719B30DE271DD16600C7D5D7 /* APIKey.swift */; };
 		719B30E1271DD2AC00C7D5D7 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719B30E0271DD2AC00C7D5D7 /* SearchResult.swift */; };
 		71AB4E592721ADF20074D3CA /* TimeSeriesMonthlyAdjusted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AB4E582721ADF20074D3CA /* TimeSeriesMonthlyAdjusted.swift */; };
+		71C6E3B627281E7C00585F16 /* ShowDateSelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C6E3B527281E7C00585F16 /* ShowDateSelectionTableViewCell.swift */; };
 		71E094FA271C4E970014FA6B /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E094F9271C4E970014FA6B /* SearchTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		719B30DE271DD16600C7D5D7 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		719B30E0271DD2AC00C7D5D7 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		71AB4E582721ADF20074D3CA /* TimeSeriesMonthlyAdjusted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSeriesMonthlyAdjusted.swift; sourceTree = "<group>"; };
+		71C6E3B527281E7C00585F16 /* ShowDateSelectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDateSelectionTableViewCell.swift; sourceTree = "<group>"; };
 		71E094F9271C4E970014FA6B /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		874C935D75798F29FEF73A30 /* Pods-StockAPI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StockAPI.release.xcconfig"; path = "Target Support Files/Pods-StockAPI/Pods-StockAPI.release.xcconfig"; sourceTree = "<group>"; };
 		AD5D52481B2502C5018112C6 /* Pods-StockAPI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StockAPI.debug.xcconfig"; path = "Target Support Files/Pods-StockAPI/Pods-StockAPI.debug.xcconfig"; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 				71E094F9271C4E970014FA6B /* SearchTableViewCell.swift */,
 				71629FE927203615005B065E /* SearchDetailTableViewFirstCell.swift */,
 				716446D22720787100A13F66 /* SearchDetailTableViewSecondCell.swift */,
+				71C6E3B527281E7C00585F16 /* ShowDateSelectionTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 				719B30E1271DD2AC00C7D5D7 /* SearchResult.swift in Sources */,
 				71479D1E27258FC60008D12A /* ShowDateSelectionTableViewController.swift in Sources */,
 				71629FE8272035E2005B065E /* SearchDetailTableViewController.swift in Sources */,
+				71C6E3B627281E7C00585F16 /* ShowDateSelectionTableViewCell.swift in Sources */,
 				719B30DC271DD07200C7D5D7 /* APIService.swift in Sources */,
 				71E094FA271C4E970014FA6B /* SearchTableViewCell.swift in Sources */,
 				713987C4271C47330009EC02 /* AppDelegate.swift in Sources */,
