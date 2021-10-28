@@ -10,6 +10,7 @@ import UIKit
 
 protocol SearchDetailTableViewSecondCellDelegate: AnyObject {
     func moveIntialInvestmentTextFieldToShowDateSelection()
+    func initialDateOfInvestmentDidChange(index: Int)
 }
 
 class SearchDetailTableViewSecondCell: UITableViewCell {
@@ -118,16 +119,22 @@ class SearchDetailTableViewSecondCell: UITableViewCell {
         addSubViewsAndConstraints()
     }
     
-    public func configureinItialDateInvestment(dateString: String){
+    public func configureInitialDateInvestment(dateString: String){
         initialDateInvestmentTextField.text = dateString
+    }
+    
+    public func configureSlider(maxValue: Float){
+        slider.maximumValue = maxValue
+    }
+    
+    public func configureSlider(value: Float){
+        slider.value = value
     }
     
     //MARK: - Actions
     @objc private func sliderDidChangeValue(sender: UISlider!) {
-    }
-
-    @objc private func doneButtonDidTap() {
-        print("done")
+//        let value = 2
+//        delegate?.initialDateOfInvestmentDidChange(index: value)
     }
 
 

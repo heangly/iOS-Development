@@ -12,7 +12,7 @@ class ShowDateSelectionTableViewController: UITableViewController {
     var timeSeriesMonthlyAdjusted: TimeseriesMonthlyAdjusted?
     private var monthInfos: [MonthInfo] = []
     var didSelectDate: ((Int) -> Void)?
-
+    var selectedIdx: Int?
 
     //MARK: - LifeCycle
     override func viewDidLoad() {
@@ -50,8 +50,9 @@ extension ShowDateSelectionTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ShowDateSelectionTableViewCell.reuseableId, for: indexPath) as! ShowDateSelectionTableViewCell
         let monthInfo = monthInfos[indexPath.item]
-        let index = indexPath.row
-        cell.configure(with: monthInfo, index: index)
+        let index = indexPath.item
+        let isSelected = index == selectedIdx
+        cell.configure(with: monthInfo, index: index, isSelected: isSelected)
         return cell
     }
 

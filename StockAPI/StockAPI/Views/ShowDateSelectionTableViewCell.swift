@@ -46,19 +46,19 @@ class ShowDateSelectionTableViewCell: UITableViewCell {
 
     //MARK: - Helpers
     private func configureMainUI() {
-        accessoryType = .checkmark
         configureSubViewsAndConstraints()
     }
 
-    public func configure(with monthInfo: MonthInfo, index: Int) {
+    public func configure(with monthInfo: MonthInfo, index: Int, isSelected: Bool) {
         monthLabel.text = monthInfo.date.MMYYFormat
         if index == 1 {
             monthsAgoLabel.text = "1 month ago"
-        }else if index > 1 {
+        } else if index > 1 {
             monthsAgoLabel.text = "\(index) months ago"
-        }else{
+        } else {
             monthsAgoLabel.text = "Just invested"
         }
+        accessoryType = isSelected ? .checkmark : .none
     }
 
 

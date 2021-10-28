@@ -6,17 +6,20 @@
 //
 
 import UIKit
+import Combine
 
 class SearchDetailTableViewController: UITableViewController {
     //MARK: - Properties
     var asset: Asset?
-
+    @Published private var initialDateOfInvestmentIdx: Int?
     private let showDateSelectionTableViewController = ShowDateSelectionTableViewController()
+    private var subscriber = Set<AnyCancellable>()
 
     //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configureMainUI()
+        observeForm()
     }
 
     //MARK: - Helpers
@@ -30,6 +33,12 @@ class SearchDetailTableViewController: UITableViewController {
         tableView.register(SearchDetailTableViewSecondCell.self, forCellReuseIdentifier: SearchDetailTableViewSecondCell.reuseableID)
         tableView.rowHeight = 260
         tableView.separatorStyle = .none
+    }
+
+    private func observeForm() {
+        $initialDateOfInvestmentIdx.sink { [weak self] index in
+            print(index)
+        }.store(in: &subscriber)
     }
 
 
@@ -47,6 +56,11 @@ class SearchDetailTableViewController: UITableViewController {
         case [0, 1]:
             let cell = tableView.dequeueReusableCell(withIdentifier: SearchDetailTableViewSecondCell.reuseableID, for: indexPath) as! SearchDetailTableViewSecondCell
             cell.delegate = self
+
+            if let maxValueForSlider = asset?.timeSeriesMonthlyAdjusted.getMonthInfos().count {
+                cell.configureSlider(maxValue: maxValueForSlider.floatValue)
+            }
+
             showDateSelectionTableViewController.didSelectDate = { [weak self] index in
                 self?.handleDateSelection(at: index, cell: cell)
             }
@@ -60,17 +74,24 @@ class SearchDetailTableViewController: UITableViewController {
 
 extension SearchDetailTableViewController: SearchDetailTableViewSecondCellDelegate {
     func moveIntialInvestmentTextFieldToShowDateSelection() {
+        showDateSelectionTableViewController.selectedIdx = initialDateOfInvestmentIdx
         showDateSelectionTableViewController.timeSeriesMonthlyAdjusted = asset?.timeSeriesMonthlyAdjusted
         navigationController?.pushViewController(showDateSelectionTableViewController, animated: true)
+    }
+
+    func initialDateOfInvestmentDidChange(index: Int) {
+        self.initialDateOfInvestmentIdx = index
     }
 
     private func handleDateSelection(at index: Int, cell: SearchDetailTableViewSecondCell) {
         guard navigationController?.visibleViewController is ShowDateSelectionTableViewController else { return }
         navigationController?.popViewController(animated: true)
+
         if let monthInfos = asset?.timeSeriesMonthlyAdjusted.getMonthInfos() {
+            initialDateOfInvestmentIdx = index
             let monthInfo = monthInfos[index]
             let dateString = monthInfo.date.MMYYFormat
-            cell.configureinItialDateInvestment(dateString: dateString)
+            cell.configureInitialDateInvestment(dateString: dateString)
         }
     }
 }
