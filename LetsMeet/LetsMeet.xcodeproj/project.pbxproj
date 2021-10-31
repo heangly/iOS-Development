@@ -1,0 +1,507 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		71681805272EC2CE0084FCF8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71681804272EC2CE0084FCF8 /* AppDelegate.swift */; };
+		71681807272EC2CE0084FCF8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71681806272EC2CE0084FCF8 /* SceneDelegate.swift */; };
+		71681809272EC2CE0084FCF8 /* MainTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71681808272EC2CE0084FCF8 /* MainTabController.swift */; };
+		7168180E272EC2CF0084FCF8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7168180D272EC2CF0084FCF8 /* Assets.xcassets */; };
+		71681811272EC2CF0084FCF8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7168180F272EC2CF0084FCF8 /* LaunchScreen.storyboard */; };
+		71681824272EC80B0084FCF8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 71681823272EC80B0084FCF8 /* GoogleService-Info.plist */; };
+		71E167D7272EE405001FAB47 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E167D6272EE405001FAB47 /* LoginViewController.swift */; };
+		71E167D9272EE4BB001FAB47 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E167D8272EE4BB001FAB47 /* RegisterViewController.swift */; };
+		89A2FE94C7E0316637B8E921 /* Pods_LetsMeet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFB73722B0BEF2EBEA5BFD09 /* Pods_LetsMeet.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4C5C3B74914F34A382DF1803 /* Pods-LetsMeet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LetsMeet.release.xcconfig"; path = "Target Support Files/Pods-LetsMeet/Pods-LetsMeet.release.xcconfig"; sourceTree = "<group>"; };
+		682A2828C45C81AA18A354B8 /* Pods-LetsMeet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LetsMeet.debug.xcconfig"; path = "Target Support Files/Pods-LetsMeet/Pods-LetsMeet.debug.xcconfig"; sourceTree = "<group>"; };
+		71681801272EC2CE0084FCF8 /* LetsMeet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LetsMeet.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		71681804272EC2CE0084FCF8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		71681806272EC2CE0084FCF8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		71681808272EC2CE0084FCF8 /* MainTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabController.swift; sourceTree = "<group>"; };
+		7168180D272EC2CF0084FCF8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		71681810272EC2CF0084FCF8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		71681812272EC2CF0084FCF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		71681823272EC80B0084FCF8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		71E167D6272EE405001FAB47 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		71E167D8272EE4BB001FAB47 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		BFB73722B0BEF2EBEA5BFD09 /* Pods_LetsMeet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LetsMeet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		716817FE272EC2CE0084FCF8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89A2FE94C7E0316637B8E921 /* Pods_LetsMeet.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		716817F8272EC2CE0084FCF8 = {
+			isa = PBXGroup;
+			children = (
+				71681803272EC2CE0084FCF8 /* LetsMeet */,
+				71681802272EC2CE0084FCF8 /* Products */,
+				C0C4DE5AF16E42E8D2A7980F /* Pods */,
+				D7C4A4749901C498B058DDDA /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		71681802272EC2CE0084FCF8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				71681801272EC2CE0084FCF8 /* LetsMeet.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		71681803272EC2CE0084FCF8 /* LetsMeet */ = {
+			isa = PBXGroup;
+			children = (
+				71681818272EC3FC0084FCF8 /* Models */,
+				71681819272EC4000084FCF8 /* Views */,
+				7168181A272EC4090084FCF8 /* ViewModels */,
+				7168181D272EC4230084FCF8 /* Services */,
+				7168181C272EC4170084FCF8 /* Utils+Extensions */,
+				7168181B272EC4110084FCF8 /* Resources */,
+				71681812272EC2CF0084FCF8 /* Info.plist */,
+				71681823272EC80B0084FCF8 /* GoogleService-Info.plist */,
+			);
+			path = LetsMeet;
+			sourceTree = "<group>";
+		};
+		71681818272EC3FC0084FCF8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		71681819272EC4000084FCF8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7168181F272EC4670084FCF8 /* CustomViews */,
+				71681820272EC4730084FCF8 /* Controllers */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7168181A272EC4090084FCF8 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		7168181B272EC4110084FCF8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				71681804272EC2CE0084FCF8 /* AppDelegate.swift */,
+				71681806272EC2CE0084FCF8 /* SceneDelegate.swift */,
+				7168180D272EC2CF0084FCF8 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		7168181C272EC4170084FCF8 /* Utils+Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Utils+Extensions";
+			sourceTree = "<group>";
+		};
+		7168181D272EC4230084FCF8 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		7168181F272EC4670084FCF8 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				7168180F272EC2CF0084FCF8 /* LaunchScreen.storyboard */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		71681820272EC4730084FCF8 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				71681822272EC60E0084FCF8 /* Auth */,
+				71681808272EC2CE0084FCF8 /* MainTabController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		71681822272EC60E0084FCF8 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				71E167D6272EE405001FAB47 /* LoginViewController.swift */,
+				71E167D8272EE4BB001FAB47 /* RegisterViewController.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		C0C4DE5AF16E42E8D2A7980F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				682A2828C45C81AA18A354B8 /* Pods-LetsMeet.debug.xcconfig */,
+				4C5C3B74914F34A382DF1803 /* Pods-LetsMeet.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		D7C4A4749901C498B058DDDA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BFB73722B0BEF2EBEA5BFD09 /* Pods_LetsMeet.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		71681800272EC2CE0084FCF8 /* LetsMeet */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 71681815272EC2CF0084FCF8 /* Build configuration list for PBXNativeTarget "LetsMeet" */;
+			buildPhases = (
+				D4C5E9BAFE8931CF78FBBBEF /* [CP] Check Pods Manifest.lock */,
+				716817FD272EC2CE0084FCF8 /* Sources */,
+				716817FE272EC2CE0084FCF8 /* Frameworks */,
+				716817FF272EC2CE0084FCF8 /* Resources */,
+				AA103257585A1AEB482D5075 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LetsMeet;
+			productName = LetsMeet;
+			productReference = 71681801272EC2CE0084FCF8 /* LetsMeet.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		716817F9272EC2CE0084FCF8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1300;
+				LastUpgradeCheck = 1300;
+				TargetAttributes = {
+					71681800272EC2CE0084FCF8 = {
+						CreatedOnToolsVersion = 13.0;
+					};
+				};
+			};
+			buildConfigurationList = 716817FC272EC2CE0084FCF8 /* Build configuration list for PBXProject "LetsMeet" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 716817F8272EC2CE0084FCF8;
+			productRefGroup = 71681802272EC2CE0084FCF8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				71681800272EC2CE0084FCF8 /* LetsMeet */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		716817FF272EC2CE0084FCF8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				71681811272EC2CF0084FCF8 /* LaunchScreen.storyboard in Resources */,
+				7168180E272EC2CF0084FCF8 /* Assets.xcassets in Resources */,
+				71681824272EC80B0084FCF8 /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		AA103257585A1AEB482D5075 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LetsMeet/Pods-LetsMeet-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LetsMeet/Pods-LetsMeet-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LetsMeet/Pods-LetsMeet-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D4C5E9BAFE8931CF78FBBBEF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LetsMeet-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		716817FD272EC2CE0084FCF8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				71E167D7272EE405001FAB47 /* LoginViewController.swift in Sources */,
+				71E167D9272EE4BB001FAB47 /* RegisterViewController.swift in Sources */,
+				71681809272EC2CE0084FCF8 /* MainTabController.swift in Sources */,
+				71681805272EC2CE0084FCF8 /* AppDelegate.swift in Sources */,
+				71681807272EC2CE0084FCF8 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		7168180F272EC2CF0084FCF8 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				71681810272EC2CF0084FCF8 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		71681813272EC2CF0084FCF8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		71681814272EC2CF0084FCF8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		71681816272EC2CF0084FCF8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 682A2828C45C81AA18A354B8 /* Pods-LetsMeet.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = S8NCK46NU5;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LetsMeet/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.heangdev.LetsMeet;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		71681817272EC2CF0084FCF8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4C5C3B74914F34A382DF1803 /* Pods-LetsMeet.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = S8NCK46NU5;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LetsMeet/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.heangdev.LetsMeet;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		716817FC272EC2CE0084FCF8 /* Build configuration list for PBXProject "LetsMeet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				71681813272EC2CF0084FCF8 /* Debug */,
+				71681814272EC2CF0084FCF8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		71681815272EC2CF0084FCF8 /* Build configuration list for PBXNativeTarget "LetsMeet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				71681816272EC2CF0084FCF8 /* Debug */,
+				71681817272EC2CF0084FCF8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 716817F9272EC2CE0084FCF8 /* Project object */;
+}
