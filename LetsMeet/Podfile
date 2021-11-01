@@ -23,5 +23,7 @@ target 'LetsMeet' do
 	pod 'Shuffle-iOS'
 
 	pod 'MessageKit'
-	pod 'InputBarAccessoryView'		
+	pod 'InputBarAccessoryView'	
+
+	pod 'IQKeyboardManagerSwift'	
 end

@@ -51,7 +51,7 @@ class LoginViewController: UIViewController {
 
     private let emailTextField: UITextField = {
         let tf = UITextField()
-        tf.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [.foregroundColor: UIColor.white.withAlphaComponent(0.2)])
+        tf.attributedPlaceholder = NSAttributedString(string: "Email", attributes: [.foregroundColor: UIColor.white.withAlphaComponent(0.2)])
         tf.textColor = .white
         tf.borderStyle = .none
         tf.font = UIFont(name: "Avenir Book", size: 20)

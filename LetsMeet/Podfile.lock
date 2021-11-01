@@ -370,6 +370,7 @@ PODS:
   - InputBarAccessoryView (5.4.0):
     - InputBarAccessoryView/Core (= 5.4.0)
   - InputBarAccessoryView/Core (5.4.0)
+  - IQKeyboardManagerSwift (6.5.6)
   - leveldb-library (1.22.1)
   - MessageKit (3.7.0):
     - InputBarAccessoryView (~> 5.4.0)
@@ -393,6 +394,7 @@ DEPENDENCIES:
   - Firebase/Storage
   - Gallery
   - InputBarAccessoryView
+  - IQKeyboardManagerSwift
   - MessageKit
   - NVActivityIndicatorView/AppExtension
   - ProgressHUD
@@ -420,6 +422,7 @@ SPEC REPOS:
     - gRPC-Core
     - GTMSessionFetcher
     - InputBarAccessoryView
+    - IQKeyboardManagerSwift
     - leveldb-library
     - MessageKit
     - nanopb
@@ -449,6 +452,7 @@ SPEC CHECKSUMS:
   gRPC-Core: 4afa11bfbedf7cdecd04de535a9e046893404ed5
   GTMSessionFetcher: b3503b20a988c4e20cc189aa798fd18220133f52
   InputBarAccessoryView: 74d471ab1fa1736806be50328df79257e52865a9
+  IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
   MessageKit: 8e76dd8d65ad44b49e1651c673497146416461e9
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
@@ -458,6 +462,6 @@ SPEC CHECKSUMS:
   Shuffle-iOS: ff33658fb1e5eebd6a4724c156473e63754be9cb
   SKPhotoBrowser: 6aaa8f232752e87c7e76bace183bead0a137097d
 
-PODFILE CHECKSUM: 62f7d1e3be7e8a4725fcdc34b628bcea39fdf5da
+PODFILE CHECKSUM: 4e026a4fede87387cec3ad37c2ca3521db01c297
 
 COCOAPODS: 1.11.2
