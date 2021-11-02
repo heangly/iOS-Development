@@ -13,9 +13,12 @@
 //
 
 import UIKit
+import ProgressHUD
 
 class RegisterViewController: UIViewController {
     //MARK: - Properties
+    private var genderIsMale = true
+
     private let backgroundImageView: UIImageView = {
         let uv = UIImageView()
         uv.translatesAutoresizingMaskIntoConstraints = false
@@ -42,12 +45,13 @@ class RegisterViewController: UIViewController {
     private lazy var cityTextField = generateTextField(placeHolder: "City")
     private lazy var cityStackView = generateTextFieldStackView(textfield: cityTextField)
 
-    private let genderSegement: UISegmentedControl = {
+    private let genderSegment: UISegmentedControl = {
         let sc = UISegmentedControl(items: ["Male", "Female"])
         sc.translatesAutoresizingMaskIntoConstraints = false
         sc.selectedSegmentIndex = 0
         sc.backgroundColor = .white.withAlphaComponent(0.2)
         sc.tintColor = .white.withAlphaComponent(0.5)
+        sc.addTarget(self, action: #selector(genderSegmentValueDidChange), for: .valueChanged)
         return sc
     }()
 
@@ -60,13 +64,14 @@ class RegisterViewController: UIViewController {
 
     private lazy var confirmPasswordTextField = generateTextField(placeHolder: "Confirm Password")
     private lazy var confirmPasswordStackView = generateTextFieldStackView(textfield: confirmPasswordTextField)
-    
+
     private let signUpBtn: UIButton = {
         let btn = UIButton(type: .custom)
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.setImage(UIImage(named: "signUpBtn"), for: .normal)
         btn.contentHorizontalAlignment = .fill
         btn.contentVerticalAlignment = .fill
+        btn.addTarget(self, action: #selector(signUpButtonDidTap), for: .touchUpInside)
         return btn
     }()
 
@@ -75,7 +80,7 @@ class RegisterViewController: UIViewController {
             usernameStackView,
             emailStackView,
             cityStackView,
-            genderSegement,
+            genderSegment,
             dateOfBirthStackView,
             passwordStackView,
             confirmPasswordStackView,
@@ -118,6 +123,63 @@ class RegisterViewController: UIViewController {
         configureMainUI()
     }
 
+    //MARK: - Constraints
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+
+        [backgroundImageView, signUpLabel, containerStackView, signUpBtn, alreadyHaveAccountStackView].forEach {
+            view.addSubview($0)
+        }
+
+        let layout = view.safeAreaLayoutGuide
+
+        NSLayoutConstraint.activate([
+            backgroundImageView.topAnchor.constraint(equalTo: view.topAnchor),
+            backgroundImageView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            backgroundImageView.rightAnchor.constraint(equalTo: view.rightAnchor),
+            backgroundImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+
+            signUpLabel.topAnchor.constraint(equalTo: layout.topAnchor),
+            signUpLabel.leftAnchor.constraint(equalTo: layout.leftAnchor),
+            signUpLabel.rightAnchor.constraint(equalTo: layout.rightAnchor),
+
+            containerStackView.topAnchor.constraint(equalTo: signUpLabel.bottomAnchor, constant: 20),
+            containerStackView.leftAnchor.constraint(equalTo: layout.leftAnchor, constant: 20),
+            containerStackView.rightAnchor.constraint(equalTo: layout.rightAnchor, constant: -20),
+
+            genderSegment.widthAnchor.constraint(equalToConstant: view.frame.width - 40),
+
+            signUpBtn.topAnchor.constraint(equalTo: containerStackView.bottomAnchor, constant: 30),
+            signUpBtn.leftAnchor.constraint(equalTo: containerStackView.leftAnchor),
+            signUpBtn.rightAnchor.constraint(equalTo: containerStackView.rightAnchor),
+            signUpBtn.heightAnchor.constraint(equalToConstant: 60),
+
+            alreadyHaveAccountStackView.bottomAnchor.constraint(equalTo: layout.bottomAnchor, constant: -10),
+            alreadyHaveAccountStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            ])
+    }
+}
+
+//MARK: - Configuration
+extension RegisterViewController {
+    //MARK: - Actions
+    @objc private func genderSegmentValueDidChange(sender: UISegmentedControl) {
+        genderIsMale = sender.selectedSegmentIndex == 0 ? true : false
+    }
+
+    @objc private func loginButtonDidTap() {
+        navigationController?.popViewController(animated: true)
+    }
+
+    @objc private func signUpButtonDidTap() {
+        if validateInputFieldsAreFilled() {
+            registerUser()
+        } else {
+            ProgressHUD.showError("All Input Fields Are Required!")
+        }
+    }
+
+
     //MARK: - Helpers
     private func configureMainUI() {
         navigationController?.navigationBar.tintColor = .white
@@ -150,46 +212,30 @@ class RegisterViewController: UIViewController {
         return stackView
     }
 
-    //MARK: - Actions
-    @objc private func loginButtonDidTap() {
-        navigationController?.popViewController(animated: true)
+    private func validateInputFieldsAreFilled() -> Bool {
+        return usernameTextField.text != "" &&
+            emailTextField.text != "" &&
+            cityTextField.text != "" &&
+            dateOfBirthTextField.text != "" &&
+            passwordTextField.text != "" &&
+            confirmPasswordTextField.text != ""
     }
 
-    //MARK: - Constraints
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-
-        [backgroundImageView, signUpLabel, containerStackView, signUpBtn, alreadyHaveAccountStackView].forEach {
-            view.addSubview($0)
+    private func registerUser() {
+        guard let email = emailTextField.text,
+            let password = passwordTextField.text,
+            let username = usernameTextField.text,
+            let city = cityTextField.text else {
+            return
         }
-
-        let layout = view.safeAreaLayoutGuide
-
-        NSLayoutConstraint.activate([
-            backgroundImageView.topAnchor.constraint(equalTo: view.topAnchor),
-            backgroundImageView.leftAnchor.constraint(equalTo: view.leftAnchor),
-            backgroundImageView.rightAnchor.constraint(equalTo: view.rightAnchor),
-            backgroundImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-
-            signUpLabel.topAnchor.constraint(equalTo: layout.topAnchor),
-            signUpLabel.leftAnchor.constraint(equalTo: layout.leftAnchor),
-            signUpLabel.rightAnchor.constraint(equalTo: layout.rightAnchor),
-
-            containerStackView.topAnchor.constraint(equalTo: signUpLabel.bottomAnchor, constant: 20),
-            containerStackView.leftAnchor.constraint(equalTo: layout.leftAnchor, constant: 20),
-            containerStackView.rightAnchor.constraint(equalTo: layout.rightAnchor, constant: -20),
-
-            genderSegement.widthAnchor.constraint(equalToConstant: view.frame.width - 40),
-
-            signUpBtn.topAnchor.constraint(equalTo: containerStackView.bottomAnchor, constant: 30),
-            signUpBtn.leftAnchor.constraint(equalTo: containerStackView.leftAnchor),
-            signUpBtn.rightAnchor.constraint(equalTo: containerStackView.rightAnchor),
-            signUpBtn.heightAnchor.constraint(equalToConstant: 60),
-
-            alreadyHaveAccountStackView.bottomAnchor.constraint(equalTo: layout.bottomAnchor, constant: -10),
-            alreadyHaveAccountStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            ])
+        
+        RegisterUserService.registerUserWith(email: email, password: password, userName: username, city: city, isMale: genderIsMale, dateOfBirth: Date()) { error in
+            if let _ = error {
+                ProgressHUD.showError("Cannot register user")
+            } else {
+                print("successfully register user")
+            }
+        }
     }
-
 
 }

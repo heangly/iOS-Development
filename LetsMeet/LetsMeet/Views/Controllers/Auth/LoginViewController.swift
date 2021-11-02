@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import ProgressHUD
 
 class LoginViewController: UIViewController {
     //MARK: - Properties
@@ -96,6 +97,7 @@ class LoginViewController: UIViewController {
         btn.setTitle("Forget Password?", for: .normal)
         btn.setTitleColor(.white, for: .normal)
         btn.titleLabel?.font = UIFont(name: "Avenir Book", size: 20)
+        btn.addTarget(self, action: #selector(forgetPasswordBtnDidTap), for: .touchUpInside)
         return btn
     }()
 
@@ -114,6 +116,7 @@ class LoginViewController: UIViewController {
         btn.setImage(UIImage(named: "signInBtn"), for: .normal)
         btn.contentHorizontalAlignment = .fill
         btn.contentVerticalAlignment = .fill
+        btn.addTarget(self, action: #selector(loginBtnDidTap), for: .touchUpInside)
         return btn
     }()
 
@@ -157,6 +160,26 @@ class LoginViewController: UIViewController {
     @objc private func signUpButtonDidTap() {
         let vc = RegisterViewController()
         navigationController?.pushViewController(vc, animated: true)
+    }
+
+    @objc private func forgetPasswordBtnDidTap() {
+        if let email = emailTextField.text, !email.isEmpty {
+
+        } else {
+            ProgressHUD.showError("Please insert your email")
+        }
+    }
+
+    @objc private func loginBtnDidTap() {
+        if let email = emailTextField.text,
+            let password = passwordTextField.text,
+            !email.isEmpty,
+            !password.isEmpty {
+
+        } else {
+            ProgressHUD.showError("All fields are required")
+       
+        }
     }
 
     //MARK: - Constraints
