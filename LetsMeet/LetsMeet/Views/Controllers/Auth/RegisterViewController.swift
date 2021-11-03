@@ -243,6 +243,7 @@ extension RegisterViewController {
                 ProgressHUD.showError(error.localizedDescription)
             } else {
                 ProgressHUD.showSuccess("Verification email sent!")
+                self.navigationController?.popViewController(animated: true)
             }
         }
     }

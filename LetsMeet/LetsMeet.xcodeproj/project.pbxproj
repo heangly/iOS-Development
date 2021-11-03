@@ -14,6 +14,7 @@
 		71681811272EC2CF0084FCF8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7168180F272EC2CF0084FCF8 /* LaunchScreen.storyboard */; };
 		71681824272EC80B0084FCF8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 71681823272EC80B0084FCF8 /* GoogleService-Info.plist */; };
 		718213BD27317A210081342F /* RegisterUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718213BC27317A210081342F /* RegisterUserService.swift */; };
+		7194D7E82733339500D57274 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7194D7E72733339500D57274 /* Constants.swift */; };
 		71E167D7272EE405001FAB47 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E167D6272EE405001FAB47 /* LoginViewController.swift */; };
 		71E167D9272EE4BB001FAB47 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E167D8272EE4BB001FAB47 /* RegisterViewController.swift */; };
 		89A2FE94C7E0316637B8E921 /* Pods_LetsMeet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFB73722B0BEF2EBEA5BFD09 /* Pods_LetsMeet.framework */; };
@@ -31,6 +32,7 @@
 		71681812272EC2CF0084FCF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		71681823272EC80B0084FCF8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		718213BC27317A210081342F /* RegisterUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserService.swift; sourceTree = "<group>"; };
+		7194D7E72733339500D57274 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		71E167D6272EE405001FAB47 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		71E167D8272EE4BB001FAB47 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		BFB73722B0BEF2EBEA5BFD09 /* Pods_LetsMeet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LetsMeet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,6 +119,7 @@
 		7168181C272EC4170084FCF8 /* Utils+Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				7194D7E72733339500D57274 /* Constants.swift */,
 			);
 			path = "Utils+Extensions";
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 				718213BD27317A210081342F /* RegisterUserService.swift in Sources */,
 				71E167D9272EE4BB001FAB47 /* RegisterViewController.swift in Sources */,
 				71681809272EC2CE0084FCF8 /* MainTabController.swift in Sources */,
+				7194D7E82733339500D57274 /* Constants.swift in Sources */,
 				71681805272EC2CE0084FCF8 /* AppDelegate.swift in Sources */,
 				71681807272EC2CE0084FCF8 /* SceneDelegate.swift in Sources */,
 			);

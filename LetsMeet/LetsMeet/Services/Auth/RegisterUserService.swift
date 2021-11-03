@@ -34,6 +34,48 @@ class RegisterUserService: Equatable {
     let registeredDate = Date()
     var pushId: String?
 
+    var userDictionary: NSDictionary {
+        return NSDictionary(
+            objects: [
+                self.objectId,
+                self.email,
+                self.username,
+                self.dateOfBirth,
+                self.isMale,
+                self.profession,
+                self.jobTitle,
+                self.about,
+                self.city,
+                self.country,
+                self.height,
+                self.lookingFor,
+                self.avatarLink,
+                self.likedIdArray ?? [],
+                self.imageLinks ?? [],
+                self.registeredDate,
+                self.pushId ?? ""],
+
+            forKeys: [
+                kOBJECTID as NSCopying,
+                kEMAIL as NSCopying,
+                kUSERNAME as NSCopying,
+                kDATEOFBIRTH as NSCopying,
+                kISMALE as NSCopying,
+                kPROFESSION as NSCopying,
+                kJOBTITLE as NSCopying,
+                kABOUT as NSCopying,
+                kCITY as NSCopying,
+                kCOUNTRY as NSCopying,
+                kHEIGHT as NSCopying,
+                kLOOKINGFOR as NSCopying,
+                kAVATARLINK as NSCopying,
+                kLIKEDIDARRAY as NSCopying,
+                kIMAGELINKS as NSCopying,
+                kREGISTERDATE as NSCopying,
+                kPUSHID as NSCopying,
+            ])
+    }
+
     //MARK: - Init
     init(objectId: String,
         email: String,
@@ -42,7 +84,7 @@ class RegisterUserService: Equatable {
         isMale: Bool,
         avatarLink: String = "",
         city: String) {
-        
+
         self.objectId = objectId
         self.email = email
         self.username = username
@@ -77,13 +119,17 @@ class RegisterUserService: Equatable {
                 authData.user.sendEmailVerification { error in
                     print("auth email verification sent", error?.localizedDescription)
                 }
-                
+
                 let user = RegisterUserService(objectId: authData.user.uid, email: email, username: userName, dateOfBirth: dateOfBirth, isMale: isMale, city: city)
-                
-              
+
+                user.saveUserLocally()
             }
         }
     }
 
 
+    func saveUserLocally() {
+        userDefaults.setValue(self.userDictionary as! [String: Any], forKey: kCURRENTUSER)
+        userDefaults.synchronize()
+    }
 }
