@@ -225,15 +225,24 @@ extension RegisterViewController {
         guard let email = emailTextField.text,
             let password = passwordTextField.text,
             let username = usernameTextField.text,
+            let confirmPassword = confirmPasswordTextField.text,
             let city = cityTextField.text else {
             return
         }
         
+        guard password == confirmPassword else {
+            ProgressHUD.showError("Password and ConfirmPassword don't match")
+            return
+        }
+        
+        ProgressHUD.show()
+
         RegisterUserService.registerUserWith(email: email, password: password, userName: username, city: city, isMale: genderIsMale, dateOfBirth: Date()) { error in
-            if let _ = error {
-                ProgressHUD.showError("Cannot register user")
+
+            if let error = error {
+                ProgressHUD.showError(error.localizedDescription)
             } else {
-                print("successfully register user")
+                ProgressHUD.showSuccess("Verification email sent!")
             }
         }
     }
