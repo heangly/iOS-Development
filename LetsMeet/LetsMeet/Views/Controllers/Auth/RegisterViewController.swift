@@ -237,7 +237,7 @@ extension RegisterViewController {
         
         ProgressHUD.show()
 
-        RegisterUserService.registerUserWith(email: email, password: password, userName: username, city: city, isMale: genderIsMale, dateOfBirth: Date()) { error in
+        FUser.registerUserWith(email: email, password: password, userName: username, city: city, isMale: genderIsMale, dateOfBirth: Date()) { error in
 
             if let error = error {
                 ProgressHUD.showError(error.localizedDescription)

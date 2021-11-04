@@ -175,10 +175,19 @@ class LoginViewController: UIViewController {
             let password = passwordTextField.text,
             !email.isEmpty,
             !password.isEmpty {
+            FUser.loginUserWith(email: email, password: password) { [weak self] error, isEmailVerified in
+                if let error = error {
+                    ProgressHUD.showError(error.localizedDescription)
+                } else if isEmailVerified {
+                    print("good")
+                } else {
+                    ProgressHUD.showError("Please verify your email")
+                }
+            }
 
         } else {
             ProgressHUD.showError("All fields are required")
-       
+
         }
     }
 

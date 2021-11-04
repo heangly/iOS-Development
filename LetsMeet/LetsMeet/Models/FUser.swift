@@ -8,10 +8,11 @@
 import Firebase
 import Foundation
 import UIKit
+import AVFoundation
 
 
-class RegisterUserService: Equatable {
-    static func == (lhs: RegisterUserService, rhs: RegisterUserService) -> Bool {
+class FUser: Equatable {
+    static func == (lhs: FUser, rhs: FUser) -> Bool {
         return lhs.objectId == rhs.objectId
     }
 
@@ -53,7 +54,8 @@ class RegisterUserService: Equatable {
                 self.likedIdArray ?? [],
                 self.imageLinks ?? [],
                 self.registeredDate,
-                self.pushId ?? ""],
+                self.pushId ?? ""
+            ],
 
             forKeys: [
                 kOBJECTID as NSCopying,
@@ -77,6 +79,34 @@ class RegisterUserService: Equatable {
     }
 
     //MARK: - Init
+    init(dictionary: NSDictionary) {
+        self.objectId = dictionary[kOBJECTID] as? String ?? ""
+        self.email = dictionary[kEMAIL]  as? String ?? ""
+        self.username = dictionary[kOBJECTID]  as? String ?? ""
+        self.isMale = dictionary[kISMALE]  as? Bool ?? true
+        self.profession = dictionary[kPROFESSION]  as? String ?? ""
+        self.jobTitle = dictionary[kJOBTITLE]  as? String ?? ""
+        self.about = dictionary[kABOUT]  as? String ?? ""
+        self.city = dictionary[kCITY]  as? String ?? ""
+        self.country = dictionary[kCOUNTRY]  as? String ?? ""
+        self.height = dictionary[kHEIGHT]  as? Double ?? 0.0
+        self.lookingFor = dictionary[kLOOKINGFOR]  as? String ?? ""
+        self.avatarLink = dictionary[kAVATARLINK]  as? String ?? ""
+        self.likedIdArray = dictionary[kLIKEDIDARRAY]  as? [String]
+        self.imageLinks = dictionary[kIMAGELINKS]  as? [String]
+        self.pushId = dictionary[kPUSHID]  as? String ?? ""
+
+        
+        if let date = dictionary[kDATEOFBIRTH] as? Timestamp {
+            self.dateOfBirth = date.dateValue()
+        }else{
+            self.dateOfBirth = Date()
+        }
+      
+    }
+
+    
+
     init(objectId: String,
         email: String,
         username: String,
@@ -120,7 +150,7 @@ class RegisterUserService: Equatable {
                     print("auth email verification sent", error?.localizedDescription)
                 }
 
-                let user = RegisterUserService(objectId: authData.user.uid, email: email, username: userName, dateOfBirth: dateOfBirth, isMale: isMale, city: city)
+                let user = FUser(objectId: authData.user.uid, email: email, username: userName, dateOfBirth: dateOfBirth, isMale: isMale, city: city)
 
                 user.saveUserLocally()
             }
@@ -131,5 +161,22 @@ class RegisterUserService: Equatable {
     func saveUserLocally() {
         userDefaults.setValue(self.userDictionary as! [String: Any], forKey: kCURRENTUSER)
         userDefaults.synchronize()
+    }
+
+    //MARK: - Login
+    static func loginUserWith(email: String, password: String, completion: @escaping(_ error: Error?, _ isEmailVerified: Bool) -> Void) {
+        Auth.auth().signIn(withEmail: email, password: password) { authDataResult, error in
+            if let authDataResult = authDataResult, error == nil {
+                //MARK: - check if email is verified
+                if authDataResult.user.isEmailVerified {
+                    completion(nil, true)
+                } else {
+                    completion(nil, false)
+                }
+            } else {
+                completion(error, false)
+            }
+        }
+
     }
 }
