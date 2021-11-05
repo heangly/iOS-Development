@@ -164,7 +164,13 @@ class LoginViewController: UIViewController {
 
     @objc private func forgetPasswordBtnDidTap() {
         if let email = emailTextField.text, !email.isEmpty {
-
+            FUser.resetPasswordFor(email: email) { error in
+                if let error = error {
+                    ProgressHUD.showError(error.localizedDescription)
+                } else {
+                    ProgressHUD.showSuccess("Please check your email!")
+                }
+            }
         } else {
             ProgressHUD.showError("Please insert your email")
         }
@@ -179,7 +185,7 @@ class LoginViewController: UIViewController {
                 if let error = error {
                     ProgressHUD.showError(error.localizedDescription)
                 } else if isEmailVerified {
-                    print("good")
+                    print("===============================> *** good *** <========================")
                 } else {
                     ProgressHUD.showError("Please verify your email")
                 }

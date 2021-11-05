@@ -17,8 +17,14 @@ class FirebaseListener {
             guard let snapshot = snapshot else { return }
 
             if snapshot.exists {
+                let user = FUser(dictionary: snapshot.data()! as NSDictionary)
+                user.saveUserLocally()
             } else {
                 // first login
+                if let user = userDefaults.object(forKey: kCURRENTUSER) {
+                    FUser(dictionary: user as! NSDictionary).saveUserToFireStore()
+                }
+                
 
 
             }
